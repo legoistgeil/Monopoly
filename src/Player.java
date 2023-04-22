@@ -14,7 +14,18 @@ public class Player {
 
     }
 
+    void move(int num){
+        pos = pos+num;
+        if(Street.street[pos].available){
+            if(Street.street[pos].cost <= money){
+                buy();
+            }
+        }
+    }
 
+    void buy(){
+
+    }
 
 
 
