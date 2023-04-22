@@ -4,6 +4,7 @@ public class Street extends Board {
     int cost;
     int rent;
     int player;
+    int num_houses;
 
     public Street(String name, boolean availablee, int coste, int rente, int playere){
 
