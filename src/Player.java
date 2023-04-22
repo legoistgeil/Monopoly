@@ -14,6 +14,9 @@ public class Player {
 
     }
 
+    void makeMove(int ran){
+        move(ran);
+    }
     void move(int num){
         pos = pos+num;
         if(Street.street[pos].available){
