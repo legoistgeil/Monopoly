@@ -3,10 +3,10 @@ public class Street extends Board {
     boolean available;
     int cost;
     int rent;
-    int player;
+    Player owner;
     int num_houses;
 
-    public Street(String name, boolean availablee, int coste, int rente, int playere){
+    public Street(String name, boolean availablee, int coste, int rente, Player ownere){
 
     }
 }

@@ -25,7 +25,7 @@ public class Player {
     }
 
     void buy(int i){
-        Street.street[pos].player = i;
+        Street.street[pos].owner = Player[i];
     }
 
 
