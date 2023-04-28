@@ -2,7 +2,7 @@ public class Board {
     static Street[] street;
     public Board(){
         street = new Street[36];
-        street[0]=new Street("a", true, 0,0,null);
+        street[0]=new Street("Informatik Brk", true, 0,0,null);
         street[1]=new Street("a", true, 0,0,null);
         street[2]=new Street("a", true, 0,0,null);
         street[3]=new Street("a", true, 0,0,null);
