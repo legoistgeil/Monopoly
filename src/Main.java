@@ -12,40 +12,34 @@ public class Main {
     public static void main(String[] args) {
         new GUI();
         board = new Board();
-        player[0] = new Player(2500, 0, 0, 0);
-        player[1] = new Player(2500, 0, 0, 0);
-        player[2] = new Player(2500, 0, 0, 0);
-        player[3] = new Player(2500, 0, 0, 0);
-        makeMove();
+        player[0] = new Player(2501, 0, 0, 0);
+        player[1] = new Player(2502, 0, 0, 0);
+        player[2] = new Player(2503, 0, 0, 0);
+        player[3] = new Player(2504, 0, 0, 0);
+        Main.makeMove();
     }
 
     static void makeMove(){
         System.out.println("Das Spiel beginnt! Drücke eine beliebige Taste  !");
         String decision = scanner.nextLine();
-        int i;
-        while (spielGehtWeiter())
-        {
-            
+        int i=0;
+        while (gameContinues()) {
             player[i].makeMove(ran, i, Board.street);
             player[i].printProperties();
             ran = rand.nextInt(10)+2;
-            if (i<3)
-            {
+            if (i<3) {
                 i++;
-            } else
-            {
+            } else {
                 i=0;
             }
             System.out.println("Spieler "+i+" ist an der Reihe. Drücke eine beliebige Taste!");
-            String decision = scanner.nextLine();
+            String decision2 = scanner.nextLine();
         }
     }
     
-    static public boolean spielGehtWeiter()
-    {
+    static boolean gameContinues() {
         for(int i=0; i<4; i++){
-            if(player[i].money < 0)
-            {
+            if(player[i].money < 0) {
                 return false;
             }
         }

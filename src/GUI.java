@@ -45,7 +45,7 @@ public class GUI {
 
     }
 
-    private class State extends WindowAdapter
+    /*private class State extends WindowAdapter
     {
         public void windowStateChanged(WindowEvent e)
         {
@@ -59,5 +59,5 @@ public class GUI {
             title.setDisabledIcon(newImageIcon);
 
         }
-
+*/
 }
