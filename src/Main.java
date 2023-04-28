@@ -25,11 +25,19 @@ public class Main {
         
         while spielGehtWeiter()
         {
-            for(int i=0; i<4; i++){
-                player[i].makeMove(ran, i, Board.street);
-                player[i].printProperties();
-                ran = rand.nextInt(10)+2;
+            
+            player[i].makeMove(ran, i, Board.street);
+            player[i].printProperties();
+            ran = rand.nextInt(10)+2;
+            if (i<3)
+            {
+                i++
+            } else
+            {
+                i=0
             }
+            System.out.println("Spieler "+i+" ist an der Reihe. Drücke eine beliebige Taste!");
+            String decision = scanner.nextLine();
         }
     }
     
