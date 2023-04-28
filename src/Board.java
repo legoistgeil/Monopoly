@@ -1,7 +1,7 @@
 public class Board {
     static Street[] street;
     public Board(){
-        street = new Street[39];
+        street = new Street[40];
         street[0]=new Street("los", false, 0,0,null);
         street[1]=new Street("a", true, 0,0,null);
         street[2]=new Street("Gf", false, 0,0,null);

@@ -22,8 +22,8 @@ public class Main {
     static void makeMove(){
         System.out.println("Das Spiel beginnt! Drücke eine beliebige Taste  !");
         String decision = scanner.nextLine();
-        
-        while spielGehtWeiter()
+        int i;
+        while (spielGehtWeiter())
         {
             
             player[i].makeMove(ran, i, Board.street);
@@ -31,24 +31,24 @@ public class Main {
             ran = rand.nextInt(10)+2;
             if (i<3)
             {
-                i++
+                i++;
             } else
             {
-                i=0
+                i=0;
             }
             System.out.println("Spieler "+i+" ist an der Reihe. Drücke eine beliebige Taste!");
             String decision = scanner.nextLine();
         }
     }
     
-    public boolean spielGehtWeiter()
+    static public boolean spielGehtWeiter()
     {
         for(int i=0; i<4; i++){
             if(player[i].money < 0)
             {
                 return false;
             }
-        return true;           
         }
+        return true;
     }
 }
