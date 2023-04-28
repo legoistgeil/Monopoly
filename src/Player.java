@@ -12,6 +12,7 @@ public class Player {
 
     }
     void makeMove(int ran, int i, Street[] street){
+
         move(ran, i, street);
     }
     void move(int ran, int i, Street[] Street){

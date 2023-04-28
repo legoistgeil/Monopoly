@@ -1,8 +1,11 @@
 import java.util.Random;
-
+import java.util.Scanner;
 public class Main {
     static Random rand = new Random();
-    static int ran = rand.nextInt(10) + 2;
+    static Scanner scanner = new Scanner(System.in);
+    static int ran1 = rand.nextInt(5)+1;
+    static int ran2 = rand.nextInt(5)+1;
+    static int ran = ran1 + ran2;
     static Player[] player = new Player[4];
     static Board board;
     static Street Street;
@@ -13,9 +16,12 @@ public class Main {
         player[1] = new Player(2500, 0, 0, 0);
         player[2] = new Player(2500, 0, 0, 0);
         player[3] = new Player(2500, 0, 0, 0);
-        makeMove();    }
+        makeMove();
+    }
 
     static void makeMove(){
+        System.out.println("Das Spiel beginnt! Drücke eine beliebige Taste  !");
+        String decision = scanner.nextLine();
         for(int i=0; i<4; i++){
             player[i].makeMove(ran, i, Board.street);
             player[i].printProperties();

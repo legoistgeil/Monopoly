@@ -1,7 +1,7 @@
 public class Board {
     static Street[] street;
     public Board(){
-        street = new Street[36];
+        street = new Street[39];
         street[0]=new Street("Informatik Brk", true, 0,0,null);
         street[1]=new Street("a", true, 0,0,null);
         street[2]=new Street("a", true, 0,0,null);
@@ -38,6 +38,10 @@ public class Board {
         street[33]=new Street("a", true, 0,0,null);
         street[34]=new Street("a", true, 0,0,null);
         street[35]=new Street("a", true, 0,0,null);
+        street[36]=new Street("a", true, 0,0,null);
+        street[37]=new Street("a", true, 0,0,null);
+        street[38]=new Street("a", true, 0,0,null);
+        street[39]=new Street("a", true, 0,0,null);
     }
 
 }
