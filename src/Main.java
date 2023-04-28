@@ -22,10 +22,25 @@ public class Main {
     static void makeMove(){
         System.out.println("Das Spiel beginnt! Drücke eine beliebige Taste  !");
         String decision = scanner.nextLine();
+        
+        while spielGehtWeiter()
+        {
+            for(int i=0; i<4; i++){
+                player[i].makeMove(ran, i, Board.street);
+                player[i].printProperties();
+                ran = rand.nextInt(10)+2;
+            }
+        }
+    }
+    
+    public boolean spielGehtWeiter()
+    {
         for(int i=0; i<4; i++){
-            player[i].makeMove(ran, i, Board.street);
-            player[i].printProperties();
-            ran = rand.nextInt(10)+2;
+            if(player[i].money < 0)
+            {
+                return false;
+            }
+        return true;           
         }
     }
 }
