@@ -6,37 +6,31 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 
 public class GUI {
-    int width, height;
+    boolean test = false;
     public GUI(){
         JFrame frame = new JFrame();
-        Image file = null;
-        Dimension frameSize = new Dimension (frame.getWidth(),frame.getHeight());
-
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Monopoly");
         frame.pack();
         frame.setSize(2560,1600);
 
-        JLabel label = new JLabel(MonopolyImage());
+        JLabel pic = new JLabel(MonopolyImage());
+        frame.add(pic);
 
         JPanel panel = new JPanel();
         panel.setLayout(null);
         frame.add(panel);
-        frame.add(label);
 
-        JButton button = new JButton("Hit me");
-        button.setBounds(frame.getSize().width / 2,frame.getSize().height / 2, 100,100);
-        panel.add(button);
+        JButton sell = new JButton(ArrowImage());
+        sell.setBounds(10,500,100,90);
+        panel.add(sell);
 
         frame.setVisible(true);
-
-
     }
 
     private ImageIcon MonopolyImage(){
         try {
-            File file = new File("C:\\Users\\plida\\Desktop\\61af122e29f75f25d62199d6_hasbro-diadora-monopoly.jpg");
-            BufferedImage bufferedImage = ImageIO.read(file);
+            BufferedImage bufferedImage = ImageIO.read(new File("C:\\Users\\plida\\Desktop\\61af122e29f75f25d62199d6_hasbro-diadora-monopoly.jpg"));
             Image newImage = bufferedImage.getScaledInstance(750,750, Image.SCALE_DEFAULT);
             return new ImageIcon(newImage);
         } catch (IOException e){
@@ -45,19 +39,14 @@ public class GUI {
 
     }
 
-    /*private class State extends WindowAdapter
-    {
-        public void windowStateChanged(WindowEvent e)
-        {
-
-            width = bufferedImage.getWidth();
-            height = i.getHeight();
-            x = i.getX();
-            y = i.getY();
-
-            title.setEnabled(false);
-            title.setDisabledIcon(newImageIcon);
-
+    private ImageIcon ArrowImage(){
+        try {
+            BufferedImage bufferedImage = ImageIO.read(new File("C:\\Users\\plida\\Desktop\\arrow-sign.png"));
+            Image newImage = bufferedImage.getScaledInstance(100,90, Image.SCALE_DEFAULT);
+            return new ImageIcon(newImage);
+        } catch (IOException e){
+            throw new Error(e);
         }
-*/
+
+    }
 }

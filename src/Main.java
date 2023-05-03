@@ -9,6 +9,7 @@ public class Main {
     static Player[] player = new Player[4];
     static Board board;
     static Street Street;
+    static String decision2;
     public static void main(String[] args) {
         new GUI();
         board = new Board();
@@ -33,7 +34,7 @@ public class Main {
                 i=0;
             }
             System.out.println("Spieler "+i+" ist an der Reihe. Drücke eine beliebige Taste!");
-            String decision2 = scanner.nextLine();
+            decision2 = scanner.nextLine();
         }
     }
     
