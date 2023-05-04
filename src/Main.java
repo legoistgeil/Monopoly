@@ -8,8 +8,6 @@ public class Main {
     static int ran = ran1 + ran2;
     static Player[] player = new Player[4];
     static Board board;
-    static Street Street;
-    static String decision2;
     public static void main(String[] args) {
         new GUI();
         board = new Board();
@@ -22,6 +20,7 @@ public class Main {
 
     static void makeMove(){
         System.out.println("Das Spiel beginnt! Drücke eine beliebige Taste  !");
+        GUI.start();
         String decision = scanner.nextLine();
         int i=0;
         while (gameContinues()) {
@@ -34,11 +33,10 @@ public class Main {
                 i=0;
             }
             System.out.println("Spieler "+i+" ist an der Reihe. Drücke eine beliebige Taste!");
-            decision2 = scanner.nextLine();
+            String decision2 = scanner.nextLine();
         }
     }
-    
-    static boolean gameContinues() {
+        static boolean gameContinues() {
         for(int i=0; i<4; i++){
             if(player[i].money < 0) {
                 return false;

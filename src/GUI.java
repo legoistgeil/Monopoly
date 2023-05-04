@@ -4,28 +4,33 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
-
 public class GUI {
-    boolean test = false;
+    static JFrame frame = new JFrame();
+    JLabel pic = new JLabel(MonopolyImage());
+    JPanel panel = new JPanel();
+    JButton move = new JButton(ArrowImage());
+    static JLabel start = new JLabel("Das Spiel beginnt! Drücke eine beliebige Taste  !");
+    JButton sell = new JButton(dollarImage());
     public GUI(){
-        JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Monopoly");
         frame.pack();
         frame.setSize(2560,1600);
 
-        JLabel pic = new JLabel(MonopolyImage());
+        pic.setBounds(500,200,750,750);
         frame.add(pic);
 
-        JPanel panel = new JPanel();
         panel.setLayout(null);
         frame.add(panel);
 
-        JButton sell = new JButton(ArrowImage());
-        sell.setBounds(10,500,100,90);
+        move.setBounds(10,500,100,90);
+        panel.add(move);
+        sell.setBounds(10,600,100,90 );
         panel.add(sell);
 
         frame.setVisible(true);
+
+
     }
 
     private ImageIcon MonopolyImage(){
@@ -36,9 +41,7 @@ public class GUI {
         } catch (IOException e){
             throw new Error(e);
         }
-
     }
-
     private ImageIcon ArrowImage(){
         try {
             BufferedImage bufferedImage = ImageIO.read(new File("C:\\Users\\plida\\Desktop\\arrow-sign.png"));
@@ -47,6 +50,18 @@ public class GUI {
         } catch (IOException e){
             throw new Error(e);
         }
-
+    }
+    private ImageIcon dollarImage(){
+        try {
+            BufferedImage bufferedImage = ImageIO.read(new File("C:\\Users\\plida\\Desktop\\Download.png"));
+            Image newImage = bufferedImage.getScaledInstance(100,90, Image.SCALE_DEFAULT);
+            return new ImageIcon(newImage);
+        } catch (IOException e){
+            throw new Error(e);
+        }
+    }
+    public static void start(){
+        start.setBounds(10,10,100,100);
+        frame.add(start);
     }
 }
