@@ -35,6 +35,13 @@ public class Player {
     void printProperties(){
         System.out.println(money + " " + pos + " ");
     }
-
+    
+    void setMoney(int moneye){
+        money = moneye;
+    }
+    
+    public int getMoney(){
+        return(money);
+    }
 }
 
