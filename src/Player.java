@@ -10,13 +10,15 @@ public class Player {
         num_trains = num_trainse;
         num_utilities = num_utilitiese;
     }
-    void makeMove(int ran, int i, Street[] street){
+
+    void makeMove(int ran, int i, Street[] street) {
         move(ran, i, street);
-        System.out.println("Der Spieler "+i+"")
+        System.out.println("Der Spieler " + i + "");
     }
-    void move(int ran, int i, Street[] Street){
-        this.pos = this.pos+ran;
-        switch(Street[pos].getName()){
+
+    void move(int ran, int i, Street[] Street) {
+        this.pos = this.pos + ran;
+        switch (Street[pos].name) {
             case "Ereignisfeld":
                 //Ereigniskarte ziehen
             case "Gemeinschaftsfeld":
@@ -26,37 +28,34 @@ public class Player {
             case "Einkommenssteuer":
                 money = money - 200;
             case "Zusatzsteuer":
-                money = money - 100
-                
-        
+                money = money - 100;
+
+
             default:
-                if(Street[pos].available()){
-                    if(Street[pos].cost <= money){
-                        buy(Street);
+                if (Street[pos].available) {
+                    if (Street[pos].cost <= money) {
+                        buy(Street[pos]);
                     } else {
                         //versteigern
                     }
-                } else if(Street[pos].owner != null && Street[pos].owner == this) {
+                } else if (Street[pos].owner != null && Street[pos].owner == this) {
                     Street[pos].payrent(i);
+                }
+
         }
 
-    }
+        void buy(Street[] Street){
+            Street[pos].owner = this;
+            this.money = money - Street[pos].cost;
+        }
 
-    void buy(Street[] Street){
-        Street[pos].owner = this;
-        this.money = money - Street[pos].cost;
-    }
+        void printProperties () {
+            System.out.println(money + " " + pos + " ");
+        }
 
-    void printProperties(){
-        System.out.println(money + " " + pos + " ");
-    }
-    
-    void setMoney(int moneye){
-        money = moneye;
-    }
-    
-    public int getMoney(){
-        return(money);
+        void setMoney ( int moneye){
+            money = moneye;
+        }
     }
 }
 

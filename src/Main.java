@@ -1,3 +1,5 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
 import java.util.Scanner;
 public class Main {
@@ -8,6 +10,7 @@ public class Main {
     static int ran = ran1 + ran2;
     static Player[] player = new Player[4];
     static Board board;
+    static boolean test = false;
     public static void main(String[] args) {
         new GUI();
         board = new Board();
@@ -21,20 +24,35 @@ public class Main {
     static void makeMove(){
         System.out.println("Das Spiel beginnt! Drücke eine beliebige Taste  !");
         GUI.start();
-        String decision = scanner.nextLine();
+
+
+        GUI.move.addActionListener(e -> test = true);
         int i=0;
-        while (gameContinues()) {
-            player[i].makeMove(ran, i, Board.street);
-            player[i].printProperties();
-            ran = rand.nextInt(10)+2;
-            if (i<3) {
-                i++;
-            } else {
-                i=0;
+        if(test == true) {
+            while (gameContinues()) {
+                player[i].makeMove(ran, i, Board.street);
+                player[i].printProperties();
+                ran = rand.nextInt(10) + 2;
+                if (i < 3) {
+                    i++;
+                } else {
+                    i = 0;
+                }
+                System.out.println("Spieler " + i + " ist an der Reihe. Drücke eine beliebige Taste!");
+                String decision2 = scanner.nextLine();
             }
-            System.out.println("Spieler "+i+" ist an der Reihe. Drücke eine beliebige Taste!");
-            String decision2 = scanner.nextLine();
         }
+
+
+
+
+
+
+
+
+
+        String decision = scanner.nextLine();
+
     }
         static boolean gameContinues() {
         for(int i=0; i<4; i++){

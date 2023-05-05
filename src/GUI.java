@@ -7,9 +7,8 @@ import java.io.*;
 public class GUI {
     static JFrame frame = new JFrame();
     JLabel pic = new JLabel(MonopolyImage());
-    JPanel panel = new JPanel();
-    JButton move = new JButton(ArrowImage());
-    static JLabel start = new JLabel("Das Spiel beginnt! Drücke eine beliebige Taste  !");
+    static JPanel panel = new JPanel();
+    static JButton move = new JButton(ArrowImage());
     JButton sell = new JButton(dollarImage());
     public GUI(){
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -28,6 +27,8 @@ public class GUI {
         sell.setBounds(10,600,100,90 );
         panel.add(sell);
 
+
+
         frame.setVisible(true);
 
 
@@ -42,7 +43,7 @@ public class GUI {
             throw new Error(e);
         }
     }
-    private ImageIcon ArrowImage(){
+    private static ImageIcon ArrowImage(){
         try {
             BufferedImage bufferedImage = ImageIO.read(new File("C:\\Users\\plida\\Desktop\\arrow-sign.png"));
             Image newImage = bufferedImage.getScaledInstance(100,90, Image.SCALE_DEFAULT);
@@ -61,7 +62,8 @@ public class GUI {
         }
     }
     public static void start(){
-        start.setBounds(10,10,100,100);
-        frame.add(start);
+        JLabel start = new JLabel("Das Spiel beginnt! Druecke eine beliebige Taste  !");
+        start.setBounds(10,10,1000,100);
+        panel.add(start);
     }
 }
