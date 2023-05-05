@@ -12,17 +12,32 @@ public class Player {
     }
     void makeMove(int ran, int i, Street[] street){
         move(ran, i, street);
+        System.out.println("Der Spieler "+i+"")
     }
     void move(int ran, int i, Street[] Street){
         this.pos = this.pos+ran;
-            if(Street[pos].available){
-                if(Street[pos].cost <= money){
-                    buy(Street);
-                } else {
-                    //versteigern
-                }
-            } else if(Street[pos].owner != null && Street[pos].owner == this) {
-                Street[pos].payrent(i);
+        switch(Street[pos].getName()){
+            case "Ereignisfeld":
+                //Ereigniskarte ziehen
+            case "Gemeinschaftsfeld":
+                //Gemeinschaftskarte ziehen
+            case "Frei Parken":
+                //Steuergelder einkassieren
+            case "Einkommenssteuer":
+                money = money - 200;
+            case "Zusatzsteuer":
+                money = money - 100
+                
+        
+            default:
+                if(Street[pos].available()){
+                    if(Street[pos].cost <= money){
+                        buy(Street);
+                    } else {
+                        //versteigern
+                    }
+                } else if(Street[pos].owner != null && Street[pos].owner == this) {
+                    Street[pos].payrent(i);
         }
 
     }
