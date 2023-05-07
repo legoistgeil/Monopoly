@@ -28,7 +28,7 @@ public class Main {
 
         GUI.move.addActionListener(e -> test = true);
         int i=0;
-        if(test == true) {
+        if(test) {
             while (gameContinues()) {
                 player[i].makeMove(ran, i, Board.street);
                 //player[i].printProperties();
