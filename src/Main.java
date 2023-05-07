@@ -31,7 +31,7 @@ public class Main {
         if(test == true) {
             while (gameContinues()) {
                 player[i].makeMove(ran, i, Board.street);
-                player[i].printProperties();
+                //player[i].printProperties();
                 ran = rand.nextInt(10) + 2;
                 if (i < 3) {
                     i++;

@@ -1,7 +1,6 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 public class GUI {
@@ -36,7 +35,7 @@ public class GUI {
 
     private ImageIcon MonopolyImage(){
         try {
-            BufferedImage bufferedImage = ImageIO.read(new File("C:\\Users\\plida\\Desktop\\61af122e29f75f25d62199d6_hasbro-diadora-monopoly.jpg"));
+            BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/61af122e29f75f25d62199d6_hasbro-diadora-monopoly.jpg"));
             Image newImage = bufferedImage.getScaledInstance(750,750, Image.SCALE_DEFAULT);
             return new ImageIcon(newImage);
         } catch (IOException e){
@@ -45,7 +44,7 @@ public class GUI {
     }
     private static ImageIcon ArrowImage(){
         try {
-            BufferedImage bufferedImage = ImageIO.read(new File("C:\\Users\\plida\\Desktop\\arrow-sign.png"));
+            BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/arrow-sign.png"));
             Image newImage = bufferedImage.getScaledInstance(100,90, Image.SCALE_DEFAULT);
             return new ImageIcon(newImage);
         } catch (IOException e){
@@ -54,7 +53,7 @@ public class GUI {
     }
     private ImageIcon dollarImage(){
         try {
-            BufferedImage bufferedImage = ImageIO.read(new File("C:\\Users\\plida\\Desktop\\Download.png"));
+            BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/Download.png"));
             Image newImage = bufferedImage.getScaledInstance(100,90, Image.SCALE_DEFAULT);
             return new ImageIcon(newImage);
         } catch (IOException e){
@@ -65,5 +64,9 @@ public class GUI {
         JLabel start = new JLabel("Das Spiel beginnt! Druecke eine beliebige Taste  !");
         start.setBounds(10,10,1000,100);
         panel.add(start);
+    }
+
+    public static InputStream read(String path) {
+        return GUI.class.getClassLoader().getResourceAsStream(path);
     }
 }

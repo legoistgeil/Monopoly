@@ -34,7 +34,7 @@ public class Player {
             default:
                 if (Street[pos].available) {
                     if (Street[pos].cost <= money) {
-                        buy(Street[pos]);
+                        //buy(Street[pos]);
                     } else {
                         //versteigern
                     }
@@ -44,7 +44,7 @@ public class Player {
 
         }
 
-        void buy(Street[] Street){
+        /*void buy (Street[] Street){
             Street[pos].owner = this;
             this.money = money - Street[pos].cost;
         }
@@ -55,7 +55,7 @@ public class Player {
 
         void setMoney ( int moneye){
             money = moneye;
-        }
+        }*/
     }
 }
 
