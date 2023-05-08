@@ -13,22 +13,31 @@ public class Player {
 
     void makeMove(int ran, int i, Street[] street) {
         move(ran, i, street);
-        System.out.println("Der Spieler " + i + "");
+        //System.out.println("Der Spieler " + i + "");
     }
 
     void move(int ran, int i, Street[] Street) {
         this.pos = this.pos + ran;
+        if (this.pos > 39){
+            this.pos = this.pos - 40;
+        }
+        System.out.println(this.pos);
         switch (Street[pos].name) {
             case "Ereignisfeld":
                 //Ereigniskarte ziehen
+                break;
             case "Gemeinschaftsfeld":
                 //Gemeinschaftskarte ziehen
+                break;
             case "Frei Parken":
                 //Steuergelder einkassieren
+                break;
             case "Einkommenssteuer":
                 money = money - 200;
+                break;
             case "Zusatzsteuer":
                 money = money - 100;
+                break;
 
 
             default:
@@ -43,11 +52,11 @@ public class Player {
                 }
 
         }
-        public void printProperties() {
+        /*public void printProperties() {
             System.out.println(money + " " + pos + " ");
         }
 
-        /*void buy (Street[] Street){
+        void buy (Street[] Street){
             Street[pos].owner = this;
             this.money = money - Street[pos].cost;
         }

@@ -22,39 +22,36 @@ public class Main {
     }
 
     static void makeMove(){
-        System.out.println("Das Spiel beginnt! Drücke eine beliebige Taste  !");
+        System.out.println("Das Spiel beginnt! Drücke eine beliebige Taste !");
         GUI.start(true);
+        int i = 0;
+        while(gameContinues()) {
+            final int test = i;
+            GUI.move.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Main.test = true;
+                    System.out.println("test passed");
+                    player[test].makeMove(ran, test, Board.street);
+                    //player[i].printProperties();
+                    ran = rand.nextInt(10) + 2;
+                    System.out.println("Spieler " + (test + 1) + " ist an der Reihe. Drücke eine beliebige Taste!");
 
 
-        GUI.move.addActionListener(e -> test = true);
-        int i=0;
-        if(test) {
-            while (gameContinues()) {
-                player[i].makeMove(ran, i, Board.street);
-                player[i].printProperties();
-                ran = rand.nextInt(10) + 2;
-                if (i < 3) {
-                    i++;
-                } else {
-                    i = 0;
                 }
-                System.out.println("Spieler " + i + " ist an der Reihe. Drücke eine beliebige Taste!");
-                String decision2 = scanner.nextLine();
+            });
+            if (i < 3) {
+                i++;
+            } else {
+                i = 0;
             }
         }
-
-
-
-
-
-
-
-
-
-        String decision = scanner.nextLine();
-
     }
-        static boolean gameContinues() {
+
+
+
+
+    static boolean gameContinues() {
         for(int i=0; i<4; i++){
             if(player[i].money < 0) {
                 return false;

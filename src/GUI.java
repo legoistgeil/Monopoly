@@ -66,8 +66,4 @@ public class GUI {
         start.setVisible(i);
         panel.add(start);
     }
-
-    public static InputStream read(String path) {
-        return GUI.class.getClassLoader().getResourceAsStream(path);
-    }
 }

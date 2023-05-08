@@ -1,12 +1,13 @@
 public class Street{
-    String name;
+    public String name;
     boolean available;
     int cost;
     int rent;
     Player owner;
     //int num_houses;
 
-    public Street(String name, boolean availablee, int coste, int rente, Player ownere){
+    public Street(String namee, boolean availablee, int coste, int rente, Player ownere){
+        name = namee;
         available = availablee;
         cost = coste;
         rent = rente;

@@ -1,5 +1,5 @@
 public class Board {
-    static Street[] street;
+    public static Street[] street;
     public Board(){
         street = new Street[40];
         street[0]=new Street("los", false, 0,0,null);
