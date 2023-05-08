@@ -43,15 +43,16 @@ public class Player {
                 }
 
         }
+        public void printProperties() {
+            System.out.println(money + " " + pos + " ");
+        }
 
         /*void buy (Street[] Street){
             Street[pos].owner = this;
             this.money = money - Street[pos].cost;
         }
 
-        void printProperties () {
-            System.out.println(money + " " + pos + " ");
-        }
+
 
         void setMoney ( int moneye){
             money = moneye;

@@ -1,4 +1,4 @@
-import javax.imageio.ImageIO;
+import javax.imageio.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -60,9 +60,10 @@ public class GUI {
             throw new Error(e);
         }
     }
-    public static void start(){
+    public static void start(boolean i){
         JLabel start = new JLabel("Das Spiel beginnt! Druecke eine beliebige Taste  !");
         start.setBounds(10,10,1000,100);
+        start.setVisible(i);
         panel.add(start);
     }
 

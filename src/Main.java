@@ -23,7 +23,7 @@ public class Main {
 
     static void makeMove(){
         System.out.println("Das Spiel beginnt! Drücke eine beliebige Taste  !");
-        GUI.start();
+        GUI.start(true);
 
 
         GUI.move.addActionListener(e -> test = true);
@@ -31,7 +31,7 @@ public class Main {
         if(test) {
             while (gameContinues()) {
                 player[i].makeMove(ran, i, Board.street);
-                //player[i].printProperties();
+                player[i].printProperties();
                 ran = rand.nextInt(10) + 2;
                 if (i < 3) {
                     i++;
