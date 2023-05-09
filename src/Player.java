@@ -17,11 +17,13 @@ public class Player {
     }
 
     void move(int ran, int i, Street[] Street) {
+        System.out.println("Du hast eine " + ran + " gewuerfelt!");
+        System.out.println("Die Stats davor:");
+        printProperties();
         this.pos = this.pos + ran;
         if (this.pos > 39){
             this.pos = this.pos - 40;
         }
-        System.out.println(this.pos);
         switch (Street[pos].name) {
             case "Ereignisfeld":
                 //Ereigniskarte ziehen
@@ -39,7 +41,6 @@ public class Player {
                 money = money - 100;
                 break;
 
-
             default:
                 if (Street[pos].available) {
                     if (Street[pos].cost <= money) {
@@ -52,20 +53,16 @@ public class Player {
                 }
 
         }
-        /*public void printProperties() {
-            System.out.println(money + " " + pos + " ");
-        }
-
-        void buy (Street[] Street){
-            Street[pos].owner = this;
-            this.money = money - Street[pos].cost;
-        }
-
-
-
-        void setMoney ( int moneye){
-            money = moneye;
-        }*/
+        System.out.println("Die Stats danach:");
+        printProperties();
+        System.out.println("");
+    }
+    public void printProperties() {
+        System.out.println(money + " " + pos + " ");
+    }
+    void buy (Street[] Street){
+        Street[pos].owner = this;
+        this.money = money - Street[pos].cost;
     }
 }
 
