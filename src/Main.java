@@ -1,10 +1,6 @@
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Random;
-import java.util.Scanner;
 public class Main {
     static Random rand = new Random();
-    static Scanner scanner = new Scanner(System.in);
     static int ran1 = rand.nextInt(5)+1;
     static int ran2 = rand.nextInt(5)+1;
     static int ran = ran1 + ran2;
@@ -25,15 +21,12 @@ public class Main {
         int movecounter = 0;
         while(gameContinues()) {
             final int test = i;
-            GUI.move.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    System.out.println("Spieler " + (test + 1) + " ist an der Reihe.");
-                    player[test].makeMove(ran, test, Board.street);
-                    ran1 = rand.nextInt(5)+1;
-                    ran2 = rand.nextInt(5)+1;
-                    ran = ran1 + ran2;
-                }
+            GUI.move.addActionListener(e -> {
+                System.out.println("Spieler " + (test + 1) + " ist an der Reihe.");
+                player[test].makeMove(ran, test, Board.street);
+                ran1 = rand.nextInt(5)+1;
+                ran2 = rand.nextInt(5)+1;
+                ran = ran1 + ran2;
             });
             if (i < 3) {
                 i++;
@@ -42,7 +35,7 @@ public class Main {
             }
             if (movecounter < 4){
                 movecounter++;
-            }  else {
+            } else {
                 break;
             }
         }
