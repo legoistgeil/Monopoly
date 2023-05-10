@@ -8,7 +8,7 @@ public class GUI {
     JLabel pic = new JLabel(MonopolyImage());
     static JPanel panel = new JPanel();
     static JButton move = new JButton(ArrowImage());
-    JButton sell = new JButton(dollarImage());
+    static JButton sell = new JButton(dollarImage());
     public GUI(){
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Monopoly");
@@ -26,16 +26,13 @@ public class GUI {
         sell.setBounds(10,600,100,90 );
         panel.add(sell);
 
-
-
         frame.setVisible(true);
-
 
     }
 
     private ImageIcon MonopolyImage(){
         try {
-            BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/61af122e29f75f25d62199d6_hasbro-diadora-monopoly.jpg"));
+            BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/monopoly-map.jpg"));
             Image newImage = bufferedImage.getScaledInstance(750,750, Image.SCALE_DEFAULT);
             return new ImageIcon(newImage);
         } catch (IOException e){
@@ -51,7 +48,7 @@ public class GUI {
             throw new Error(e);
         }
     }
-    private ImageIcon dollarImage(){
+    private static ImageIcon dollarImage(){
         try {
             BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/Download.png"));
             Image newImage = bufferedImage.getScaledInstance(100,90, Image.SCALE_DEFAULT);
@@ -61,7 +58,7 @@ public class GUI {
         }
     }
     public static void start(boolean i){
-        JLabel start = new JLabel("Das Spiel beginnt! Druecke eine beliebige Taste  !");
+        JLabel start = new JLabel("Das Spiel beginnt! Druecke die Pfeiltaste");
         start.setBounds(10,10,1000,100);
         start.setVisible(i);
         panel.add(start);

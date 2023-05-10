@@ -13,10 +13,9 @@ public class Player {
 
     void makeMove(int ran, int i, Street[] street) {
         move(ran, i, street);
-        //System.out.println("Der Spieler " + i + "");
     }
 
-    void move(int ran, int i, Street[] Street) {
+    void move(int ran, int i, Street[] street) {
         System.out.println("Du hast eine " + ran + " gewuerfelt!");
         System.out.println("Die Stats davor:");
         printProperties();
@@ -24,7 +23,7 @@ public class Player {
         if (this.pos > 39){
             this.pos = this.pos - 40;
         }
-        switch (Street[pos].name) {
+        switch (street[pos].name) {
             case "Ereignisfeld":
                 //Ereigniskarte ziehen
                 break;
@@ -42,27 +41,28 @@ public class Player {
                 break;
 
             default:
-                if (Street[pos].available) {
-                    if (Street[pos].cost <= money) {
-                        //buy(Street[pos]);
+                if (street[pos].available) {
+                    if (street[pos].cost <= money) {
+                        GUI.sell.addActionListener(e -> buy(street, pos));
                     } else {
                         //versteigern
                     }
-                } else if (Street[pos].owner != null && Street[pos].owner == this) {
-                    Street[pos].payrent(i);
+                } else if (street[pos].owner != null) {
+                    street[pos].payrent(i);
                 }
 
         }
+        System.out.println("Du stehst auf " + street[pos].name);
         System.out.println("Die Stats danach:");
         printProperties();
-        System.out.println("");
+        System.out.println();
     }
     public void printProperties() {
         System.out.println(money + " " + pos + " ");
     }
-    void buy (Street[] Street){
-        Street[pos].owner = this;
-        this.money = money - Street[pos].cost;
+    void buy (Street[] street, int pos){
+        street[pos].owner = this;
+        this.money = this.money - street[pos].cost;
     }
 }
 
