@@ -17,31 +17,31 @@ public class Main {
     }
     static void makeMove(){
         GUI.start(true);
-        int j = 0;
         int movecounter = 0;
-        for(int i=0; i<4; i++) {
-            if (player[i].money >= 0) {
-                final int test = j;
-                GUI.move.addActionListener(e -> {
-                    System.out.println("Spieler " + (test + 1) + " ist an der Reihe.");
-                    player[test].makeMove(ran, test, Board.street);
-                    ran1 = rand.nextInt(5) + 1;
-                    ran2 = rand.nextInt(5) + 1;
-                    ran = ran1 + ran2;
-                });
-                if (i < 3) {
-                    i++;
-                } else {
-                    i = 0;
-                }
-                if (movecounter < 4) {
+        while(true) {
+            for (int i = 0; i < 4; i++) {
+                if (player[i].money >= 0) {
+                    int finalI = i;
+                    GUI.move.addActionListener(e -> {
+                        Main.act(finalI);
+                    });
                     movecounter++;
+                    if(i == 3){
+                        i= 0;
+                    }
                 } else {
                     break;
                 }
-            } else {
-                break;
             }
         }
+    }
+
+    private static void act(int finalI) {
+        int test= finalI;
+        System.out.println("Spieler " + (test + 1) + " ist an der Reihe.");
+        player[test].makeMove(ran, test, Board.street);
+        ran1 = rand.nextInt(5) + 1;
+        ran2 = rand.nextInt(5) + 1;
+        ran = ran1 + ran2;
     }
 }
