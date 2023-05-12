@@ -1,0 +1,194 @@
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.util.Random;\r\npublic class Main {\r\n    static Random rand = new Random();\r\n    static int ran = rand.nextInt(10) + 2;\r\n    static Player[] player = new Player[4];\r\n    static Board board;\r\n    static Street Street;\r\n    public static void main(String[] args) {\r\n        board = new Board();\r\n        player[0] = new Player(2500, 0, 0, 0);\r\n        player[1] = new Player(2500, 0, 0, 0);\r\n        player[2] = new Player(2500, 0, 0, 0);\r\n        player[3] = new Player(2500, 0, 0, 0);\r\n        makeMove();\r\n    }\r\n\r\n    static void makeMove(){\r\n        for(int i=0; i<4; i++){\r\n            player[i].makeMove(ran, i, Board.street);\r\n            player[i].printProperties();\r\n            ran = rand.nextInt(10)+2;\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+--- a/src/Main.java	(revision c9b1c13bed366ccf3d868604692b4a80f2091c5e)
++++ b/src/Main.java	(date 1682339689724)
+@@ -1,24 +1,11 @@
+-import java.util.Random;
+ public class Main {
+-    static Random rand = new Random();
+-    static int ran = rand.nextInt(10) + 2;
+-    static Player[] player = new Player[4];
+-    static Board board;
+-    static Street Street;
+     public static void main(String[] args) {
+-        board = new Board();
+-        player[0] = new Player(2500, 0, 0, 0);
+-        player[1] = new Player(2500, 0, 0, 0);
+-        player[2] = new Player(2500, 0, 0, 0);
+-        player[3] = new Player(2500, 0, 0, 0);
+-        makeMove();
+-    }
+ 
+-    static void makeMove(){
+-        for(int i=0; i<4; i++){
+-            player[i].makeMove(ran, i, Board.street);
+-            player[i].printProperties();
+-            ran = rand.nextInt(10)+2;
+-        }
++    Board board = new Board();
++    Player player1 = new Player(2500,null,0,0,0);
++    Player player2 = new Player(2500,null,0,0,0);
++    Player player3 = new Player(2500,null,0,0,0);
++    Player player4 = new Player(2500,null,0,0,0);
++
+     }
+ }
+\ No newline at end of file
+Index: src/Player.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class Player {\r\n    int money;\r\n    int pos;\r\n    int num_trains;\r\n    int num_utilities;\r\n\r\n    public Player(int moneye, int pose, int num_trainse, int num_utilitiese) {\r\n        money = moneye;\r\n        pos = pose;\r\n        num_trains = num_trainse;\r\n        num_utilities = num_utilitiese;\r\n\r\n    }\r\n    void makeMove(int ran, int i, Street[] street){\r\n        move(ran, i, street);\r\n    }\r\n    void move(int ran, int i, Street[] Street){\r\n        this.pos = this.pos+ran;\r\n            if(Street[pos].available){\r\n                if(Street[pos].cost <= money){\r\n                    buy(Street);\r\n                } else {\r\n                    //versteigern\r\n                }\r\n            } else if(Street[pos].owner != null && Street[pos].owner == this) {\r\n                Street[pos].payrent(i);\r\n        }\r\n\r\n    }\r\n\r\n    void buy(Street[] Street){\r\n        Street[pos].owner = this;\r\n        this.money = money - Street[pos].cost;\r\n    }\r\n\r\n    void printProperties(){\r\n        System.out.println(money + \" \" + pos + \" \");\r\n    }\r\n\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Player.java b/src/Player.java
+--- a/src/Player.java	(revision c9b1c13bed366ccf3d868604692b4a80f2091c5e)
++++ b/src/Player.java	(date 1682339699217)
+@@ -1,41 +1,21 @@
+ public class Player {
+     int money;
++    int[] houses;
+     int pos;
+     int num_trains;
+     int num_utilities;
+ 
+-    public Player(int moneye, int pose, int num_trainse, int num_utilitiese) {
++    public Player(int moneye, int[] housese, int pose, int num_trainse, int num_utilitiese){
+         money = moneye;
++        houses = housese;
+         pos = pose;
+         num_trains = num_trainse;
+         num_utilities = num_utilitiese;
+ 
+     }
+-    void makeMove(int ran, int i, Street[] street){
+-        move(ran, i, street);
+-    }
+-    void move(int ran, int i, Street[] Street){
+-        this.pos = this.pos+ran;
+-            if(Street[pos].available){
+-                if(Street[pos].cost <= money){
+-                    buy(Street);
+-                } else {
+-                    //versteigern
+-                }
+-            } else if(Street[pos].owner != null && Street[pos].owner == this) {
+-                Street[pos].payrent(i);
+-        }
+ 
+-    }
+ 
+-    void buy(Street[] Street){
+-        Street[pos].owner = this;
+-        this.money = money - Street[pos].cost;
+-    }
+ 
+-    void printProperties(){
+-        System.out.println(money + " " + pos + " ");
+-    }
+ 
+-}
+ 
++}
+Index: src/Street.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class Street{\r\n    String name;\r\n    boolean available;\r\n    int cost;\r\n    int rent;\r\n    Player owner;\r\n    //int num_houses;\r\n\r\n    public Street(String name, boolean availablee, int coste, int rente, Player ownere){\r\n        available = availablee;\r\n        cost = coste;\r\n        rent = rente;\r\n        owner = ownere;\r\n    }\r\n\r\n    void payrent(int i){\r\n        Main.player[i].money = Main.player[i].money - this.rent;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Street.java b/src/Street.java
+--- a/src/Street.java	(revision c9b1c13bed366ccf3d868604692b4a80f2091c5e)
++++ b/src/Street.java	(date 1682340682454)
+@@ -1,19 +1,16 @@
+-public class Street{
++public class Street {
+     String name;
+     boolean available;
+     int cost;
+     int rent;
+-    Player owner;
+-    //int num_houses;
++    int player;
+ 
+-    public Street(String name, boolean availablee, int coste, int rente, Player ownere){
+-        available = availablee;
+-        cost = coste;
+-        rent = rente;
+-        owner = ownere;
+-    }
++        public void Street(String nameE, boolean availableE, int costE, int rentE, int playerE){
++            name= nameE;
++            available= availableE;
++            cost= costE;
++            rent= rentE;
++            player= playerE;
++        }
+ 
+-    void payrent(int i){
+-        Main.player[i].money = Main.player[i].money - this.rent;
+-    }
+ }
+Index: src/Board.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class Board {\r\n    static Street[] street;\r\n    public Board(){\r\n        street = new Street[36];\r\n        street[0]=new Street(\"a\", true, 0,0,null);\r\n        street[1]=new Street(\"a\", true, 0,0,null);\r\n        street[2]=new Street(\"a\", true, 0,0,null);\r\n        street[3]=new Street(\"a\", true, 0,0,null);\r\n        street[4]=new Street(\"a\", true, 0,0,null);\r\n        street[5]=new Street(\"a\", true, 0,0,null);\r\n        street[6]=new Street(\"a\", true, 0,0,null);\r\n        street[7]=new Street(\"a\", true, 0,0,null);\r\n        street[8]=new Street(\"a\", true, 0,0,null);\r\n        street[9]=new Street(\"a\", true, 0,0,null);\r\n        street[10]=new Street(\"a\", true, 0,0,null);\r\n        street[11]=new Street(\"a\", true, 0,0,null);\r\n        street[12]=new Street(\"a\", true, 0,0,null);\r\n        street[13]=new Street(\"a\", true, 0,0,null);\r\n        street[14]=new Street(\"a\", true, 0,0,null);\r\n        street[15]=new Street(\"a\", true, 0,0,null);\r\n        street[16]=new Street(\"a\", true, 0,0,null);\r\n        street[17]=new Street(\"a\", true, 0,0,null);\r\n        street[18]=new Street(\"a\", true, 0,0,null);\r\n        street[19]=new Street(\"a\", true, 0,0,null);\r\n        street[20]=new Street(\"a\", true, 0,0,null);\r\n        street[21]=new Street(\"a\", true, 0,0,null);\r\n        street[22]=new Street(\"a\", true, 0,0,null);\r\n        street[23]=new Street(\"a\", true, 0,0,null);\r\n        street[24]=new Street(\"a\", true, 0,0,null);\r\n        street[25]=new Street(\"a\", true, 0,0,null);\r\n        street[26]=new Street(\"a\", true, 0,0,null);\r\n        street[27]=new Street(\"a\", true, 0,0,null);\r\n        street[28]=new Street(\"a\", true, 0,0,null);\r\n        street[29]=new Street(\"a\", true, 0,0,null);\r\n        street[30]=new Street(\"a\", true, 0,0,null);\r\n        street[31]=new Street(\"a\", true, 0,0,null);\r\n        street[32]=new Street(\"a\", true, 0,0,null);\r\n        street[33]=new Street(\"a\", true, 0,0,null);\r\n        street[34]=new Street(\"a\", true, 0,0,null);\r\n        street[35]=new Street(\"a\", true, 0,0,null);\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Board.java b/src/Board.java
+--- a/src/Board.java	(revision c9b1c13bed366ccf3d868604692b4a80f2091c5e)
++++ b/src/Board.java	(date 1682340812271)
+@@ -1,43 +1,9 @@
+ public class Board {
+     static Street[] street;
+     public Board(){
+-        street = new Street[36];
+-        street[0]=new Street("a", true, 0,0,null);
+-        street[1]=new Street("a", true, 0,0,null);
+-        street[2]=new Street("a", true, 0,0,null);
+-        street[3]=new Street("a", true, 0,0,null);
+-        street[4]=new Street("a", true, 0,0,null);
+-        street[5]=new Street("a", true, 0,0,null);
+-        street[6]=new Street("a", true, 0,0,null);
+-        street[7]=new Street("a", true, 0,0,null);
+-        street[8]=new Street("a", true, 0,0,null);
+-        street[9]=new Street("a", true, 0,0,null);
+-        street[10]=new Street("a", true, 0,0,null);
+-        street[11]=new Street("a", true, 0,0,null);
+-        street[12]=new Street("a", true, 0,0,null);
+-        street[13]=new Street("a", true, 0,0,null);
+-        street[14]=new Street("a", true, 0,0,null);
+-        street[15]=new Street("a", true, 0,0,null);
+-        street[16]=new Street("a", true, 0,0,null);
+-        street[17]=new Street("a", true, 0,0,null);
+-        street[18]=new Street("a", true, 0,0,null);
+-        street[19]=new Street("a", true, 0,0,null);
+-        street[20]=new Street("a", true, 0,0,null);
+-        street[21]=new Street("a", true, 0,0,null);
+-        street[22]=new Street("a", true, 0,0,null);
+-        street[23]=new Street("a", true, 0,0,null);
+-        street[24]=new Street("a", true, 0,0,null);
+-        street[25]=new Street("a", true, 0,0,null);
+-        street[26]=new Street("a", true, 0,0,null);
+-        street[27]=new Street("a", true, 0,0,null);
+-        street[28]=new Street("a", true, 0,0,null);
+-        street[29]=new Street("a", true, 0,0,null);
+-        street[30]=new Street("a", true, 0,0,null);
+-        street[31]=new Street("a", true, 0,0,null);
+-        street[32]=new Street("a", true, 0,0,null);
+-        street[33]=new Street("a", true, 0,0,null);
+-        street[34]=new Street("a", true, 0,0,null);
+-        street[35]=new Street("a", true, 0,0,null);
++        street = new Street[1];
++        street[0]=new Street("a", true, 0,0,0);
++        street[1]=new Street("a", true, 0,0,0);
+     }
+ 
+ }
