@@ -5,7 +5,7 @@ public class Main {
     static int ran1 = rand.nextInt(5)+1;
     static int ran2 = rand.nextInt(5)+1;
     static int ran = ran1 + ran2;
-    static ArrayList<Player> players = new ArrayList<Player>();
+    static ArrayList<Player> players = new ArrayList<>();
     static Board board;
     static int move = -1;
     public static void main(String[] args) {
