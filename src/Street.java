@@ -17,7 +17,7 @@ public class Street{
     }
 
     void payrent(int i){
-        Main.player[i].money = Main.player[i].money - this.rent;
+        Main.players.get(i).money = Main.players.get(i).money - this.rent;
         owner.money = owner.money + this.rent;
     }
     

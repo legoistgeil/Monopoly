@@ -9,6 +9,10 @@ public class GUI {
     static JPanel panel = new JPanel();
     static JButton move = new JButton(ArrowImage());
     static JButton sell = new JButton(dollarImage());
+    JCheckBox test = new JCheckBox();
+    private JButton button1;
+    private JPanel panel1;
+
     public GUI(){
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Monopoly");
@@ -63,4 +67,5 @@ public class GUI {
         start.setVisible(i);
         panel.add(start);
     }
+
 }
