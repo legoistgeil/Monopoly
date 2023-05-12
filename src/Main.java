@@ -18,24 +18,20 @@ public class Main {
     }
     static void makeMove(){
         GUI.start(true);
-        for (int i = 0; i < players.size(); i++) {
-            if (players.get(i).money >= 0) {
-                int finalI = i;
-                GUI.move.addActionListener(e -> Main.act(finalI));
-                if (i == players.size()) {
-                    i = 0;
-                }
-            } else {
-                break;
+        for (int i = players.size()-1; i >= 0; i--) {
+            int finalI = i;
+            GUI.move.addActionListener(e -> Main.act(finalI));
+            if (i == players.size()) {
+                i = 0;
             }
         }
     }
 
     private static void act(int finalI) {
-        System.out.println("Spieler " + (finalI + 1) + " ist an der Reihe.");
-        players.get(finalI).makeMove(ran, finalI, Board.street);
-        ran1 = rand.nextInt(5) + 1;
-        ran2 = rand.nextInt(5) + 1;
-        ran = ran1 + ran2;
+            System.out.println("Spieler " + (finalI + 1) + " ist an der Reihe.");
+            players.get(finalI).makeMove(ran, finalI, Board.street);
+            ran1 = rand.nextInt(5) + 1;
+            ran2 = rand.nextInt(5) + 1;
+            ran = ran1 + ran2;
     }
 }
