@@ -4,11 +4,11 @@ public class Player {
     int num_trains;
     int num_utilities;
 
-    public Player(int moneye, int pose, int num_trainse, int num_utilitiese) {
-        money = moneye;
-        pos = pose;
-        num_trains = num_trainse;
-        num_utilities = num_utilitiese;
+    public Player(int money, int pos, int num_trains, int num_utilities) {
+        this.money = money;
+        this.pos = pos;
+        this.num_trains = num_trains;
+        this.num_utilities = num_utilities;
     }
 
     void makeMove(int ran, int i, Street[] street) {

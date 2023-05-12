@@ -9,7 +9,7 @@ public class GUI {
     static JPanel panel = new JPanel();
     static JButton move = new JButton(ArrowImage());
     static JButton sell = new JButton(dollarImage());
-    JCheckBox test = new JCheckBox();
+    static JCheckBox test = new JCheckBox();
     private JButton button1;
     private JPanel panel1;
 
@@ -29,6 +29,11 @@ public class GUI {
         panel.add(move);
         sell.setBounds(10,600,100,90 );
         panel.add(sell);
+
+        JLabel test = new JLabel();
+        test.setBounds(500,10,100,90);
+        test.setVisible(true);
+        panel.add(test);
 
         frame.setVisible(true);
 
@@ -66,13 +71,6 @@ public class GUI {
         start.setBounds(10,10,1000,100);
         start.setVisible(i);
         panel.add(start);
-    }
-
-    public static void makeLabel(String text){
-        JLabel test = new JLabel();
-        test.setBounds(500,10,100,90);
-        test.setVisible(true);
-        panel.add(test);
     }
 
 }
