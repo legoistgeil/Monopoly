@@ -5,9 +5,9 @@ public class Main {
     static int ran1 = rand.nextInt(5)+1;
     static int ran2 = rand.nextInt(5)+1;
     static int ran = ran1 + ran2;
-    static ArrayList<Player> players = new ArrayList<Player>();
+    static ArrayList<Player> players = new ArrayList<>();
     static Board board;
-    static int finalI = 0;
+    static int move = -1;
     public static void main(String[] args) {
         new GUI();
         board = new Board();
@@ -15,25 +15,28 @@ public class Main {
         players.add(new Player(1502, 0, 0, 0));
         players.add(new Player(1503, 0, 0, 0));
         players.add(new Player(1504, 0, 0, 0));
-        Main.makeMove(finalI);
+        Main.makeMove();
     }
-    static void makeMove(int finalI){
+    static void makeMove(){
         GUI.start(true);
-            GUI.move.addActionListener(e -> act(finalI));
+        GUI.move.addActionListener(e -> act(turn()));
     }
 
-    private static int act(int finalI) {
-        for (int i = players.size()-1; i >= 0; i--) {
+    private static void act(int finalI) {
             System.out.println("Spieler " + (finalI + 1) + " ist an der Reihe.");
+            GUI.test.setText("test");
             players.get(finalI).makeMove(ran, finalI, Board.street);
             ran1 = rand.nextInt(5) + 1;
             ran2 = rand.nextInt(5) + 1;
             ran = ran1 + ran2;
-            if (finalI == players.size()) {
-                finalI = 0;
-                return finalI;
-            }
+    }
+
+    private static int turn(){
+        if(move < 3){
+            move++;
+        } else {
+            move = 0;
         }
-        return finalI;
+        return move;
     }
 }
