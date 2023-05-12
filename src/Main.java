@@ -19,9 +19,7 @@ public class Main {
     }
     static void makeMove(){
         GUI.start(true);
-        GUI.move.addActionListener(e -> {
-            act(turn());
-        });
+        GUI.move.addActionListener(e -> act(turn()));
     }
 
     private static void act(int finalI) {
