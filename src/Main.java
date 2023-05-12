@@ -20,7 +20,7 @@ public class Main {
         GUI.start(true);
         for (int i = players.size()-1; i >= 0; i--) {
             int finalI = i;
-            GUI.move.addActionListener(e -> Main.act(finalI));
+            GUI.move.addActionListener(e -> act(finalI));
             if (i == players.size()) {
                 i = 0;
             }
