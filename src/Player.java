@@ -22,6 +22,8 @@ public class Player {
         this.pos = this.pos + ran;
         if (this.pos > 39){
             this.pos = this.pos - 40;
+            System.out.println("Spieler ist über Los gegangen und hat 200 erhalten");
+            money = money + 200;
         }
         switch (street[pos].name) {
             case "Ereignisfeld":
