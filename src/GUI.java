@@ -1,16 +1,14 @@
-import javax.imageio.ImageIO;
+import javax.imageio.*;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 public class GUI {
     static JFrame frame = new JFrame();
     JLabel pic = new JLabel(MonopolyImage());
-    JPanel panel = new JPanel();
-    JButton move = new JButton(ArrowImage());
-    static JLabel start = new JLabel("Das Spiel beginnt! Drücke eine beliebige Taste  !");
-    JButton sell = new JButton(dollarImage());
+    static JPanel panel = new JPanel();
+    static JButton move = new JButton(ArrowImage());
+    static JButton sell = new JButton(dollarImage());
     public GUI(){
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Monopoly");
@@ -30,38 +28,39 @@ public class GUI {
 
         frame.setVisible(true);
 
-
     }
 
     private ImageIcon MonopolyImage(){
         try {
-            BufferedImage bufferedImage = ImageIO.read(new File("C:\\Users\\plida\\Desktop\\61af122e29f75f25d62199d6_hasbro-diadora-monopoly.jpg"));
+            BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/monopoly-map.jpg"));
             Image newImage = bufferedImage.getScaledInstance(750,750, Image.SCALE_DEFAULT);
             return new ImageIcon(newImage);
         } catch (IOException e){
             throw new Error(e);
         }
     }
-    private ImageIcon ArrowImage(){
+    private static ImageIcon ArrowImage(){
         try {
-            BufferedImage bufferedImage = ImageIO.read(new File("C:\\Users\\plida\\Desktop\\arrow-sign.png"));
+            BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/arrow-sign.png"));
             Image newImage = bufferedImage.getScaledInstance(100,90, Image.SCALE_DEFAULT);
             return new ImageIcon(newImage);
         } catch (IOException e){
             throw new Error(e);
         }
     }
-    private ImageIcon dollarImage(){
+    private static ImageIcon dollarImage(){
         try {
-            BufferedImage bufferedImage = ImageIO.read(new File("C:\\Users\\plida\\Desktop\\Download.png"));
+            BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/Download.png"));
             Image newImage = bufferedImage.getScaledInstance(100,90, Image.SCALE_DEFAULT);
             return new ImageIcon(newImage);
         } catch (IOException e){
             throw new Error(e);
         }
     }
-    public static void start(){
-        start.setBounds(10,10,100,100);
-        frame.add(start);
+    public static void start(boolean i){
+        JLabel start = new JLabel("Das Spiel beginnt! Druecke die Pfeiltaste");
+        start.setBounds(10,10,1000,100);
+        start.setVisible(i);
+        panel.add(start);
     }
 }

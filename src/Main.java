@@ -1,8 +1,6 @@
 import java.util.Random;
-import java.util.Scanner;
 public class Main {
     static Random rand = new Random();
-    static Scanner scanner = new Scanner(System.in);
     static int ran1 = rand.nextInt(5)+1;
     static int ran2 = rand.nextInt(5)+1;
     static int ran = ran1 + ran2;
@@ -11,37 +9,39 @@ public class Main {
     public static void main(String[] args) {
         new GUI();
         board = new Board();
-        player[0] = new Player(2501, 0, 0, 0);
-        player[1] = new Player(2502, 0, 0, 0);
-        player[2] = new Player(2503, 0, 0, 0);
-        player[3] = new Player(2504, 0, 0, 0);
+        player[0] = new Player(1501, 0, 0, 0);
+        player[1] = new Player(1502, 0, 0, 0);
+        player[2] = new Player(1503, 0, 0, 0);
+        player[3] = new Player(1504, 0, 0, 0);
         Main.makeMove();
     }
-
     static void makeMove(){
-        System.out.println("Das Spiel beginnt! Drücke eine beliebige Taste  !");
-        GUI.start();
-        String decision = scanner.nextLine();
-        int i=0;
-        while (gameContinues()) {
-            player[i].makeMove(ran, i, Board.street);
-            player[i].printProperties();
-            ran = rand.nextInt(10)+2;
-            if (i<3) {
-                i++;
-            } else {
-                i=0;
+        GUI.start(true);
+        int movecounter = 0;
+        while(true) {
+            for (int i = 0; i < 4; i++) {
+                if (player[i].money >= 0) {
+                    int finalI = i;
+                    GUI.move.addActionListener(e -> {
+                        Main.act(finalI);
+                    });
+                    movecounter++;
+                    if(i == 3){
+                        i= 0;
+                    }
+                } else {
+                    break;
+                }
             }
-            System.out.println("Spieler "+i+" ist an der Reihe. Drücke eine beliebige Taste!");
-            String decision2 = scanner.nextLine();
         }
     }
-        static boolean gameContinues() {
-        for(int i=0; i<4; i++){
-            if(player[i].money < 0) {
-                return false;
-            }
-        }
-        return true;
+
+    private static void act(int finalI) {
+        int test= finalI;
+        System.out.println("Spieler " + (test + 1) + " ist an der Reihe.");
+        player[test].makeMove(ran, test, Board.street);
+        ran1 = rand.nextInt(5) + 1;
+        ran2 = rand.nextInt(5) + 1;
+        ran = ran1 + ran2;
     }
 }
