@@ -6,7 +6,7 @@ public class Ereigniskarten{
   public boolean vorruecken;
   public int ruecke_vor_bis_position;
   public boolean gehe_ins_gefaengnis;
-  public Ereigniskarten(String nameE, String textausgabeE, int geldzahlungE, int steuergeld_aenderungE, boolean vorrueckenE, int ruecke_vor_bis_positionE, boolean gehe_ins_gefaengnis) {
+  public Ereigniskarten(String nameE, String textausgabeE, int geldzahlungE, int steuergeld_aenderungE, boolean vorrueckenE, int ruecke_vor_bis_positionE, boolean gehe_ins_gefaengnisE) {
     name = nameE;
     textausgabe = textausgabeE;
     geldzahlung = geldzahlungE;
