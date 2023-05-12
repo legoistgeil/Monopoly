@@ -68,4 +68,11 @@ public class GUI {
         panel.add(start);
     }
 
+    public static void makeLabel(String text){
+        JLabel test = new JLabel();
+        test.setBounds(500,10,100,90);
+        test.setVisible(true);
+        panel.add(test);
+    }
+
 }
