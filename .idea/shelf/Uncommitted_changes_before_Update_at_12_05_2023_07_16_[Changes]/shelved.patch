@@ -1,0 +1,75 @@
+Index: src/GUI.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import javax.imageio.ImageIO;\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.awt.event.*;\r\nimport java.awt.image.BufferedImage;\r\nimport java.io.*;\r\npublic class GUI {\r\n    static JFrame frame = new JFrame();\r\n    JLabel pic = new JLabel(MonopolyImage());\r\n    JPanel panel = new JPanel();\r\n    JButton move = new JButton(ArrowImage());\r\n    static JLabel start = new JLabel(\"Das Spiel beginnt! Drücke eine beliebige Taste  !\");\r\n    JButton sell = new JButton(dollarImage());\r\n    public GUI(){\r\n        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n        frame.setTitle(\"Monopoly\");\r\n        frame.pack();\r\n        frame.setSize(2560,1600);\r\n\r\n        pic.setBounds(500,200,750,750);\r\n        frame.add(pic);\r\n\r\n        panel.setLayout(null);\r\n        frame.add(panel);\r\n\r\n        move.setBounds(10,500,100,90);\r\n        panel.add(move);\r\n        sell.setBounds(10,600,100,90 );\r\n        panel.add(sell);\r\n\r\n        frame.setVisible(true);\r\n\r\n\r\n    }\r\n\r\n    private ImageIcon MonopolyImage(){\r\n        try {\r\n            BufferedImage bufferedImage = ImageIO.read(new File(\"C:\\\\Users\\\\plida\\\\Desktop\\\\61af122e29f75f25d62199d6_hasbro-diadora-monopoly.jpg\"));\r\n            Image newImage = bufferedImage.getScaledInstance(750,750, Image.SCALE_DEFAULT);\r\n            return new ImageIcon(newImage);\r\n        } catch (IOException e){\r\n            throw new Error(e);\r\n        }\r\n    }\r\n    private ImageIcon ArrowImage(){\r\n        try {\r\n            BufferedImage bufferedImage = ImageIO.read(new File(\"C:\\\\Users\\\\plida\\\\Desktop\\\\arrow-sign.png\"));\r\n            Image newImage = bufferedImage.getScaledInstance(100,90, Image.SCALE_DEFAULT);\r\n            return new ImageIcon(newImage);\r\n        } catch (IOException e){\r\n            throw new Error(e);\r\n        }\r\n    }\r\n    private ImageIcon dollarImage(){\r\n        try {\r\n            BufferedImage bufferedImage = ImageIO.read(new File(\"C:\\\\Users\\\\plida\\\\Desktop\\\\Download.png\"));\r\n            Image newImage = bufferedImage.getScaledInstance(100,90, Image.SCALE_DEFAULT);\r\n            return new ImageIcon(newImage);\r\n        } catch (IOException e){\r\n            throw new Error(e);\r\n        }\r\n    }\r\n    public static void start(){\r\n        start.setBounds(10,10,100,100);\r\n        frame.add(start);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/GUI.java b/src/GUI.java
+--- a/src/GUI.java	(revision 2b11e734e8097c2754fb3d9f91fc984e5fec9d29)
++++ b/src/GUI.java	(date 1683278447236)
+@@ -35,7 +35,7 @@
+ 
+     private ImageIcon MonopolyImage(){
+         try {
+-            BufferedImage bufferedImage = ImageIO.read(new File("C:\\Users\\plida\\Desktop\\61af122e29f75f25d62199d6_hasbro-diadora-monopoly.jpg"));
++            BufferedImage bufferedImage = ImageIO.read(new File("C:\\Mateo\\IntelliJ\\MonopolyBoard.jpg\\"));
+             Image newImage = bufferedImage.getScaledInstance(750,750, Image.SCALE_DEFAULT);
+             return new ImageIcon(newImage);
+         } catch (IOException e){
+@@ -44,7 +44,7 @@
+     }
+     private ImageIcon ArrowImage(){
+         try {
+-            BufferedImage bufferedImage = ImageIO.read(new File("C:\\Users\\plida\\Desktop\\arrow-sign.png"));
++            BufferedImage bufferedImage = ImageIO.read(new File("C:\\Mateo\\IntelliJ\\arrow-sign.png\\"));
+             Image newImage = bufferedImage.getScaledInstance(100,90, Image.SCALE_DEFAULT);
+             return new ImageIcon(newImage);
+         } catch (IOException e){
+@@ -53,7 +53,7 @@
+     }
+     private ImageIcon dollarImage(){
+         try {
+-            BufferedImage bufferedImage = ImageIO.read(new File("C:\\Users\\plida\\Desktop\\Download.png"));
++            BufferedImage bufferedImage = ImageIO.read(new File("C:\\Mateo\\IntelliJ\\dollarsign.png\\"));
+             Image newImage = bufferedImage.getScaledInstance(100,90, Image.SCALE_DEFAULT);
+             return new ImageIcon(newImage);
+         } catch (IOException e){
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleMigrationSettings\" migrationVersion=\"1\" />\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n          </set>\r\n        </option>\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+--- a/.idea/gradle.xml	(revision 2b11e734e8097c2754fb3d9f91fc984e5fec9d29)
++++ b/.idea/gradle.xml	(date 1683277851961)
+@@ -5,6 +5,7 @@
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="gradleJvm" value="corretto-17" />
+         <option name="modules">
+           <set>
+             <option value="$PROJECT_DIR$" />
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"VcsDirectoryMappings\">\r\n    <mapping directory=\"$PROJECT_DIR$\" vcs=\"Git\" />\r\n    <mapping directory=\"$PROJECT_DIR$/gs-gradle\" vcs=\"Git\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+--- a/.idea/vcs.xml	(revision 2b11e734e8097c2754fb3d9f91fc984e5fec9d29)
++++ b/.idea/vcs.xml	(date 1683277671263)
+@@ -1,7 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="VcsDirectoryMappings">
+-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+-    <mapping directory="$PROJECT_DIR$/gs-gradle" vcs="Git" />
++    <mapping directory="" vcs="Git" />
+   </component>
+ </project>
+\ No newline at end of file
