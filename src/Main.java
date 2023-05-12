@@ -7,6 +7,7 @@ public class Main {
     static int ran = ran1 + ran2;
     static ArrayList<Player> players = new ArrayList<Player>();
     static Board board;
+    static int move = -1;
     public static void main(String[] args) {
         new GUI();
         board = new Board();
@@ -18,13 +19,9 @@ public class Main {
     }
     static void makeMove(){
         GUI.start(true);
-        for (int i = players.size() - 1; i >= 0; i--) {
-            int finalI = i;
-            GUI.move.addActionListener(e -> act(finalI));
-            if (i == players.size()) {
-                i = 0;
-            }
-        }
+        GUI.move.addActionListener(e -> {
+            act(turn());
+        });
     }
 
     private static void act(int finalI) {
@@ -34,5 +31,14 @@ public class Main {
             ran1 = rand.nextInt(5) + 1;
             ran2 = rand.nextInt(5) + 1;
             ran = ran1 + ran2;
+    }
+
+    private static int turn(){
+        if(move < 3){
+            move++;
+        } else {
+            move = 0;
+        }
+        return move;
     }
 }
