@@ -23,11 +23,11 @@ public class Main {
     }
 
     private static void act(int finalI) {
-            GUI.test.setText("Spieler " + (turn() + 1) + " ist an der Reihe.");
-            players.get(finalI).makeMove(ran, finalI, Board.street);
-            ran1 = rand.nextInt(5) + 1;
-            ran2 = rand.nextInt(5) + 1;
-            ran = ran1 + ran2;
+        GUI.test.setText("Spieler " + (finalI + 1) + " ist an der Reihe.");
+        players.get(finalI).makeMove(ran, finalI, Board.street);
+        ran1 = rand.nextInt(5) + 1;
+        ran2 = rand.nextInt(5) + 1;
+        ran = ran1 + ran2;
     }
 
     private static int turn(){
