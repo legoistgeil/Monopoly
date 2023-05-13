@@ -23,7 +23,7 @@ public class Main {
     }
 
     private static void act(int finalI) {
-        GUI.test.setText("Spieler " + (finalI + 1) + " ist an der Reihe.");
+        GUI.playerln.setText("Spieler " + (finalI + 1) + " ist an der Reihe.");
         players.get(finalI).makeMove(ran, finalI, Board.street);
         ran1 = rand.nextInt(5) + 1;
         ran2 = rand.nextInt(5) + 1;
@@ -31,7 +31,7 @@ public class Main {
     }
 
     private static int turn(){
-        if(move < 3){
+        if(move < players.size()-1){
             move++;
         } else {
             move = 0;

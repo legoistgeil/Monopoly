@@ -9,7 +9,9 @@ public class GUI {
     static JPanel panel = new JPanel();
     static JButton move = new JButton(ArrowImage());
     static JButton sell = new JButton(dollarImage());
-    static JLabel test = new JLabel();
+    static JLabel playerln = new JLabel();
+
+    static JLabel posln = new JLabel();
 
     public GUI(){
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -28,13 +30,17 @@ public class GUI {
         sell.setBounds(10,600,100,90 );
         panel.add(sell);
 
-        test.setBounds(500,10,300,90);
-        test.setVisible(true);
-        panel.add(test);
+        playerln.setBounds(500,10,300,90);
+        playerln.setVisible(true);
+        panel.add(playerln);
+
+        posln.setBounds(500, 30, 300,90);
+        posln.setVisible(true);
+        panel.add(posln);
 
         JTextArea test2 = new JTextArea();
         test2.setEditable(false);
-        test2.setText("test");
+        test2.setText("playerln");
         test2.setBounds(500,30,300,100);
         panel.add(test2);
         test2.setVisible(false);
