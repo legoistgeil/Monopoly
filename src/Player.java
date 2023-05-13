@@ -25,6 +25,25 @@ public class Player {
             System.out.println("Spieler ist über Los gegangen und hat 200 erhalten");
             money = money + 200;
         }
+
+        if(i== 0){
+            if (pos == 0) {
+                GUI.player1.setBounds(520, 875, 50, 50); //Bewegt spieler1 nach jedem zug
+            }
+            if(pos == 1){
+                GUI.player1.setBounds(520,790,50,50);
+            }
+            if(pos == 2){
+                GUI.player1.setBounds(520,730,50,50);
+            }
+            if(pos == 3){
+                GUI.player1.setBounds(520,675,50,50);
+            }
+            if(pos == 4){
+                GUI.player1.setBounds(520,610,50,50);
+            }
+        }
+
         switch (street[pos].name) {
             case "Ereignisfeld":
                 //Ereigniskarte ziehen
@@ -52,7 +71,6 @@ public class Player {
                 } else if (street[pos].owner != null) {
                     street[pos].payrent(i);
                 }
-
         }
         GUI.posln.setText("Du stehst auf " + street[pos].name);
         System.out.println("Du stehst auf " + street[pos].name);
