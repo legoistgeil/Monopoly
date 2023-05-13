@@ -38,13 +38,6 @@ public class GUI {
         posln.setVisible(true);
         panel.add(posln);
 
-        JTextArea test2 = new JTextArea();
-        test2.setEditable(false);
-        test2.setText("playerln");
-        test2.setBounds(500,30,300,100);
-        panel.add(test2);
-        test2.setVisible(false);
-
         frame.setVisible(true);
 
     }
