@@ -6,6 +6,7 @@ import java.io.*;
 public class GUI {
     static JFrame frame = new JFrame();
     JLabel pic = new JLabel(MonopolyImage());
+    static JLabel player1 = new JLabel(player1pic());
     static JPanel panel = new JPanel();
     static JButton move = new JButton(ArrowImage());
     static JButton sell = new JButton(dollarImage());
@@ -19,6 +20,9 @@ public class GUI {
         frame.pack();
         frame.setSize(2560,1600);
 
+        player1.setBounds(520,425,50,50);
+        frame.add(player1);
+
         pic.setBounds(500,200,750,750);
         frame.add(pic);
 
@@ -30,11 +34,11 @@ public class GUI {
         sell.setBounds(10,600,100,90 );
         panel.add(sell);
 
-        playerln.setBounds(500,10,300,90);
+        playerln.setBounds(500,10,300,90); //Textzeile für welcher spieler dran ist
         playerln.setVisible(true);
         panel.add(playerln);
 
-        posln.setBounds(500, 30, 300,90);
+        posln.setBounds(500, 30, 300,90); //Textzeile für Positionsanzeige für spieler
         posln.setVisible(true);
         panel.add(posln);
 
@@ -74,6 +78,16 @@ public class GUI {
         start.setBounds(10,10,1000,100);
         start.setVisible(i);
         panel.add(start);
+    }
+
+    public static ImageIcon player1pic (){
+        try {
+            BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/Player1 Kopie.jpg"));
+            Image newImage = bufferedImage.getScaledInstance(50,50, Image.SCALE_DEFAULT);
+            return new ImageIcon(newImage);
+        } catch (IOException e){
+            throw new Error(e);
+        }
     }
 
 }
