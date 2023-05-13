@@ -19,21 +19,25 @@ public class GUI {
         frame.pack();
         frame.setSize(2560,1600);
 
+        //Monopoly pic position
         pic.setBounds(500,200,750,750);
         frame.add(pic);
 
         panel.setLayout(null);
         frame.add(panel);
 
+        //Buttons move and sell
         move.setBounds(10,500,100,90);
         panel.add(move);
         sell.setBounds(10,600,100,90 );
         panel.add(sell);
 
+        //Player stats line
         playerln.setBounds(500,10,300,90);
         playerln.setVisible(true);
         panel.add(playerln);
 
+        //Pos line
         posln.setBounds(500, 30, 300,90);
         posln.setVisible(true);
         panel.add(posln);
