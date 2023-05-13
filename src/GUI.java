@@ -91,7 +91,7 @@ public class GUI {
 
     public static ImageIcon player1pic (){
         try {
-            BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/Player1 Kopie.jpg"));
+            BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/Player1.png"));
             Image newImage = bufferedImage.getScaledInstance(50,50, Image.SCALE_DEFAULT);
             return new ImageIcon(newImage);
         } catch (IOException e){
