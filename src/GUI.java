@@ -11,21 +11,30 @@ public class GUI {
     static JButton move = new JButton(ArrowImage());
     static JButton sell = new JButton(dollarImage());
     static JLabel playerln = new JLabel();
-
     static JLabel posln = new JLabel();
+    static JLabel test = new JLabel();
 
     public GUI(){
+
+        /*
+            JPanel size: 1690x1025 JPixel hell idk
+            MonopolyPic size: 750x750 JPixel xd
+        */
+
+        Dimension screenSize = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Monopoly");
         frame.pack();
-        frame.setSize(2560,1600);
+        frame.setSize(screenSize.width,screenSize.height);
 
-        player1.setBounds(520,425,50,50);
+        player1.setBounds(520, 875, 50, 50);
         frame.add(player1);
 
-        pic.setBounds(500,200,750,750);
+        pic.setBounds(470,1025,750,750);
         frame.add(pic);
 
+        panel.setSize(2560,1600);
         panel.setLayout(null);
         frame.add(panel);
 
