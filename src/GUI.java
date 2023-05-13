@@ -9,9 +9,9 @@ public class GUI {
     static JPanel panel = new JPanel();
     static JButton move = new JButton(ArrowImage());
     static JButton sell = new JButton(dollarImage());
-    static JCheckBox test = new JCheckBox();
-    private JButton button1;
-    private JPanel panel1;
+    static JLabel playerln = new JLabel();
+
+    static JLabel posln = new JLabel();
 
     public GUI(){
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -30,10 +30,13 @@ public class GUI {
         sell.setBounds(10,600,100,90 );
         panel.add(sell);
 
-        JLabel test = new JLabel();
-        test.setBounds(500,10,100,90);
-        test.setVisible(true);
-        panel.add(test);
+        playerln.setBounds(500,10,300,90);
+        playerln.setVisible(true);
+        panel.add(playerln);
+
+        posln.setBounds(500, 30, 300,90);
+        posln.setVisible(true);
+        panel.add(posln);
 
         frame.setVisible(true);
 

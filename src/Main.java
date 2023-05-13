@@ -23,16 +23,15 @@ public class Main {
     }
 
     private static void act(int finalI) {
-            System.out.println("Spieler " + (finalI + 1) + " ist an der Reihe.");
-            GUI.test.setText("test");
-            players.get(finalI).makeMove(ran, finalI, Board.street);
-            ran1 = rand.nextInt(5) + 1;
-            ran2 = rand.nextInt(5) + 1;
-            ran = ran1 + ran2;
+        GUI.playerln.setText("Spieler " + (finalI + 1) + " ist an der Reihe.");
+        players.get(finalI).makeMove(ran, finalI, Board.street);
+        ran1 = rand.nextInt(5) + 1;
+        ran2 = rand.nextInt(5) + 1;
+        ran = ran1 + ran2;
     }
 
     private static int turn(){
-        if(move < 3){
+        if(move < players.size()-1){
             move++;
         } else {
             move = 0;

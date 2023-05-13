@@ -54,13 +54,14 @@ public class Player {
                 }
 
         }
+        GUI.posln.setText("Du stehst auf " + street[pos].name);
         System.out.println("Du stehst auf " + street[pos].name);
         System.out.println("Die Stats danach:");
         printProperties();
         System.out.println();
     }
     public void printProperties() {
-        System.out.println(money + " " + pos + " ");
+        System.out.println(money + " " + pos);
     }
     void buy(Street[] street, int pos){
         street[pos].owner = this;
