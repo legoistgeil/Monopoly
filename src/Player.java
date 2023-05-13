@@ -26,21 +26,24 @@ public class Player {
             money = money + 200;
         }
 
-        if(i== 0){
-            if (pos == 0) {
-                GUI.player1.setBounds(520, 875, 50, 50); //Bewegt spieler1 nach jedem zug
-            }
-            if(pos == 1){
-                GUI.player1.setBounds(520,790,50,50);
-            }
-            if(pos == 2){
-                GUI.player1.setBounds(520,730,50,50);
-            }
-            if(pos == 3){
-                GUI.player1.setBounds(520,675,50,50);
-            }
-            if(pos == 4){
-                GUI.player1.setBounds(520,610,50,50);
+        if(i== 0) {
+            switch (this.pos) {
+                case 0:
+                    GUI.player1.setBounds(520, 875, 50, 50); //Bewegt spieler1 nach jedem zug
+                case 1:
+                    GUI.player1.setBounds(520, 790, 50, 50);
+                case 2:
+                    GUI.player1.setBounds(520, 730, 50, 50);
+                case 3:
+                    GUI.player1.setBounds(520, 675, 50, 50);
+                case 4:
+                    GUI.player1.setBounds(520, 610, 50, 50);
+                case 5:
+                    GUI.player1.setBounds(520,550,50,50);
+                case 6:
+                    GUI.player1.setBounds(520,490,50,50);
+                case 7:
+                    GUI.player1.setBounds(520,425,50,50);
             }
         }
 

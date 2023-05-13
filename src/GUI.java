@@ -20,7 +20,7 @@ public class GUI {
         frame.pack();
         frame.setSize(2560,1600);
 
-        player1.setBounds(520,425,50,50);
+        player1.setBounds(520, 875, 50, 50);
         frame.add(player1);
 
         pic.setBounds(500,200,750,750);
@@ -82,7 +82,7 @@ public class GUI {
 
     public static ImageIcon player1pic (){
         try {
-            BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/Player1 Kopie.jpg"));
+            BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/Player1.png"));
             Image newImage = bufferedImage.getScaledInstance(50,50, Image.SCALE_DEFAULT);
             return new ImageIcon(newImage);
         } catch (IOException e){
