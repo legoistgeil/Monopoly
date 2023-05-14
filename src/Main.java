@@ -23,6 +23,9 @@ public class Main {
     }
 
     private static void act(int finalI) {
+        GUI.line2.setText("");
+        GUI.line3.setText("");
+        GUI.line4.setText("");
         GUI.line1.setText("Spieler " + (finalI + 1) + " ist an der Reihe.");
         players.get(finalI).makeMove(ran, finalI, Board.street);
         ran1 = rand.nextInt(5) + 1;

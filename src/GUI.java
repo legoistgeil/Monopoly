@@ -113,7 +113,7 @@ public class GUI {
         JLabel start = new JLabel("Das Spiel beginnt! Druecke die Pfeiltaste");
         Font font24 = font().deriveFont(24f);
         start.setFont(font24);
-        start.setBounds(10,10,1000,24);
+        start.setBounds(10,10,1000,35);
         start.setVisible(i);
         panel.add(start);
     }

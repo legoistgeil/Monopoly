@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 public class Player {
     int money;
     int pos;
@@ -26,6 +28,7 @@ public class Player {
 
         int[] a = BoardCoords();
         GUI.player1.setBounds(a[0], a[1],50,50);
+        GUI.line3.setText("Du stehst auf " + street[pos].name);
 
         switch (street[pos].name) {
             case "Ereignisfeld":
@@ -47,29 +50,25 @@ public class Player {
             default:
                 if (street[pos].available) {
                     if (street[pos].cost <= money) {
-                        GUI.sell.addActionListener(e -> buy(street, pos));
-                    }
-                    else {
-                        auction();
+                        int decision = JOptionPane.showConfirmDialog(GUI.frame, "Willscht kaufen?","Einkaufennnnnnn", JOptionPane.YES_NO_OPTION);
+                        if(decision == 0){
+                            buy(street, pos);
+                        }
                     }
                 } else if (street[pos].owner != null) {
                     street[pos].payrent(i);
                 }
         }
-        printProperties(street);
+        printMoney(street);
     }
 
-    public void printProperties(Street[] street) {
-        GUI.line3.setText("Du stehst auf " + street[pos].name);
+    public void printMoney(Street[] street) {
         GUI.line4.setText("Jetzt hast du " + money + " Geld");
     }
 
     void buy(Street[] street, int pos){
         street[pos].owner = this;
         this.money = this.money - street[pos].cost;
-    }
-
-    void auction(){
     }
 
     public int[] BoardCoords(){
