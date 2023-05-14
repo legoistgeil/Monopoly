@@ -27,23 +27,40 @@ public class Player {
         }
 
         if(i== 0) {
-            switch (this.pos) {
+            switch (pos) {
                 case 0:
                     GUI.player1.setBounds(520, 875, 50, 50); //Bewegt spieler1 nach jedem zug
+                    break;
                 case 1:
                     GUI.player1.setBounds(520, 790, 50, 50);
+                    break;
                 case 2:
                     GUI.player1.setBounds(520, 730, 50, 50);
+                    break;
                 case 3:
                     GUI.player1.setBounds(520, 675, 50, 50);
+                    break;
                 case 4:
                     GUI.player1.setBounds(520, 610, 50, 50);
+                    break;
                 case 5:
                     GUI.player1.setBounds(520,550,50,50);
+                    break;
                 case 6:
                     GUI.player1.setBounds(520,490,50,50);
+                    break;
                 case 7:
                     GUI.player1.setBounds(520,425,50,50);
+                    break;
+                case 8:
+                    GUI.player1.setBounds(520, 365, 50, 50);
+                    break;
+                case 9:
+                    GUI.player1.setBounds(520, 310, 50, 50);
+                    break;
+                case 10:
+                    GUI.player1.setBounds(500, 200, 50, 50);
+                    break;
             }
         }
 
