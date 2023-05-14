@@ -26,7 +26,7 @@ public class Player {
             money = money + 200;
         }
 
-        if(i== 0) {
+        /*if(i== 0) {
             switch (pos) {
                 case 0:
                     GUI.player1.setBounds(520, 875, 50, 50); //Bewegt spieler1 nach jedem zug
@@ -62,7 +62,7 @@ public class Player {
                     GUI.player1.setBounds(500, 200, 50, 50);
                     break;
             }
-        }
+        }*/
 
         switch (street[pos].name) {
             case "Ereignisfeld":
@@ -85,7 +85,8 @@ public class Player {
                 if (street[pos].available) {
                     if (street[pos].cost <= money) {
                         GUI.sell.addActionListener(e -> buy(street, pos));
-                    } else {
+                    }
+                    else {
                         //versteigern
                     }
                 } else if (street[pos].owner != null) {
