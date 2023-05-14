@@ -72,7 +72,7 @@ public class GUI {
 
     private ImageIcon MonopolyImage(){
         try {
-            BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/monopoly-map.jpg"));
+            BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/monopoly.png"));
             Image newImage = bufferedImage.getScaledInstance(750,750, Image.SCALE_DEFAULT);
             return new ImageIcon(newImage);
         } catch (IOException e){
