@@ -63,7 +63,7 @@ public class Player {
                     break;
             }
         }*/
-
+        testBoardCoords();
         switch (street[pos].name) {
             case "Ereignisfeld":
                 //Ereigniskarte ziehen
@@ -117,19 +117,19 @@ public class Player {
         if (pos < 10){
             movex = startx;
             movey = starty + distanceSquareRectangle + (pos - 1) * distance;
-            GUI.test.setBounds(movex, movey, 50,50);
+            GUI.player1.setBounds(movex, movey, 50,50);
         } else if (pos < 20){
             movex = startx + distanceSquareRectangle + (pos - 11) * distance;
             movey = starty + distanceSquareRectangle + 9 * distance;
-            GUI.test.setBounds(movex, movey, 50,50);
+            GUI.player1.setBounds(movex, movey, 50,50);
         } else if (pos < 30){
             movex = startx + distanceSquareRectangle + 9 * distance;
             movey = starty + distanceSquareRectangle +(29 - pos) * distance;
-            GUI.test.setBounds(movex, movey, 50,50);
+            GUI.player1.setBounds(movex, movey, 50,50);
         } else if (pos < 40) {
             movex = startx + distanceSquareRectangle + (39 - pos) * distance;
             movey = starty;
-            GUI.test.setBounds(movex, movey, 50,50);
+            GUI.player1.setBounds(movex, movey, 50,50);
         }
 
     }

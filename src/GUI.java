@@ -31,7 +31,7 @@ public class GUI {
         player1.setBounds(520, 875, 50, 50);
         frame.add(player1);
 
-        pic.setBounds(470,1025,750,750);
+        pic.setBounds(470,138,750,750);
         frame.add(pic);
 
         panel.setSize(2560,1600);
