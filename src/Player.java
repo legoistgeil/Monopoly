@@ -134,8 +134,7 @@ public class Player {
             movey = starty;
             return new int[]{movex, movey};
         }
-        int[] arr = {movex, movey};
-        return arr;
+        return new int[]{movex, movey};
     }
 }
 
