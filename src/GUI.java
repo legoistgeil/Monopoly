@@ -84,8 +84,8 @@ public class GUI {
         }
     }
     private static Font font(){
-        Font font = null;
-        Font tffBase = null;
+        Font font;
+        Font tffBase;
         try {
             InputStream is = new FileInputStream("src/res/kabel.ttf");
             tffBase = Font.createFont(Font.TRUETYPE_FONT, is);
