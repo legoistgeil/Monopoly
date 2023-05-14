@@ -51,17 +51,17 @@ public class GUI {
         line1.setFont(font18);
         panel.add(line1);
 
-        line2.setBounds(845, 40, 400,20);    // zweite Zeile, hier:
+        line2.setBounds(845, 40, 500,20);    // zweite Zeile, hier:
         line2.setVisible(true);                                 // Textzeile für Geld vor Zug
         line2.setFont(font18);
         panel.add(line2);
 
-        line3.setBounds(845,65,400,20); // dritte Zeile, hier:
+        line3.setBounds(845,65,500,20); // dritte Zeile, hier:
         line3.setVisible(true);                            // Textzeile für Zug
         line3.setFont(font18);
         panel.add(line3);
 
-        line4.setBounds(845,90,400,20); // vierte Zeile, hier:
+        line4.setBounds(845,90,500,20); // vierte Zeile, hier:
         line4.setVisible(true);                            // Textzeile für Geld nach Zug
         line4.setFont(font18);
         panel.add(line4);

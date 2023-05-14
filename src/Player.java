@@ -67,7 +67,11 @@ public class Player {
     }
 
     void buy(Street[] street, int pos){
+        if(street[pos].name.equals("Bahnhof")){
+            this.num_trains = this.num_trains + 1;
+        }
         street[pos].owner = this;
+        street[pos].available = false;
         this.money = this.money - street[pos].cost;
     }
 
