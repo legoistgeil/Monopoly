@@ -13,6 +13,7 @@ public class GUI {
     static JLabel line1 = new JLabel();
     static JLabel line2 = new JLabel();
     static JLabel line3 = new JLabel();
+    static JLabel line4 = new JLabel();
 
     public GUI(){
 
@@ -43,20 +44,27 @@ public class GUI {
         sell.setBounds(10,600,100,90 );
         panel.add(sell);
 
-        line1.setBounds(500,10,400,90);  // erste Zeile, hier:
+        Font font18 = font().deriveFont(18f); //Font auf Schriftgröße 18 machen
+
+        line1.setBounds(845,15,400,20);  // erste Zeile, hier:
         line1.setVisible(true);                             // Textzeile für welcher spieler dran ist
-        line1.setFont(font());
+        line1.setFont(font18);
         panel.add(line1);
 
-        line2.setBounds(500, 30, 400,90);    // zweite Zeile, hier:
-        line2.setVisible(true);                                 // Textzeile für Positionsanzeige
-        line2.setFont(font());
+        line2.setBounds(845, 40, 400,20);    // zweite Zeile, hier:
+        line2.setVisible(true);                                 // Textzeile für Geld vor Zug
+        line2.setFont(font18);
         panel.add(line2);
 
-        line3.setBounds(500,50,400,90); // dritte Zeile, hier:
-        line3.setVisible(true);                            // Textzeile für Geldanzeige
-        line3.setFont(font());
+        line3.setBounds(845,65,400,20); // dritte Zeile, hier:
+        line3.setVisible(true);                            // Textzeile für Zug
+        line3.setFont(font18);
         panel.add(line3);
+
+        line4.setBounds(845,90,400,20); // vierte Zeile, hier:
+        line4.setVisible(true);                            // Textzeile für Geld nach Zug
+        line4.setFont(font18);
+        panel.add(line4);
 
         frame.setVisible(true);
 
@@ -90,23 +98,22 @@ public class GUI {
         }
     }
     private static Font font(){
-        Font font;
         Font tffBase;
         try {
             InputStream is = new FileInputStream("src/res/kabel.ttf");
             tffBase = Font.createFont(Font.TRUETYPE_FONT, is);
-            font = tffBase.deriveFont(18f);
         } catch (FontFormatException | IOException e) {
             throw new RuntimeException(e);
         }
-        return font;
+        return tffBase;
     }
 
 
     public static void start(boolean i){
         JLabel start = new JLabel("Das Spiel beginnt! Druecke die Pfeiltaste");
-        start.setFont(font());
-        start.setBounds(10,10,1000,100);
+        Font font24 = font().deriveFont(24f);
+        start.setFont(font24);
+        start.setBounds(10,10,1000,24);
         start.setVisible(i);
         panel.add(start);
     }
