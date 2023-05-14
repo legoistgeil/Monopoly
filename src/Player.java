@@ -105,5 +105,32 @@ public class Player {
         street[pos].owner = this;
         this.money = this.money - street[pos].cost;
     }
+
+    public void testBoardCoords(){
+        final int startx = 0;
+        final int starty = 0; //hier startcoords eingeben y
+        final int distance = 1; //Entfernung zws Feldern
+        final int distanceSquareRectangle = 2; //Entfernung Ecke zu Feld
+        int movex = 0; //Änderung der Koordinaten
+        int movey = 0;
+        if (pos < 10){
+            movex = startx;
+            movey = starty + distanceSquareRectangle + (pos - 1) * distance;
+            GUI.test.setBounds(movex, movey, 50,50);
+        } else if (pos < 20){
+            movex = startx + distanceSquareRectangle + (pos - 11) * distance;
+            movey = starty + distanceSquareRectangle + 9 * distance;
+            GUI.test.setBounds(movex, movey, 50,50);
+        } else if (pos < 30){
+            movex = startx + distanceSquareRectangle + 9 * distance;
+            movey = starty + distanceSquareRectangle +(29 - pos) * distance;
+            GUI.test.setBounds(movex, movey, 50,50);
+        } else if (pos < 40) {
+            movex = startx + distanceSquareRectangle + (39 - pos) * distance;
+            movey = starty;
+            GUI.test.setBounds(movex, movey, 50,50);
+        }
+
+    }
 }
 
