@@ -12,6 +12,7 @@ public class GUI {
     static JButton sell = new JButton(dollarImage());
     static JLabel playerln = new JLabel();
     static JLabel posln = new JLabel();
+    static JLabel moneyln = new JLabel();
     static JLabel test = new JLabel();
 
     public GUI(){

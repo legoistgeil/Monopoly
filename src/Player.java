@@ -63,7 +63,10 @@ public class Player {
                     break;
             }
         }*/
-        testBoardCoords();
+        int[] a = testBoardCoords();
+        GUI.player1.setBounds(a[0], a[1],50,50);
+
+        //testBoardCoords();
         switch (street[pos].name) {
             case "Ereignisfeld":
                 //Ereigniskarte ziehen
@@ -107,7 +110,7 @@ public class Player {
         this.money = this.money - street[pos].cost;
     }
 
-    public void testBoardCoords(){
+    public int[] testBoardCoords(){
         final int startx = 500;
         final int starty = 900; //hier startcoords eingeben y
         final int distance = 55; //Entfernung zws Feldern
@@ -117,21 +120,26 @@ public class Player {
         if (pos < 10){
             movex = startx;
             movey = starty + distanceSquareRectangle + (pos - 1) * distance;
-            GUI.player1.setBounds(movex, movey, 50,50);
+            int[] arr = {movex, movey};
+            return arr;
         } else if (pos < 20){
             movex = startx + distanceSquareRectangle + (pos - 11) * distance;
             movey = starty + distanceSquareRectangle + 9 * distance;
-            GUI.player1.setBounds(movex, movey, 50,50);
+            int[] arr = {movex, movey};
+            return arr;
         } else if (pos < 30){
             movex = startx + distanceSquareRectangle + 9 * distance;
             movey = starty + distanceSquareRectangle +(29 - pos) * distance;
-            GUI.player1.setBounds(movex, movey, 50,50);
+            int[] arr = {movex, movey};
+            return arr;
         } else if (pos < 40) {
             movex = startx + distanceSquareRectangle + (39 - pos) * distance;
             movey = starty;
-            GUI.player1.setBounds(movex, movey, 50,50);
+            int[] arr = {movex, movey};
+            return arr;
         }
-
+        int[] arr = {movex, movey};
+        return arr;
     }
 }
 
