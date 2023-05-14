@@ -83,8 +83,23 @@ public class GUI {
             throw new Error(e);
         }
     }
+    private static Font font(){
+        Font font = null;
+        Font tffBase = null;
+        try {
+            InputStream is = new FileInputStream("src/res/kabel.ttf");
+            tffBase = Font.createFont(Font.TRUETYPE_FONT, is);
+            font = tffBase.deriveFont(24f);
+        } catch (FontFormatException | IOException e) {
+            throw new RuntimeException(e);
+        }
+        return font;
+    }
+
+
     public static void start(boolean i){
         JLabel start = new JLabel("Das Spiel beginnt! Druecke die Pfeiltaste");
+        start.setFont(font());
         start.setBounds(10,10,1000,100);
         start.setVisible(i);
         panel.add(start);

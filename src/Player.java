@@ -52,7 +52,7 @@ public class Player {
                         GUI.sell.addActionListener(e -> buy(street, pos));
                     }
                     else {
-                        //versteigern
+                        auction();
                     }
                 } else if (street[pos].owner != null) {
                     street[pos].payrent(i);
@@ -64,12 +64,17 @@ public class Player {
         printProperties();
         System.out.println();
     }
+
     public void printProperties() {
         System.out.println(money + " " + pos);
     }
+
     void buy(Street[] street, int pos){
         street[pos].owner = this;
         this.money = this.money - street[pos].cost;
+    }
+
+    void auction(){
     }
 
     public int[] BoardCoords(){

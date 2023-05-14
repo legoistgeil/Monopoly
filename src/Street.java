@@ -4,16 +4,14 @@ public class Street{
     int cost;
     int rent;
     Player owner;
-    boolean buyable;
     //int num_houses;
 
-    public Street(String name, boolean available, int cost, int rent, Player owner, boolean buyable) {
+    public Street(String name, boolean available, int cost, int rent, Player owner) {
         this.name = name;
         this.available = available;
         this.cost = cost;
         this.rent = rent;
         this.owner = owner;
-        this.buyable = buyable;
     }
 
     void payrent(int i){
