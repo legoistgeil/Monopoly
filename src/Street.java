@@ -19,4 +19,18 @@ public class Street{
         owner.money = owner.money + this.rent;
     }
 
+    public static int tsrent(){
+        int rent;
+        if(Board.street[Main.playerturn].owner != null) {
+            return switch (Board.street[Main.playerturn].owner.num_trains) {
+                case 1 -> 25;
+                case 2 -> 50;
+                case 3 -> 100;
+                case 4 -> 200;
+                default -> 0;
+            };
+        } else {
+            return 0;
+        }
+    }
 }

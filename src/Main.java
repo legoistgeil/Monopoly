@@ -8,6 +8,7 @@ public class Main {
     static ArrayList<Player> players = new ArrayList<>();
     static Board board;
     static int move = -1;
+    static int playerturn;
     public static void main(String[] args) {
         new GUI();
         board = new Board();
@@ -23,6 +24,7 @@ public class Main {
     }
 
     private static void act(int finalI) {
+        playerturn = finalI;
         GUI.line2.setText("");
         GUI.line3.setText("");
         GUI.line4.setText("");
