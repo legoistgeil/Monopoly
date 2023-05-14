@@ -108,10 +108,10 @@ public class Player {
     }
 
     public void testBoardCoords(){
-        final int startx = 0;
-        final int starty = 0; //hier startcoords eingeben y
-        final int distance = 1; //Entfernung zws Feldern
-        final int distanceSquareRectangle = 2; //Entfernung Ecke zu Feld
+        final int startx = 500;
+        final int starty = 900; //hier startcoords eingeben y
+        final int distance = 55; //Entfernung zws Feldern
+        final int distanceSquareRectangle = 85; //Entfernung Ecke zu Feld
         int movex = 0; //Änderung der Koordinaten
         int movey = 0;
         if (pos < 10){
