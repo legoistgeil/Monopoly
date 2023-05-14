@@ -26,23 +26,43 @@ public class Player {
             money = money + 200;
         }
 
-        /*if(i== 0){
-            if (pos == 0) {
-                GUI.player1.setBounds(520, 875, 50, 50); //Bewegt spieler1 nach jedem zug
+        if(i== 0) {
+            switch (pos) {
+                case 0:
+                    GUI.player1.setBounds(520, 875, 50, 50); //Bewegt spieler1 nach jedem zug
+                    break;
+                case 1:
+                    GUI.player1.setBounds(520, 790, 50, 50);
+                    break;
+                case 2:
+                    GUI.player1.setBounds(520, 730, 50, 50);
+                    break;
+                case 3:
+                    GUI.player1.setBounds(520, 675, 50, 50);
+                    break;
+                case 4:
+                    GUI.player1.setBounds(520, 610, 50, 50);
+                    break;
+                case 5:
+                    GUI.player1.setBounds(520,550,50,50);
+                    break;
+                case 6:
+                    GUI.player1.setBounds(520,490,50,50);
+                    break;
+                case 7:
+                    GUI.player1.setBounds(520,425,50,50);
+                    break;
+                case 8:
+                    GUI.player1.setBounds(520, 365, 50, 50);
+                    break;
+                case 9:
+                    GUI.player1.setBounds(520, 310, 50, 50);
+                    break;
+                case 10:
+                    GUI.player1.setBounds(500, 200, 50, 50);
+                    break;
             }
-            if(pos == 1){
-                GUI.player1.setBounds(520,790,50,50);
-            }
-            if(pos == 2){
-                GUI.player1.setBounds(520,730,50,50);
-            }
-            if(pos == 3){
-                GUI.player1.setBounds(520,675,50,50);
-            }
-            if(pos == 4){
-                GUI.player1.setBounds(520,610,50,50);
-            }
-        }*/
+        }
 
         switch (street[pos].name) {
             case "Ereignisfeld":
@@ -64,19 +84,19 @@ public class Player {
             default:
                 if (street[pos].available) {
                     if (street[pos].cost <= money) {
-                        GUI.sell.addActionListener(e ->{
-                            buy(street, pos);
-                            GUI.posln.setText("Du stehst auf " + street[pos].name);
-                            System.out.println("Du stehst auf " + street[pos].name);
-                            System.out.println("Die Stats danach:");
-                            printProperties();
-                            System.out.println();
-                        });
+                        GUI.sell.addActionListener(e -> buy(street, pos));
+                    } else {
+                        //versteigern
                     }
-                } else {
+                } else if (street[pos].owner != null) {
                     street[pos].payrent(i);
                 }
         }
+        GUI.posln.setText("Du stehst auf " + street[pos].name);
+        System.out.println("Du stehst auf " + street[pos].name);
+        System.out.println("Die Stats danach:");
+        printProperties();
+        System.out.println();
     }
     public void printProperties() {
         System.out.println(money + " " + pos);
@@ -85,33 +105,5 @@ public class Player {
         street[pos].owner = this;
         this.money = this.money - street[pos].cost;
     }
-
-    public void testBoardCoords(){
-        final int startx = 0;
-        final int starty = 0; //hier startcoords eingeben y
-        final int distance = 1; //Entfernung zws Feldern
-        final int distanceSquareRectangle = 2; //Entfernung Ecke zu Feld
-        int movex = 0; //Änderung der Koordinaten
-        int movey = 0;
-        if (pos < 10){
-            movex = startx;
-            movey = starty + distanceSquareRectangle + (pos - 1) * distance;
-            GUI.test.setBounds(movex, movey, 50,50);
-        } else if (pos < 20){
-            movex = startx + distanceSquareRectangle + (pos - 11) * distance;
-            movey = starty + distanceSquareRectangle + 9 * distance;
-            GUI.test.setBounds(movex, movey, 50,50);
-        } else if (pos < 30){
-            movex = startx + distanceSquareRectangle + 9 * distance;
-            movey = starty + distanceSquareRectangle +(29 - pos) * distance;
-            GUI.test.setBounds(movex, movey, 50,50);
-        } else if (pos < 40) {
-            movex = startx + distanceSquareRectangle + (39 - pos) * distance;
-            movey = starty;
-            GUI.test.setBounds(movex, movey, 50,50);
-        }
-
-    }
-
 }
 
