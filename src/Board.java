@@ -2,7 +2,7 @@ public class Board {
     public static Street[] street;
     public Board(){
         street = new Street[40];
-        street[0]=new Street("los", false, 0,0,null);
+        street[0]=new Street("Los", false, 0,0,null);
         street[1]=new Street("eins", true, 60,0,null);
         street[2]=new Street("Gemeinschaftsfeld", false, 0,0,null);
         street[3]=new Street("drei", true, 60,0,null);
@@ -12,7 +12,7 @@ public class Board {
         street[7]=new Street("Ereignisfeld", false, 0,0,null);
         street[8]=new Street("acht", true, 100,0,null);
         street[9]=new Street("neun", true, 120,0,null);
-        street[10]=new Street("Gefängnis", false, 0,0,null);
+        street[10]=new Street("Gefaengnis", false, 0,0,null);
         street[11]=new Street("elf", true, 140,0,null);
         street[12]=new Street("Elektrizitätswerk", true, 150,0,null);
         street[13]=new Street("13", true, 140,0,null);

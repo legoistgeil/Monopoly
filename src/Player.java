@@ -18,7 +18,7 @@ public class Player {
     void move(int ran, int i, Street[] street) {
         System.out.println("Du hast eine " + ran + " gewuerfelt!");
         System.out.println("Die Stats davor:");
-        printProperties();
+        printProperties(street);
         this.pos = this.pos + ran;
         if (this.pos > 39){
             this.pos = this.pos - 40;
@@ -58,15 +58,12 @@ public class Player {
                     street[pos].payrent(i);
                 }
         }
-        GUI.posln.setText("Du stehst auf " + street[pos].name);
-        System.out.println("Du stehst auf " + street[pos].name);
-        System.out.println("Die Stats danach:");
-        printProperties();
-        System.out.println();
+        printProperties(street);
     }
 
-    public void printProperties() {
-        System.out.println(money + " " + pos);
+    public void printProperties(Street[] street) {
+        GUI.line2.setText("Du stehst auf " + street[pos].name);
+        GUI.line3.setText("Du hast " + money + " Geld");
     }
 
     void buy(Street[] street, int pos){

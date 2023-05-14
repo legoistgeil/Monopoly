@@ -10,10 +10,9 @@ public class GUI {
     static JPanel panel = new JPanel();
     static JButton move = new JButton(ArrowImage());
     static JButton sell = new JButton(dollarImage());
-    static JLabel playerln = new JLabel();
-    static JLabel posln = new JLabel();
-    static JLabel moneyln = new JLabel();
-    static JLabel test = new JLabel();
+    static JLabel line1 = new JLabel();
+    static JLabel line2 = new JLabel();
+    static JLabel line3 = new JLabel();
 
     public GUI(){
 
@@ -44,13 +43,20 @@ public class GUI {
         sell.setBounds(10,600,100,90 );
         panel.add(sell);
 
-        playerln.setBounds(500,10,300,90); //Textzeile für welcher spieler dran ist
-        playerln.setVisible(true);
-        panel.add(playerln);
+        line1.setBounds(500,10,400,90);  // erste Zeile, hier:
+        line1.setVisible(true);                             // Textzeile für welcher spieler dran ist
+        line1.setFont(font());
+        panel.add(line1);
 
-        posln.setBounds(500, 30, 300,90); //Textzeile für Positionsanzeige für spieler
-        posln.setVisible(true);
-        panel.add(posln);
+        line2.setBounds(500, 30, 400,90);    // zweite Zeile, hier:
+        line2.setVisible(true);                                 // Textzeile für Positionsanzeige
+        line2.setFont(font());
+        panel.add(line2);
+
+        line3.setBounds(500,50,400,90); // dritte Zeile, hier:
+        line3.setVisible(true);                            // Textzeile für Geldanzeige
+        line3.setFont(font());
+        panel.add(line3);
 
         frame.setVisible(true);
 
@@ -89,7 +95,7 @@ public class GUI {
         try {
             InputStream is = new FileInputStream("src/res/kabel.ttf");
             tffBase = Font.createFont(Font.TRUETYPE_FONT, is);
-            font = tffBase.deriveFont(24f);
+            font = tffBase.deriveFont(18f);
         } catch (FontFormatException | IOException e) {
             throw new RuntimeException(e);
         }
