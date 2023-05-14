@@ -29,7 +29,7 @@ public class GUI {
         frame.pack();
         frame.setSize(screenSize.width,screenSize.height);
 
-        player1.setBounds(520, 875, 50, 50);
+        player1.setBounds(500, 810, 50, 50);
         frame.add(player1);
 
         pic.setBounds(470,138,750,750);

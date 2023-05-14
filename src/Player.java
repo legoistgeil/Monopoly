@@ -112,31 +112,27 @@ public class Player {
 
     public int[] testBoardCoords(){
         final int startx = 500;
-        final int starty = 900; //hier startcoords eingeben y
-        final int distance = 55; //Entfernung zws Feldern
+        final int starty = 810; //hier startcoords eingeben y
+        final int distance = 60; //Entfernung zws Feldern
         final int distanceSquareRectangle = 85; //Entfernung Ecke zu Feld
         int movex = 0; //Änderung der Koordinaten
         int movey = 0;
         if (pos < 10){
             movex = startx;
-            movey = starty + distanceSquareRectangle + (pos - 1) * distance;
-            int[] arr = {movex, movey};
-            return arr;
+            movey = starty - distanceSquareRectangle - (pos - 1) * distance;
+            return new int[]{movex, movey};
         } else if (pos < 20){
             movex = startx + distanceSquareRectangle + (pos - 11) * distance;
-            movey = starty + distanceSquareRectangle + 9 * distance;
-            int[] arr = {movex, movey};
-            return arr;
+            movey = starty - 2 * distanceSquareRectangle - 8 * distance;
+            return new int[]{movex, movey};
         } else if (pos < 30){
-            movex = startx + distanceSquareRectangle + 9 * distance;
-            movey = starty + distanceSquareRectangle +(29 - pos) * distance;
-            int[] arr = {movex, movey};
-            return arr;
+            movex = startx + 2 * distanceSquareRectangle + 8 * distance;
+            movey = starty - distanceSquareRectangle - (29 - pos) * distance;
+            return new int[]{movex, movey};
         } else if (pos < 40) {
             movex = startx + distanceSquareRectangle + (39 - pos) * distance;
             movey = starty;
-            int[] arr = {movex, movey};
-            return arr;
+            return new int[]{movex, movey};
         }
         int[] arr = {movex, movey};
         return arr;
