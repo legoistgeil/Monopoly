@@ -8,6 +8,7 @@ public class Main {
     static ArrayList<Player> players = new ArrayList<>();
     static Board board;
     static int move = -1;
+    static int playerturn;
     public static void main(String[] args) {
         new GUI();
         board = new Board();
@@ -21,15 +22,17 @@ public class Main {
         GUI.start(true);
         GUI.move.addActionListener(e -> act(turn()));
     }
-
     private static void act(int finalI) {
-        GUI.playerln.setText("Spieler " + (finalI + 1) + " ist an der Reihe.");
+        playerturn = finalI;
+        GUI.line2.setText("");
+        GUI.line3.setText("");
+        GUI.line4.setText("");
+        GUI.line1.setText("Spieler " + (finalI + 1) + " ist an der Reihe.");
         players.get(finalI).makeMove(ran, finalI, Board.street);
         ran1 = rand.nextInt(5) + 1;
         ran2 = rand.nextInt(5) + 1;
         ran = ran1 + ran2;
     }
-
     private static int turn(){
         if(move < players.size()-1){
             move++;

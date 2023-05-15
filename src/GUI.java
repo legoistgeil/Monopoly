@@ -7,13 +7,16 @@ public class GUI {
     static JFrame frame = new JFrame();
     JLabel pic = new JLabel(MonopolyImage());
     static JLabel player1 = new JLabel(player1pic());
+    static JLabel player2 = new JLabel(player2pic());
+    static JLabel player3 = new JLabel(player3pic());
+    static JLabel player4 = new JLabel(player4pic());
     static JPanel panel = new JPanel();
     static JButton move = new JButton(ArrowImage());
     static JButton sell = new JButton(dollarImage());
-    static JLabel playerln = new JLabel();
-    static JLabel posln = new JLabel();
-    static JLabel moneyln = new JLabel();
-    static JLabel test = new JLabel();
+    static JLabel line1 = new JLabel();
+    static JLabel line2 = new JLabel();
+    static JLabel line3 = new JLabel();
+    static JLabel line4 = new JLabel();
 
     public GUI(){
 
@@ -27,12 +30,21 @@ public class GUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Monopoly");
         frame.pack();
-        frame.setSize(screenSize.width,screenSize.height);
+        frame.setSize(2600,1650);
 
-        player1.setBounds(520, 875, 50, 50);
+        player1.setBounds(500, 810, 50, 50);
         frame.add(player1);
 
-        pic.setBounds(470,138,750,750);
+        player2.setBounds(400, 810, 50, 50);
+        frame.add(player1);
+
+        player3.setBounds(400, 810, 50, 50);
+        frame.add(player1);
+
+        player4.setBounds(400, 810, 50, 50);
+        frame.add(player1);
+
+        pic.setBounds(470,138,750,750);// Monopoly spielfeld
         frame.add(pic);
 
         panel.setSize(2560,1600);
@@ -44,13 +56,27 @@ public class GUI {
         sell.setBounds(10,600,100,90 );
         panel.add(sell);
 
-        playerln.setBounds(500,10,300,90); //Textzeile für welcher spieler dran ist
-        playerln.setVisible(true);
-        panel.add(playerln);
+        Font font18 = font().deriveFont(18f); //Font auf Schriftgröße 18 machen
 
-        posln.setBounds(500, 30, 300,90); //Textzeile für Positionsanzeige für spieler
-        posln.setVisible(true);
-        panel.add(posln);
+        line1.setBounds(845,15,400,20);  // erste Zeile, hier:
+        line1.setVisible(true);                             // Textzeile für welcher spieler dran ist
+        line1.setFont(font18);
+        panel.add(line1);
+
+        line2.setBounds(845, 40, 500,20);    // zweite Zeile, hier:
+        line2.setVisible(true);                                 // Textzeile für Geld vor Zug
+        line2.setFont(font18);
+        panel.add(line2);
+
+        line3.setBounds(845,65,500,20); // dritte Zeile, hier:
+        line3.setVisible(true);                            // Textzeile für Zug
+        line3.setFont(font18);
+        panel.add(line3);
+
+        line4.setBounds(845,90,500,20); // vierte Zeile, hier:
+        line4.setVisible(true);                            // Textzeile für Geld nach Zug
+        line4.setFont(font18);
+        panel.add(line4);
 
         frame.setVisible(true);
 
@@ -58,7 +84,7 @@ public class GUI {
 
     private ImageIcon MonopolyImage(){
         try {
-            BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/monopoly-map.jpg"));
+            BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/monopoly.png"));
             Image newImage = bufferedImage.getScaledInstance(750,750, Image.SCALE_DEFAULT);
             return new ImageIcon(newImage);
         } catch (IOException e){
@@ -83,9 +109,23 @@ public class GUI {
             throw new Error(e);
         }
     }
+    private static Font font(){
+        Font tffBase;
+        try {
+            InputStream is = new FileInputStream("src/res/kabel.ttf");
+            tffBase = Font.createFont(Font.TRUETYPE_FONT, is);
+        } catch (FontFormatException | IOException e) {
+            throw new RuntimeException(e);
+        }
+        return tffBase;
+    }
+
+
     public static void start(boolean i){
         JLabel start = new JLabel("Das Spiel beginnt! Druecke die Pfeiltaste");
-        start.setBounds(10,10,1000,100);
+        Font font24 = font().deriveFont(24f);
+        start.setFont(font24);
+        start.setBounds(10,10,1000,35);
         start.setVisible(i);
         panel.add(start);
     }
@@ -100,4 +140,33 @@ public class GUI {
         }
     }
 
+    public static ImageIcon player2pic (){
+        try {
+            BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/Player2.png"));
+            Image newImage = bufferedImage.getScaledInstance(50,50, Image.SCALE_DEFAULT);
+            return new ImageIcon(newImage);
+        } catch (IOException e){
+            throw new Error(e);
+        }
+    }
+
+    public static ImageIcon player3pic (){
+        try {
+            BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/Player3.png"));
+            Image newImage = bufferedImage.getScaledInstance(50,50, Image.SCALE_DEFAULT);
+            return new ImageIcon(newImage);
+        } catch (IOException e){
+            throw new Error(e);
+        }
+    }
+
+    public static ImageIcon player4pic (){
+        try {
+            BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/Player4.png"));
+            Image newImage = bufferedImage.getScaledInstance(50,50, Image.SCALE_DEFAULT);
+            return new ImageIcon(newImage);
+        } catch (IOException e){
+            throw new Error(e);
+        }
+    }
 }
