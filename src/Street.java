@@ -21,7 +21,6 @@ public class Street{
     }
 
     public static int tsrent(){
-        int rent;
         if(Board.street[Main.playerturn].owner != null) {
             return switch (Board.street[Main.playerturn].owner.num_trains) {
                 case 1 -> 25;
