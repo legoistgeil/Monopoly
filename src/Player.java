@@ -90,6 +90,12 @@ public class Player {
         street[pos].available = false;
         this.money = this.money - street[pos].cost;
     }
+    
+    public void streets_ausgeben(Street[] street){
+        System.out.println("Der Spieler besitzt folgende Strassen:");
+        for (int i, i<40, i++){
+            if (Board.street[i].owner == this){
+                System.out.println(Board.street[i].name);
 
     public int[] BoardCoords(){
         final int startx = 500;
