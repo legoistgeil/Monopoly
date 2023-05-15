@@ -15,8 +15,8 @@ public class Kartenstapel {
         ereigniskarten[8] = new Ereigniskarten("Strafzahlung","Strafe für zu schnelles Fahren DM 150",-150,150,false,0,false);
         ereigniskarten[9] = new Ereigniskarten("Gefängnis","Gehe in das Gefängnis. Begib Dich direkt dorthin. Gehe nicht über Los. Ziehe nicht DM 200 ein",0,0,false,0,true);
     }
-    public Ereigniskarten karte_ziehen{
+    /*public Ereigniskarten karte_ziehen{
         ran = rand.nextInt(9);
         return ereigniskarten[ran];
-    }
+    }*/
 }
