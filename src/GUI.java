@@ -35,14 +35,14 @@ public class GUI {
         player1.setBounds(500, 810, 50, 50);
         frame.add(player1);
 
-        player2.setBounds(400, 810, 50, 50);
-        frame.add(player1);
+        player2.setBounds(490, 810, 50, 50);
+        frame.add(player2);
 
-        player3.setBounds(400, 810, 50, 50);
-        frame.add(player1);
+        player3.setBounds(480, 810, 50, 50);
+        frame.add(player3);
 
-        player4.setBounds(400, 810, 50, 50);
-        frame.add(player1);
+        player4.setBounds(470, 810, 50, 50);
+        frame.add(player4);
 
         pic.setBounds(470,138,750,750);// Monopoly spielfeld
         frame.add(pic);
@@ -162,7 +162,7 @@ public class GUI {
 
     public static ImageIcon player4pic (){
         try {
-            BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/Player4.png"));
+            BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/PLayer4.png"));
             Image newImage = bufferedImage.getScaledInstance(50,50, Image.SCALE_DEFAULT);
             return new ImageIcon(newImage);
         } catch (IOException e){

@@ -20,14 +20,14 @@ public class Player {
     void move(int ran, int i, Street[] street) {
         GUI.line2.setText("Geld:" + money);
         this.pos = this.pos + ran;
-        if (this.pos > 39){
+        if (this.pos > 39) {
             this.pos = this.pos - 40;
             System.out.println("Spieler ist über Los gegangen und hat 200 erhalten");
             money = money + 200;
         }
 
         int[] a = BoardCoords();
-        switch(i){
+        switch (i) {
             case 1:
                 GUI.player1.setBounds(a[0], a[1], 50, 50);
                 break;
@@ -39,8 +39,6 @@ public class Player {
                 break;
             case 4:
                 GUI.player4.setBounds(a[0], a[1], 50, 50);
-                break;
-            default:
                 break;
         }
         GUI.line3.setText("Du stehst auf " + street[pos].name);
@@ -66,8 +64,8 @@ public class Player {
             default:
                 if (street[pos].available) {
                     if (street[pos].cost <= money) {
-                        int decision = JOptionPane.showConfirmDialog(GUI.frame, "Willscht kaufen?","Einkaufennnnnnn", JOptionPane.YES_NO_OPTION);
-                        if(decision == 0){
+                        int decision = JOptionPane.showConfirmDialog(GUI.frame, "Willscht kaufen?", "Einkaufennnnnnn", JOptionPane.YES_NO_OPTION);
+                        if (decision == 0) {
                             buy(street, pos);
                         }
                     }
@@ -82,20 +80,24 @@ public class Player {
         GUI.line4.setText("Jetzt hast du " + money + " Geld");
     }
 
-    void buy(Street[] street, int pos){
-        if(street[pos].name.equals("Bahnhof")){
+    void buy(Street[] street, int pos) {
+        if (street[pos].name.equals("Bahnhof")) {
             this.num_trains = this.num_trains + 1;
         }
         street[pos].owner = this;
         street[pos].available = false;
         this.money = this.money - street[pos].cost;
     }
-    
-    public void streets_ausgeben(Street[] street){
+
+
+    /*public void streets_ausgeben(Street[] street) {
         System.out.println("Der Spieler besitzt folgende Strassen:");
-        for (int i, i<40, i++){
-            if (Board.street[i].owner == this){
-                System.out.println(Board.street[i].name);
+        for (int j, j<40, j++){
+            if (Board.street[j].owner == this) {
+                System.out.println(Board.street[j].name);
+            }
+        }
+    }*/
 
     public int[] BoardCoords(){
         final int startx = 500;
@@ -124,4 +126,3 @@ public class Player {
         return new int[]{movex, movey};
     }
 }
-
