@@ -27,7 +27,8 @@ public class Player {
         }
 
         int[] a = BoardCoords();
-        switch(i){
+        GUI.player1.setBounds(a[0], a[1], 50, 50);
+        /*switch(i){
             case 1:
                 GUI.player1.setBounds(a[0], a[1], 50, 50);
                 break;
@@ -42,7 +43,7 @@ public class Player {
                 break;
             default:
                 break;
-        }
+        }*/
         GUI.line3.setText("Du stehst auf " + street[pos].name);
 
         switch (street[pos].name) {
@@ -91,11 +92,14 @@ public class Player {
         this.money = this.money - street[pos].cost;
     }
     
-    public void streets_ausgeben(Street[] street){
+    public void streets_ausgeben(Street[] street) {
         System.out.println("Der Spieler besitzt folgende Strassen:");
-        for (int i, i<40, i++){
-            if (Board.street[i].owner == this){
+        for (int i = 0; i < 40; i++){
+            if (Board.street[i].owner == this) {
                 System.out.println(Board.street[i].name);
+            }
+        }
+    }
 
     public int[] BoardCoords(){
         final int startx = 500;

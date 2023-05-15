@@ -33,4 +33,14 @@ public class Street{
             return 0;
         }
     }
+
+    public static int utilityRent(){
+        if(Board.street[Main.playerturn].owner != null){
+            if(Board.street[Main.playerturn].owner.num_utilities == 1){
+
+            }
+
+        }
+        return 0;
+    }
 }

@@ -7,9 +7,9 @@ public class GUI {
     static JFrame frame = new JFrame();
     JLabel pic = new JLabel(MonopolyImage());
     static JLabel player1 = new JLabel(player1pic());
-    static JLabel player2 = new JLabel(player2pic());
-    static JLabel player3 = new JLabel(player3pic());
-    static JLabel player4 = new JLabel(player4pic());
+    //static JLabel player2 = new JLabel(player2pic());
+    //static JLabel player3 = new JLabel(player3pic());
+    //static JLabel player4 = new JLabel(player4pic());
     static JPanel panel = new JPanel();
     static JButton move = new JButton(ArrowImage());
     static JButton sell = new JButton(dollarImage());
@@ -25,7 +25,7 @@ public class GUI {
             MonopolyPic size: 750x750 JPixel xd
         */
 
-        Dimension screenSize = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
+        //Dimension screenSize = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Monopoly");
@@ -35,14 +35,14 @@ public class GUI {
         player1.setBounds(500, 810, 50, 50);
         frame.add(player1);
 
-        player2.setBounds(400, 810, 50, 50);
+        /*player2.setBounds(400, 810, 50, 50);
         frame.add(player1);
 
         player3.setBounds(400, 810, 50, 50);
         frame.add(player1);
 
         player4.setBounds(400, 810, 50, 50);
-        frame.add(player1);
+        frame.add(player1);*/
 
         pic.setBounds(470,138,750,750);// Monopoly spielfeld
         frame.add(pic);
@@ -140,7 +140,7 @@ public class GUI {
         }
     }
 
-    public static ImageIcon player2pic (){
+    /*public static ImageIcon player2pic (){
         try {
             BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/Player2.png"));
             Image newImage = bufferedImage.getScaledInstance(50,50, Image.SCALE_DEFAULT);
@@ -168,5 +168,5 @@ public class GUI {
         } catch (IOException e){
             throw new Error(e);
         }
-    }
+    }*/
 }
