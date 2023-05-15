@@ -27,7 +27,22 @@ public class Player {
         }
 
         int[] a = BoardCoords();
-        GUI.player1.setBounds(a[0], a[1],50,50);
+        switch(i){
+            case 1:
+                GUI.player1.setBounds(a[0], a[1], 50, 50);
+                break;
+            case 2:
+                GUI.player1.setBounds(a[0], a[1], 50, 50);
+                break;
+            case 3:
+                GUI.player1.setBounds(a[0], a[1], 50, 50);
+                break;
+            case 4:
+                GUI.player1.setBounds(a[0], a[1], 50, 50);
+                break;
+            default:
+                break;
+        }
         GUI.line3.setText("Du stehst auf " + street[pos].name);
 
         switch (street[pos].name) {
