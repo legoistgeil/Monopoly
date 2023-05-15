@@ -27,7 +27,7 @@ public class GUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Monopoly");
         frame.pack();
-        frame.setSize(screenSize.width,screenSize.height);
+        frame.setSize(2600,1650);
 
         player1.setBounds(500, 810, 50, 50);
         frame.add(player1);
