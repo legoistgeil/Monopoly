@@ -26,8 +26,9 @@ public class Player {
             money = money + 200;
         }
 
-        int[] a = BoardCoords();
-        switch (i) {
+        int[] a = BoardCoords(i);
+
+        switch (i) {// Funktioniert iwi nicht richtig
             case 1:
                 GUI.player1.setBounds(a[0], a[1], 50, 50);
                 break;
@@ -37,7 +38,7 @@ public class Player {
             case 3:
                 GUI.player3.setBounds(a[0], a[1], 50, 50);
                 break;
-            case 4:
+            default:
                 GUI.player4.setBounds(a[0], a[1], 50, 50);
                 break;
         }
@@ -64,7 +65,7 @@ public class Player {
             default:
                 if (street[pos].available) {
                     if (street[pos].cost <= money) {
-                        int decision = JOptionPane.showConfirmDialog(GUI.frame, "Willscht kaufen?", "Einkaufennnnnnn", JOptionPane.YES_NO_OPTION);
+                        int decision = JOptionPane.showConfirmDialog(GUI.frame, "Willscht kaufen? Kosten:"+ street[pos].cost, "Einkaufennnnnnn", JOptionPane.YES_NO_OPTION);
                         if (decision == 0) {
                             buy(street, pos);
                         }
@@ -99,9 +100,9 @@ public class Player {
         }
     }*/
 
-    public int[] BoardCoords(){
-        final int startx = 500;
-        final int starty = 810; //hier startcoords eingeben
+    public int[] BoardCoords(int playernum){
+        final int startx = 500+(playernum* 3);// damit spieler nicht aufeinander stehen
+        final int starty = 810+(playernum* 3); //hier startcoords eingeben
         final int distance = 60; //Entfernung zws Feldern
         final int distanceSquareRectangle = 85; //Entfernung Ecke zu Feld
         int movex = 0; //Änderung der Koordinaten
