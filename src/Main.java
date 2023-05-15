@@ -9,6 +9,7 @@ public class Main {
     static Board board;
     static int move = -1;
     static int playerturn;
+    static int random;
     public static void main(String[] args) {
         new GUI();
         board = new Board();
@@ -32,6 +33,7 @@ public class Main {
         ran1 = rand.nextInt(5) + 1;
         ran2 = rand.nextInt(5) + 1;
         ran = ran1 + ran2;
+        random = ran;
     }
     private static int turn(){
         if(move < players.size()-1){
