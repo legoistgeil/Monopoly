@@ -1,5 +1,7 @@
+import java.util.Random;
 public class Kartenstapel {
     public static Ereigniskarten[] ereigniskarten;
+    private int ran;
     public Kartenstapel(){
         ereigniskarten = new Ereigniskarten[10];
         ereigniskarten[0] = new Ereigniskarten("Kreuzworträtselwettbewerb","Du hast in einem Kreuzworträtselwettbewerb gewonnen. Ziehe DM 100 ein",100,0,false,0,false);
@@ -12,5 +14,9 @@ public class Kartenstapel {
         ereigniskarten[7] = new Ereigniskarten("Betrunken im Dienst","Betrunken im Dienst. Strafe DM 200",-200,200,false,0,false);
         ereigniskarten[8] = new Ereigniskarten("Strafzahlung","Strafe für zu schnelles Fahren DM 150",-150,150,false,0,false);
         ereigniskarten[9] = new Ereigniskarten("Gefängnis","Gehe in das Gefängnis. Begib Dich direkt dorthin. Gehe nicht über Los. Ziehe nicht DM 200 ein",0,0,false,0,true);
+    }
+    public Ereigniskarten karte_ziehen{
+        ran = rand.nextInt(9);
+        return ereigniskarten[ran];
     }
 }
