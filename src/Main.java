@@ -22,7 +22,6 @@ public class Main {
         GUI.start(true);
         GUI.move.addActionListener(e -> act(turn()));
     }
-
     private static void act(int finalI) {
         playerturn = finalI;
         GUI.line2.setText("");
@@ -34,7 +33,6 @@ public class Main {
         ran2 = rand.nextInt(5) + 1;
         ran = ran1 + ran2;
     }
-
     private static int turn(){
         if(move < players.size()-1){
             move++;
