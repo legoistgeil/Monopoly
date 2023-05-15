@@ -32,13 +32,13 @@ public class Player {
                 GUI.player1.setBounds(a[0], a[1], 50, 50);
                 break;
             case 2:
-                GUI.player1.setBounds(a[0], a[1], 50, 50);
+                GUI.player2.setBounds(a[0], a[1], 50, 50);
                 break;
             case 3:
-                GUI.player1.setBounds(a[0], a[1], 50, 50);
+                GUI.player3.setBounds(a[0], a[1], 50, 50);
                 break;
             case 4:
-                GUI.player1.setBounds(a[0], a[1], 50, 50);
+                GUI.player4.setBounds(a[0], a[1], 50, 50);
                 break;
             default:
                 break;
@@ -48,6 +48,7 @@ public class Player {
         switch (street[pos].name) {
             case "Ereignisfeld":
                 //Ereigniskarte ziehen
+                Ereigniskarten karte = Kartenstapel.karte_ziehen();
                 break;
             case "Gemeinschaftsfeld":
                 //Gemeinschaftskarte ziehen
