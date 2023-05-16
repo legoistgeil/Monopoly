@@ -26,22 +26,41 @@ public class Player {
             money = money + 200;
         }
 
+
         int[] a = BoardCoords(i);
 
-        switch (i) {// Funktioniert iwi nicht richtig
-            case 1:
+        switch (i) {// Funktioniert iwi nicht richtig jz schon
+            case 0:
                 GUI.player1.setBounds(a[0], a[1], 50, 50);
                 break;
-            case 2:
+            case 1:
                 GUI.player2.setBounds(a[0], a[1], 50, 50);
                 break;
-            case 3:
+            case 2:
                 GUI.player3.setBounds(a[0], a[1], 50, 50);
                 break;
             default:
                 GUI.player4.setBounds(a[0], a[1], 50, 50);
                 break;
         }
+
+        if (this.pos == 30){
+            switch (i){
+                case 0:
+                    GUI.player1.setBounds(520, 180, 50, 50);
+                    break;
+                case 1:
+                    GUI.player2.setBounds(520, 180, 50, 50);
+                    break;
+                case 2:
+                    GUI.player3.setBounds(520, 180, 50, 50);
+                    break;
+                case 3:
+                    GUI.player4.setBounds(520, 180, 50, 50);
+                    break;
+            }
+        }
+
         GUI.line3.setText("Du stehst auf " + street[pos].name);
 
         switch (street[pos].name) {
