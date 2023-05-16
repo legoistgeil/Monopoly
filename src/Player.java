@@ -48,15 +48,19 @@ public class Player {
             switch (i){
                 case 0:
                     GUI.player1.setBounds(520, 180, 50, 50);
+                    this.pos = 10;
                     break;
                 case 1:
                     GUI.player2.setBounds(520, 180, 50, 50);
+                    this.pos = 10;
                     break;
                 case 2:
                     GUI.player3.setBounds(520, 180, 50, 50);
+                    this.pos = 10;
                     break;
                 case 3:
                     GUI.player4.setBounds(520, 180, 50, 50);
+                    this.pos = 10;
                     break;
             }
         }
@@ -112,9 +116,9 @@ public class Player {
 
     /*public void streets_ausgeben(Street[] street) {
         System.out.println("Der Spieler besitzt folgende Strassen:");
-        for (int j, j<40, j++){
-            if (Board.street[j].owner == this) {
-                System.out.println(Board.street[j].name);
+        for (int x, x<40, x++){
+            if (Board.street[x].owner == this) {
+                System.out.println(Board.street[x].name);
             }
         }
     }*/
