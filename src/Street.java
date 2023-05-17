@@ -28,19 +28,6 @@ public class Street{
         owner.money = owner.money + this.getRent();
     }
 
-    static void setTsRent(Street street){
-        int a = tsrent();
-        street.setRent(a);
-    }
-
-    static int tsrent(){
-        if(Board.street[Main.playerturn].owner != null) {
-            return 25 * (2 ^ Board.street[Main.playerturn].owner.num_trains - 1);
-        } else {
-            return 0;
-        }
-    }
-
     public int UtilityRent(){
         if(Board.street[Main.playerturn].owner != null){
             if(Board.street[Main.playerturn].owner.num_utilities == 1){

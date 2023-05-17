@@ -107,7 +107,6 @@ public class Player {
         street[pos].owner = this;
         if (street[pos].name.equals("Bahnhof")) {
             this.num_trains = this.num_trains + 1;
-            Street.setTsRent(street[pos]);
         }
         street[pos].available = false;
         this.money = this.money - street[pos].cost;
