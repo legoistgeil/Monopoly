@@ -14,7 +14,7 @@ public class Board {
         street[9]=new Street("neun", true, 120,10,null);
         street[10]=new Street("Gefaengnis", false, 0,0,null);
         street[11]=new Street("elf", true, 140,10,null);
-        street[12]=new Street("Elektrizitätswerk", true, 150,0,null);
+        street[12]=new Street("Elektrizitaetswerk", true, 150,0,null);
         street[13]=new Street("13", true, 140,12,null);
         street[14]=new Street("14", true, 160,14,null);
         street[15]=new Street("Bahnhof", true, 200,50,null);

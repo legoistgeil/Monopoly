@@ -92,6 +92,12 @@ public class Player {
                         Main.players.get(i).money = Main.players.get(i).money - tsRent;
                         street[pos].owner.money = street[pos].owner.money + tsRent;
                         break;
+                    } else if (street[pos].name.equals("Elektrizitaetswerk") | street[pos].name.equals("Wasserwerk")){
+                        int utilityrent = ran * (street[pos].owner.num_utilities * 4);
+                        GUI.line3.setText("Du kannst des nd kaufen, musst " + utilityrent + " Miete zahlen");
+                        Main.players.get(i).money = Main.players.get(i).money - utilityrent;
+                        street[pos].owner.money = street[pos].owner.money + utilityrent;
+                        break;
                     }
                     street[pos].payrent(i);
                 }
@@ -107,6 +113,9 @@ public class Player {
         street[pos].owner = this;
         if (street[pos].name.equals("Bahnhof")) {
             this.num_trains = this.num_trains + 1;
+        }
+        if (street[pos].name.equals("Elektrizitaetswerk") || street[pos].name.equals("Wasserwerk")) {
+            this.num_utilities = this.num_utilities + 1;
         }
         street[pos].available = false;
         this.money = this.money - street[pos].cost;
