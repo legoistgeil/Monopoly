@@ -30,18 +30,10 @@ public class Player {
         int[] a = BoardCoords(i);
 
         switch (i) {
-            case 0:
-                GUI.player1.setBounds(a[0], a[1], 50, 50);
-                break;
-            case 1:
-                GUI.player2.setBounds(a[0], a[1], 50, 50);
-                break;
-            case 2:
-                GUI.player3.setBounds(a[0], a[1], 50, 50);
-                break;
-            default:
-                GUI.player4.setBounds(a[0], a[1], 50, 50);
-                break;
+            case 0 -> GUI.player1.setBounds(a[0], a[1], 50, 50);
+            case 1 -> GUI.player2.setBounds(a[0], a[1], 50, 50);
+            case 2 -> GUI.player3.setBounds(a[0], a[1], 50, 50);
+            default -> GUI.player4.setBounds(a[0], a[1], 50, 50);
         }
 
         GUI.line3.setText("Du stehst auf " + street[pos].name);
