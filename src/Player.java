@@ -29,7 +29,7 @@ public class Player {
 
         int[] a = BoardCoords(i);
 
-        switch (i) {// Funktioniert iwi nicht richtig jz schon
+        switch (i) {
             case 0:
                 GUI.player1.setBounds(a[0], a[1], 50, 50);
                 break;
@@ -42,23 +42,6 @@ public class Player {
             default:
                 GUI.player4.setBounds(a[0], a[1], 50, 50);
                 break;
-        }
-
-        if (this.pos == 30){
-            switch (i){
-                case 0:
-                    GUI.player1.setBounds(520, 180, 50, 50);
-                    break;
-                case 1:
-                    GUI.player2.setBounds(520, 180, 50, 50);
-                    break;
-                case 2:
-                    GUI.player3.setBounds(520, 180, 50, 50);
-                    break;
-                case 3:
-                    GUI.player4.setBounds(520, 180, 50, 50);
-                    break;
-            }
         }
 
         GUI.line3.setText("Du stehst auf " + street[pos].name);
@@ -80,6 +63,22 @@ public class Player {
             case "Zusatzsteuer":
                 money = money - 100;
                 break;
+            case "Geh_ins_Gefängnis":
+                switch (i){
+                    case 0:
+                        GUI.player1.setBounds(520, 180, 50, 50);
+                        break;
+                    case 1:
+                        GUI.player2.setBounds(520, 180, 50, 50);
+                        break;
+                    case 2:
+                        GUI.player3.setBounds(520, 180, 50, 50);
+                        break;
+                    case 3:
+                        GUI.player4.setBounds(520, 180, 50, 50);
+                        break;
+                }
+                Main.players.get(i).pos = 10;
 
             default:
                 if (street[pos].available) {
@@ -101,10 +100,11 @@ public class Player {
     }
 
     void buy(Street[] street, int pos) {
+        street[pos].owner = this;
         if (street[pos].name.equals("Bahnhof")) {
             this.num_trains = this.num_trains + 1;
+            Street.setTsRent(street[pos]);
         }
-        street[pos].owner = this;
         street[pos].available = false;
         this.money = this.money - street[pos].cost;
     }
