@@ -131,8 +131,8 @@ public class Player {
     }*/
 
     public int[] BoardCoords(int playernum){
-        final int startx = 500+(playernum* 3);// damit spieler nicht aufeinander stehen
-        final int starty = 810+(playernum* 3); //hier startcoords eingeben
+        final int startx = 500 + (playernum * 3);// damit spieler nicht aufeinander stehen
+        final int starty = 810 + (playernum * 3); //hier startcoords eingeben
         final int distance = 60; //Entfernung zws Feldern
         final int distanceSquareRectangle = 85; //Entfernung Ecke zu Feld
         int movex = 0; //Änderung der Koordinaten

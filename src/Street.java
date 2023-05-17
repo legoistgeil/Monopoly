@@ -18,10 +18,6 @@ public class Street{
         return rent;
     }
 
-    void setRent(int rent) {
-        this.rent = rent;
-    }
-
     void payrent(int i){
         GUI.line3.setText("Du kannst des nd kaufen, musst " + this.getRent() + " Miete zahlen");
         Main.players.get(i).money = Main.players.get(i).money - this.getRent();

@@ -12,7 +12,6 @@ public class GUI {
     static JLabel player4 = new JLabel(player4pic());
     static JPanel panel = new JPanel();
     static JButton move = new JButton(ArrowImage());
-    static JButton sell = new JButton(dollarImage());
     static JLabel line1 = new JLabel();
     static JLabel line2 = new JLabel();
     static JLabel line3 = new JLabel();
@@ -49,13 +48,11 @@ public class GUI {
 
         panel.setSize(2560,1600);
         panel.setLayout(null);
-        panel.setBackground(new java.awt.Color(255,231,129));
+        panel.setBackground(new java.awt.Color(255, 246, 210));
         frame.add(panel);
 
         move.setBounds(10,500,100,90);
         panel.add(move);
-        sell.setBounds(10,600,100,90 );
-        panel.add(sell);
 
         Font font18 = font().deriveFont(18f); //Font auf Schriftgröße 18 machen
 
@@ -95,15 +92,6 @@ public class GUI {
     private static ImageIcon ArrowImage(){
         try {
             BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/arrow-sign.png"));
-            Image newImage = bufferedImage.getScaledInstance(100,90, Image.SCALE_DEFAULT);
-            return new ImageIcon(newImage);
-        } catch (IOException e){
-            throw new Error(e);
-        }
-    }
-    private static ImageIcon dollarImage(){
-        try {
-            BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/Download.png"));
             Image newImage = bufferedImage.getScaledInstance(100,90, Image.SCALE_DEFAULT);
             return new ImageIcon(newImage);
         } catch (IOException e){
