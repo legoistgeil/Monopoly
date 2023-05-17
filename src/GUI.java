@@ -49,6 +49,7 @@ public class GUI {
 
         panel.setSize(2560,1600);
         panel.setLayout(null);
+        panel.setBackground(new java.awt.Color(255,231,129));
         frame.add(panel);
 
         move.setBounds(10,500,100,90);
@@ -58,8 +59,8 @@ public class GUI {
 
         Font font18 = font().deriveFont(18f); //Font auf Schriftgröße 18 machen
 
-        line1.setBounds(845,15,400,20);  // erste Zeile, hier:
-        line1.setVisible(true);                             // Textzeile für welcher spieler dran ist
+        line1.setBounds(845,15,400,20);  // erste Zeile
+        line1.setVisible(true);
         line1.setFont(font18);
         panel.add(line1);
 

@@ -93,6 +93,14 @@ public class Player {
                         }
                     }
                 } else if (street[pos].owner != null) {
+                    if (street[pos].name.equals("Bahnhof")){
+                        double tsrent = 25 * Math.pow(2, street[pos].owner.num_trains - 1);
+                        int tsRent = (int) tsrent;
+                        GUI.line3.setText("Du kannst des nd kaufen, musst " + tsRent + " Miete zahlen");
+                        Main.players.get(i).money = Main.players.get(i).money - tsRent;
+                        street[pos].owner.money = street[pos].owner.money + tsRent;
+                        break;
+                    }
                     street[pos].payrent(i);
                 }
         }
