@@ -96,10 +96,10 @@ public class Player {
                     street[pos].payrent(i);
                 }
         }
-        printMoney(street);
+        printMoney();
     }
 
-    public void printMoney(Street[] street) {
+    public void printMoney() {
         GUI.line4.setText("Jetzt hast du " + money + " Geld");
     }
 
@@ -111,7 +111,6 @@ public class Player {
         street[pos].available = false;
         this.money = this.money - street[pos].cost;
     }
-
 
     /*public void streets_ausgeben(Street[] street) {
         System.out.println("Der Spieler besitzt folgende Strassen:");
@@ -127,8 +126,8 @@ public class Player {
         final int starty = 810 + (playernum * 3); //hier startcoords eingeben
         final int distance = 60; //Entfernung zws Feldern
         final int distanceSquareRectangle = 85; //Entfernung Ecke zu Feld
-        int movex = 0; //Änderung der Koordinaten
-        int movey = 0;
+        int movex; //Änderung der Koordinaten
+        int movey;
         if (pos < 10){
             movex = startx;
             movey = starty - distanceSquareRectangle - (pos - 1) * distance;
@@ -146,6 +145,6 @@ public class Player {
             movey = starty;
             return new int[]{movex, movey};
         }
-        return new int[]{movex, movey};
+        return new int[]{0,0};
     }
 }
