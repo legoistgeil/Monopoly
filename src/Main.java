@@ -4,8 +4,8 @@ public class Main {
     static Random rand = new Random();
     static int ran1 = rand.nextInt(5)+1;
     static int ran2 = rand.nextInt(5)+1;
-    //static int ran = ran1 + ran2;
-    static int ran = 12;
+    static int ran = ran1 + ran2;
+    //static int ran = 10;
     static ArrayList<Player> players = new ArrayList<>();
     static Board board;
     static int move = -1;
@@ -31,9 +31,9 @@ public class Main {
         GUI.line4.setText("");
         GUI.line1.setText("Spieler " + (finalI + 1) + " ist an der Reihe.");
         players.get(finalI).makeMove(ran, finalI, Board.street);
-        //ran1 = rand.nextInt(5) + 1;
-        //ran2 = rand.nextInt(5) + 1;
-        //ran = ran1 + ran2;
+        ran1 = rand.nextInt(5) + 1;
+        ran2 = rand.nextInt(5) + 1;
+        ran = ran1 + ran2;
         random = ran;
     }
     private static int turn(){
