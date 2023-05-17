@@ -67,18 +67,22 @@ public class Player {
                 switch (i){
                     case 0:
                         GUI.player1.setBounds(520, 180, 50, 50);
+                        Main.players.get(i).pos = 10;
                         break;
                     case 1:
                         GUI.player2.setBounds(520, 180, 50, 50);
+                        Main.players.get(i).pos = 10;
                         break;
                     case 2:
                         GUI.player3.setBounds(520, 180, 50, 50);
+                        Main.players.get(i).pos = 10;
                         break;
                     case 3:
                         GUI.player4.setBounds(520, 180, 50, 50);
+                        Main.players.get(i).pos = 10;
                         break;
                 }
-                Main.players.get(i).pos = 10;
+
 
             default:
                 if (street[pos].available) {
