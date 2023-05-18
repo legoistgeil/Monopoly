@@ -17,7 +17,7 @@ public class GUI {
     static JLabel line3r = new JLabel();
     static JLabel line4r = new JLabel();
     static JTextArea playerstats = new JTextArea();
-    static JTextArea left = new JTextArea();
+    static JTextArea leftStats = new JTextArea();
 
     public GUI(){
 
@@ -30,22 +30,21 @@ public class GUI {
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Monopoly");
-        frame.pack();
         frame.setSize(2600,1650);
 
-        player1.setBounds(500, 810, 50, 50);
+        player1.setBounds(538,893,50,50);
         frame.add(player1);
 
-        player2.setBounds(490, 810, 50, 50);
+        player2.setBounds(526, 893, 50, 50);
         frame.add(player2);
 
-        player3.setBounds(480, 810, 50, 50);
+        player3.setBounds(514, 893, 50, 50);
         frame.add(player3);
 
-        player4.setBounds(470, 810, 50, 50);
+        player4.setBounds(502, 893, 50, 50);
         frame.add(player4);
 
-        pic.setBounds(470,138,750,750);// Monopoly spielfeld
+        pic.setBounds(470,138,850,850);// Monopoly spielfeld
         frame.add(pic);
 
         panel.setSize(2560,1600);
@@ -58,19 +57,19 @@ public class GUI {
 
         Font font18 = font().deriveFont(18f); //Font auf Schriftgröße 18 machen
 
-        playerstats.setBounds(845,15,500,85);
+        playerstats.setBounds(845,15,475,85);
         playerstats.setBackground(new java.awt.Color(255, 246, 210));
         playerstats.setEditable(false);
         playerstats.setVisible(true);
         playerstats.setFont(font18);
         panel.add(playerstats);
 
-        left.setBounds(1230,138,460,160);
-        left.setBackground(new java.awt.Color(255, 246, 210));
-        left.setEditable(false);
-        left.setVisible(true);
-        left.setFont(font18);
-        panel.add(left);
+        leftStats.setBounds(1325,138,355,160);
+        leftStats.setBackground(new java.awt.Color(255, 246, 210));
+        leftStats.setEditable(false);
+        leftStats.setVisible(true);
+        leftStats.setFont(font18);
+        panel.add(leftStats);
 
         frame.setVisible(true);
 
@@ -79,7 +78,7 @@ public class GUI {
     private ImageIcon MonopolyImage(){
         try {
             BufferedImage bufferedImage = ImageIO.read(new FileInputStream("src/res/monopoly.png"));
-            Image newImage = bufferedImage.getScaledInstance(750,750, Image.SCALE_DEFAULT);
+            Image newImage = bufferedImage.getScaledInstance(850,850, Image.SCALE_DEFAULT);
             return new ImageIcon(newImage);
         } catch (IOException e){
             throw new Error(e);
