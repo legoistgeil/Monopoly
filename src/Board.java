@@ -1,5 +1,6 @@
 public class Board {
     public static Street[] street;
+    public static int Moneypool;
     public Board(){
         street = new Street[40];
         street[0]=new Street("Los", false, 0,2,null);

@@ -5,6 +5,7 @@ public class Player {
     int pos;
     int num_trains;
     int num_utilities;
+    static int cooldown;// in Klasse Main als cooldown oder so denn benutzen
 
     public Player(int money, int pos, int num_trains, int num_utilities) {
         this.money = money;
@@ -20,21 +21,9 @@ public class Player {
     void move(int ran, int i, Street[] street) {
         GUI.line2.setText("Geld:" + money);
         this.pos = this.pos + ran;
-        if (this.pos > 39) {
-            this.pos = this.pos - 40;
-            System.out.println("Spieler ist über Los gegangen und hat 200 erhalten");
-            money = money + 200;
-        }
 
-
-        int[] a = BoardCoords(i);
-
-        switch (i) {
-            case 0 -> GUI.player1.setBounds(a[0], a[1], 50, 50);
-            case 1 -> GUI.player2.setBounds(a[0], a[1], 50, 50);
-            case 2 -> GUI.player3.setBounds(a[0], a[1], 50, 50);
-            default -> GUI.player4.setBounds(a[0], a[1], 50, 50);
-        }
+        passedLOS();//sind jz Methoden damit es aufgeräumter ist
+        IconMove(i);
 
         GUI.line3.setText("Du stehst auf " + street[pos].name);
 
@@ -46,32 +35,40 @@ public class Player {
             case "Gemeinschaftsfeld":
                 //Gemeinschaftskarte ziehen
                 break;
-            case "Frei Parken":
+            case "Frei_Parken":
+                money = money + Board.Moneypool;
+                Board.Moneypool = 0;
                 //Steuergelder einkassieren
                 break;
             case "Einkommenssteuer":
                 money = money - 200;
+                Board.Moneypool = Board.Moneypool + 200;//Funktioniert Frei Parken auch
                 break;
             case "Zusatzsteuer":
                 money = money - 100;
+                Board.Moneypool = Board.Moneypool + 100;
                 break;
             case "Geh_ins_Gefängnis":
                 switch (i){
                     case 0:
                         GUI.player1.setBounds(520, 180, 50, 50);
                         Main.players.get(i).pos = 10;
+                        cooldown = 3;
                         break;
                     case 1:
                         GUI.player2.setBounds(520, 180, 50, 50);
                         Main.players.get(i).pos = 10;
+                        cooldown = 3;
                         break;
                     case 2:
                         GUI.player3.setBounds(520, 180, 50, 50);
                         Main.players.get(i).pos = 10;
+                        cooldown = 3;
                         break;
                     case 3:
                         GUI.player4.setBounds(520, 180, 50, 50);
                         Main.players.get(i).pos = 10;
+                        cooldown = 3;
                         break;
                 }
 
@@ -155,5 +152,23 @@ public class Player {
             return new int[]{movex, movey};
         }
         return new int[]{0,0};
+    }
+
+    public void passedLOS(){
+        if (this.pos > 39) {
+            this.pos = this.pos - 40;
+            System.out.println("Spieler ist über Los gegangen und hat 200 erhalten");
+            money = money + 200;
+        }
+    }
+
+    public void IconMove(int i){
+        int[] a = BoardCoords(i);
+        switch (i) {
+            case 0 -> GUI.player1.setBounds(a[0], a[1], 50, 50);
+            case 1 -> GUI.player2.setBounds(a[0], a[1], 50, 50);
+            case 2 -> GUI.player3.setBounds(a[0], a[1], 50, 50);
+            default -> GUI.player4.setBounds(a[0], a[1], 50, 50);
+        }
     }
 }
