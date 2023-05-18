@@ -5,17 +5,13 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 public class GUI {
     static JFrame frame = new JFrame();
-    JLabel pic = new JLabel(MonopolyImage());
+    JLabel monopolyBoard = new JLabel(MonopolyImage());
     static JLabel player1 = new JLabel(player1pic());
     static JLabel player2 = new JLabel(player2pic());
     static JLabel player3 = new JLabel(player3pic());
     static JLabel player4 = new JLabel(player4pic());
     static JPanel panel = new JPanel();
     static JButton move = new JButton(ArrowImage());
-    static JLabel line1r = new JLabel();
-    static JLabel line2r = new JLabel();
-    static JLabel line3r = new JLabel();
-    static JLabel line4r = new JLabel();
     static JTextArea playerstats = new JTextArea();
     static JTextArea leftStats = new JTextArea();
 
@@ -30,7 +26,7 @@ public class GUI {
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Monopoly");
-        frame.setSize(2600,1650);
+        frame.setSize(screenSize.width,screenSize.height);
 
         player1.setBounds(538,893,50,50);
         frame.add(player1);
@@ -44,8 +40,8 @@ public class GUI {
         player4.setBounds(502, 893, 50, 50);
         frame.add(player4);
 
-        pic.setBounds(470,138,850,850);// Monopoly spielfeld
-        frame.add(pic);
+        monopolyBoard.setBounds(470,138,850,850);//
+        frame.add(monopolyBoard);
 
         panel.setSize(2560,1600);
         panel.setLayout(null);
@@ -53,6 +49,8 @@ public class GUI {
         frame.add(panel);
 
         move.setBounds(10,500,100,90);
+        move.setFocusPainted(false);
+        move.setBorderPainted(false);
         panel.add(move);
 
         Font font18 = font().deriveFont(18f); //Font auf Schriftgröße 18 machen

@@ -33,7 +33,7 @@ public class Board {
         street[27]=new Street("27", true, 260,24,null);
         street[28]=new Street("Wasserwerk", true, 150,0,null);
         street[29]=new Street("29", true, 280,26,null);
-        street[30]=new Street("Geh_ins_Gefängnis", false, 0,0,null);
+        street[30]=new Street("Geh_ins_Gefaengnis", false, 0,0,null);
         street[31]=new Street("31", true, 300,26,null);
         street[32]=new Street("32", true, 300,0,null);
         street[33]=new Street("Gemeinschaftsfeld", false, 0,0,null);

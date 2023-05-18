@@ -121,7 +121,7 @@ public class Player {
 
     public void streets_ausgeben() {
         GUI.leftStats.setText(null);
-        GUI.leftStats.append("Der Spieler " + (Main.playerturn + 1) + " hat folgende Strassen\n");
+        GUI.leftStats.append("Der Spieler " + (Main.playerturn + 1) + " hat\n");
         for (int j = 0; j<40; j++){
             if (Board.street[j].owner == this) {
                 GUI.leftStats.append(Board.street[j].name + "\n");
