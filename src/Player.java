@@ -19,13 +19,13 @@ public class Player {
     }
 
     void move(int ran, int i, Street[] street) {
-        GUI.line2.setText("Geld:" + money);
+        GUI.playerstats.append("Geld:" + money + "\n");
         this.pos = this.pos + ran;
 
         passedLOS();//sind jz Methoden damit es aufgeräumter ist
         IconMove(i);
 
-        GUI.line3.setText("Du stehst auf " + street[pos].name);
+        GUI.playerstats.append("Du stehst auf " + street[pos].name + "\n");
 
         switch (street[pos].name) {
             case "Ereignisfeld":
@@ -85,13 +85,13 @@ public class Player {
                     if (street[pos].name.equals("Bahnhof")){
                         double tsrent = 25 * Math.pow(2, street[pos].owner.num_trains - 1);
                         int tsRent = (int) tsrent;
-                        GUI.line3.setText("Du kannst des nd kaufen, musst " + tsRent + " Miete zahlen");
+                        GUI.playerstats.append("Du kannst des nd kaufen, musst " + tsRent + " Miete zahlen\n");
                         Main.players.get(i).money = Main.players.get(i).money - tsRent;
                         street[pos].owner.money = street[pos].owner.money + tsRent;
                         break;
                     } else if (street[pos].name.equals("Elektrizitaetswerk") | street[pos].name.equals("Wasserwerk")){
                         int utilityrent = ran * (street[pos].owner.num_utilities * 4);
-                        GUI.line3.setText("Du kannst des nd kaufen, musst " + utilityrent + " Miete zahlen");
+                        GUI.playerstats.append("Du kannst des nd kaufen, musst " + utilityrent + " Miete zahlen\n");
                         Main.players.get(i).money = Main.players.get(i).money - utilityrent;
                         street[pos].owner.money = street[pos].owner.money + utilityrent;
                         break;
@@ -103,7 +103,7 @@ public class Player {
     }
 
     public void printMoney() {
-        GUI.line4.setText("Jetzt hast du " + money + " Geld");
+        GUI.playerstats.append("Jetzt hast du " + money + " Geld\n");
     }
 
     void buy(Street[] street, int pos) {
@@ -168,7 +168,7 @@ public class Player {
             case 0 -> GUI.player1.setBounds(a[0], a[1], 50, 50);
             case 1 -> GUI.player2.setBounds(a[0], a[1], 50, 50);
             case 2 -> GUI.player3.setBounds(a[0], a[1], 50, 50);
-            default -> GUI.player4.setBounds(a[0], a[1], 50, 50);
+            case 3 -> GUI.player4.setBounds(a[0], a[1], 50, 50);
         }
     }
 }

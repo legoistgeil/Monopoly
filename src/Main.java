@@ -5,7 +5,6 @@ public class Main {
     static int ran1 = rand.nextInt(5)+1;
     static int ran2 = rand.nextInt(5)+1;
     static int ran = ran1 + ran2;
-    //static int ran = 10;
     static ArrayList<Player> players = new ArrayList<>();
     static Board board;
     static int move = -1;
@@ -14,10 +13,10 @@ public class Main {
     public static void main(String[] args) {
         new GUI();
         board = new Board();
-        players.add(new Player(1501, 0, 0, 0));
-        players.add(new Player(1502, 0, 0, 0));
-        players.add(new Player(1503, 0, 0, 0));
-        players.add(new Player(1504, 0, 0, 0));
+        players.add(new Player(1500, 0, 0, 0));
+        players.add(new Player(1500, 0, 0, 0));
+        players.add(new Player(1500, 0, 0, 0));
+        players.add(new Player(1500, 0, 0, 0));
         Main.makeMove();
     }
     static void makeMove(){
@@ -26,10 +25,9 @@ public class Main {
     }
     private static void act(int finalI) {
         playerturn = finalI;
-        GUI.line2.setText("");
-        GUI.line3.setText("");
-        GUI.line4.setText("");
-        GUI.line1.setText("Spieler " + (finalI + 1) + " ist an der Reihe.");
+        GUI.playerstats.setText(null);
+        GUI.playerstats.append("Spieler " + (finalI + 1) + " ist an der Reihe.\n");
+
         players.get(finalI).makeMove(ran, finalI, Board.street);
         ran1 = rand.nextInt(5) + 1;
         ran2 = rand.nextInt(5) + 1;

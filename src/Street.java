@@ -19,7 +19,7 @@ public class Street{
     }
 
     void payrent(int i){
-        GUI.line3.setText("Du kannst des nd kaufen, musst " + this.getRent() + " Miete zahlen");
+        GUI.playerstats.append("Du kannst des nd kaufen, musst " + this.getRent() + " Miete zahlen\n");
         Main.players.get(i).money = Main.players.get(i).money - this.getRent();
         owner.money = owner.money + this.getRent();
     }

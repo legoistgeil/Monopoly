@@ -12,10 +12,11 @@ public class GUI {
     static JLabel player4 = new JLabel(player4pic());
     static JPanel panel = new JPanel();
     static JButton move = new JButton(ArrowImage());
-    static JLabel line1 = new JLabel();
-    static JLabel line2 = new JLabel();
-    static JLabel line3 = new JLabel();
-    static JLabel line4 = new JLabel();
+    static JLabel line1r = new JLabel();
+    static JLabel line2r = new JLabel();
+    static JLabel line3r = new JLabel();
+    static JLabel line4r = new JLabel();
+    static JTextArea playerstats = new JTextArea();
 
     public GUI(){
 
@@ -56,25 +57,12 @@ public class GUI {
 
         Font font18 = font().deriveFont(18f); //Font auf Schriftgröße 18 machen
 
-        line1.setBounds(845,15,400,20);  // erste Zeile
-        line1.setVisible(true);
-        line1.setFont(font18);
-        panel.add(line1);
-
-        line2.setBounds(845, 40, 500,20);    // zweite Zeile, hier:
-        line2.setVisible(true);                                 // Textzeile für Geld vor Zug
-        line2.setFont(font18);
-        panel.add(line2);
-
-        line3.setBounds(845,65,500,20); // dritte Zeile, hier:
-        line3.setVisible(true);                            // Textzeile für Zug
-        line3.setFont(font18);
-        panel.add(line3);
-
-        line4.setBounds(845,90,500,20); // vierte Zeile, hier:
-        line4.setVisible(true);                            // Textzeile für Geld nach Zug
-        line4.setFont(font18);
-        panel.add(line4);
+        playerstats.setBounds(845,15,500,85);
+        playerstats.setBackground(new java.awt.Color(255, 246, 210));
+        playerstats.setEditable(false);
+        playerstats.setVisible(true);
+        playerstats.setFont(font18);
+        panel.add(playerstats);
 
         frame.setVisible(true);
 
