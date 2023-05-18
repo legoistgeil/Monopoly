@@ -76,7 +76,7 @@ public class Player {
             default:
                 if (street[pos].available) {
                     if (street[pos].cost <= money) {
-                        int decision = JOptionPane.showConfirmDialog(GUI.frame, "Willscht kaufen? Kosten:"+ street[pos].cost, "Einkaufennnnnnn", JOptionPane.YES_NO_OPTION);
+                        int decision = JOptionPane.showConfirmDialog(GUI.frame, "Willst du's kaufen? Kosten:"+ street[pos].cost, "Grundstück kaufen", JOptionPane.YES_NO_OPTION);
                         if (decision == 0) {
                             buy(street, pos);
                         }
@@ -100,7 +100,7 @@ public class Player {
                 }
         }
         printMoney();
-        streets_ausgeben(street);
+        streets_ausgeben();
     }
 
     public void printMoney() {
@@ -119,9 +119,9 @@ public class Player {
         this.money = this.money - street[pos].cost;
     }
 
-    public void streets_ausgeben(Street[] street) {
+    public void streets_ausgeben() {
         GUI.left.setText(null);
-        GUI.left.append("Der Spieler hat folgende Strassen\n");
+        GUI.left.append("Der Spieler " + (Main.playerturn + 1) + " hat folgende Strassen\n");
         for (int j = 0; j<40; j++){
             if (Board.street[j].owner == this) {
                 GUI.left.append(Board.street[j].name + "\n");
