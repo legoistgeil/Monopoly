@@ -100,6 +100,7 @@ public class Player {
                 }
         }
         printMoney();
+        streets_ausgeben(street);
     }
 
     public void printMoney() {
@@ -118,14 +119,15 @@ public class Player {
         this.money = this.money - street[pos].cost;
     }
 
-    /*public void streets_ausgeben(Street[] street) {
-        System.out.println("Der Spieler besitzt folgende Strassen:");
-        for (int j, j<40, j++){
+    public void streets_ausgeben(Street[] street) {
+        GUI.left.setText(null);
+        GUI.left.append("Der Spieler hat folgende Strassen\n");
+        for (int j = 0; j<40; j++){
             if (Board.street[j].owner == this) {
-                System.out.println(Board.street[j].name);
+                GUI.left.append(Board.street[j].name + "\n");
             }
         }
-    }*/
+    }
 
     public int[] BoardCoords(int playernum){
         final int startx = 500 + (playernum * 3);// damit spieler nicht aufeinander stehen

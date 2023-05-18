@@ -17,6 +17,7 @@ public class GUI {
     static JLabel line3r = new JLabel();
     static JLabel line4r = new JLabel();
     static JTextArea playerstats = new JTextArea();
+    static JTextArea left = new JTextArea();
 
     public GUI(){
 
@@ -63,6 +64,13 @@ public class GUI {
         playerstats.setVisible(true);
         playerstats.setFont(font18);
         panel.add(playerstats);
+
+        left.setBounds(1230,138,460,160);
+        //left.setBackground(new java.awt.Color(255, 246, 210));
+        left.setEditable(false);
+        left.setVisible(true);
+        left.setFont(font18);
+        panel.add(left);
 
         frame.setVisible(true);
 
