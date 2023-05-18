@@ -76,7 +76,7 @@ public class Player {
             default:
                 if (street[pos].available) {
                     if (street[pos].cost <= money) {
-                        int decision = JOptionPane.showConfirmDialog(GUI.frame, "Willst du's kaufen? Kosten:"+ street[pos].cost, "Grundstück kaufen", JOptionPane.YES_NO_OPTION);
+                        int decision = JOptionPane.showConfirmDialog(GUI.frame, "Willst du's kaufen? Kosten:"+ street[pos].cost, "Grundstueck kaufen", JOptionPane.YES_NO_OPTION);
                         if (decision == 0) {
                             buy(street, pos);
                         }
@@ -140,17 +140,14 @@ public class Player {
             movex = startx - (playernum * 12);
             movey = starty - distanceSquareRectangle - (pos - 1) * distance;
             return new int[]{movex, movey};
-
         } else if (pos < 20){
             movex = 525 + distanceSquareRectangle + ((pos - 11) * distance);
             movey = starty - 2 * distanceSquareRectangle - 8 * distance - (playernum * 12);
             return new int[]{movex, movey};
-
         } else if (pos < 30){
             movex = startx + 2 * distanceSquareRectangle + 8 * distance - (playernum * 12);
             movey = starty - distanceSquareRectangle - (29 - pos) * distance;
             return new int[]{movex, movey};
-
         } else if (pos < 40) {
             movex = 525 + distanceSquareRectangle + (39 - pos) * distance;
             movey = starty + (playernum * 12);
