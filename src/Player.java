@@ -120,37 +120,40 @@ public class Player {
     }
 
     public void streets_ausgeben() {
-        GUI.left.setText(null);
-        GUI.left.append("Der Spieler " + (Main.playerturn + 1) + " hat folgende Strassen\n");
+        GUI.leftStats.setText(null);
+        GUI.leftStats.append("Der Spieler " + (Main.playerturn + 1) + " hat folgende Strassen\n");
         for (int j = 0; j<40; j++){
             if (Board.street[j].owner == this) {
-                GUI.left.append(Board.street[j].name + "\n");
+                GUI.leftStats.append(Board.street[j].name + "\n");
             }
         }
     }
 
     public int[] BoardCoords(int playernum){
-        final int startx = 500 + (playernum * 3);// damit spieler nicht aufeinander stehen
-        final int starty = 810 + (playernum * 3); //hier startcoords eingeben
-        final int distance = 60; //Entfernung zws Feldern
-        final int distanceSquareRectangle = 85; //Entfernung Ecke zu Feld
+        final int startx = 538;
+        final int starty = 893; //hier startcoords eingeben
+        final int distance = 67; //Entfernung zws Feldern
+        final int distanceSquareRectangle = 88; //Entfernung Ecke zu Feld
         int movex; //Änderung der Koordinaten
         int movey;
         if (pos < 10){
-            movex = startx;
+            movex = startx - (playernum * 12);
             movey = starty - distanceSquareRectangle - (pos - 1) * distance;
             return new int[]{movex, movey};
+
         } else if (pos < 20){
-            movex = startx + distanceSquareRectangle + (pos - 11) * distance;
-            movey = starty - 2 * distanceSquareRectangle - 8 * distance;
+            movex = 525 + distanceSquareRectangle + ((pos - 11) * distance);
+            movey = starty - 2 * distanceSquareRectangle - 8 * distance - (playernum * 12);
             return new int[]{movex, movey};
+
         } else if (pos < 30){
-            movex = startx + 2 * distanceSquareRectangle + 8 * distance;
+            movex = startx + 2 * distanceSquareRectangle + 8 * distance - (playernum * 12);
             movey = starty - distanceSquareRectangle - (29 - pos) * distance;
             return new int[]{movex, movey};
+
         } else if (pos < 40) {
-            movex = startx + distanceSquareRectangle + (39 - pos) * distance;
-            movey = starty;
+            movex = 525 + distanceSquareRectangle + (39 - pos) * distance;
+            movey = starty + (playernum * 12);
             return new int[]{movex, movey};
         }
         return new int[]{0,0};
