@@ -27,7 +27,7 @@ public class Main {
         playerturn = finalI;
         GUI.playerstats.setText(null);
         GUI.playerstats.append("Spieler " + (finalI + 1) + " ist an der Reihe.\n");
-
+        finalI =skipPlayer(finalI);
         players.get(finalI).makeMove(ran, finalI, Board.street);
         ran1 = rand.nextInt(5) + 1;
         ran2 = rand.nextInt(5) + 1;
@@ -41,5 +41,12 @@ public class Main {
             move = 0;
         }
         return move;
+    }
+
+    public static int skipPlayer(int finalI){
+        if(players.get(finalI).cooldown < 0){
+            return finalI++;
+        }
+        return finalI;
     }
 }
