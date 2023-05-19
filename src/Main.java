@@ -4,8 +4,7 @@ public class Main {
     static Random rand = new Random();
     static int ran1 = rand.nextInt(5)+1;
     static int ran2 = rand.nextInt(5)+1;
-    //static int ran = ran1 + ran2;
-    static int ran = 30;
+    static int ran = ran1 + ran2;
     static ArrayList<Player> players = new ArrayList<>();
     static Board board;
     static int move = -1;
