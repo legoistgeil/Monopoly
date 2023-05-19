@@ -5,13 +5,14 @@ public class Player {
     int pos;
     int num_trains;
     int num_utilities;
-    static int cooldown;// in Klasse Main als cooldown oder so denn benutzen
+    int cooldown;// in Klasse Main als cooldown oder so denn benutzen
 
-    public Player(int money, int pos, int num_trains, int num_utilities) {
+    public Player(int money, int pos, int num_trains, int num_utilities, int cooldown) {
         this.money = money;
         this.pos = pos;
         this.num_trains = num_trains;
         this.num_utilities = num_utilities;
+        this.cooldown = cooldown;
     }
 
     void makeMove(int ran, int i, Street[] street) {
@@ -20,26 +21,26 @@ public class Player {
 
     public void gehe_ins_gefaengnis(int i) {
         switch (i) {
-            case 0:
+            case 0 -> {
                 GUI.player1.setBounds(535, 195, 50, 50);
                 this.pos = 10;
                 cooldown = 3;
-                break;
-            case 1:
+            }
+            case 1 -> {
                 GUI.player2.setBounds(535, 195, 50, 50);
                 this.pos = 10;
                 cooldown = 3;
-                break;
-            case 2:
+            }
+            case 2 -> {
                 GUI.player3.setBounds(535, 195, 50, 50);
                 this.pos = 10;
                 cooldown = 3;
-                break;
-            case 3:
+            }
+            case 3 -> {
                 GUI.player4.setBounds(535, 195, 50, 50);
                 this.pos = 10;
                 cooldown = 3;
-                break;
+            }
         }
     }
 
@@ -60,8 +61,8 @@ public class Player {
                     System.out.println(karte.textausgabe);
                     this.money = this.money + karte.geldzahlung;
                     if (karte.vorruecken) {
-                        this.pos = karte.ruecke_vor_bis_position;
-                        if (this.pos > karte.ruecke_vor_bis_position) {
+                        this.pos = karte.moveToPos;
+                        if (this.pos > karte.moveToPos) {
                             System.out.println("Du bekommst DM 200, weil du ueber Los gegangen bist");
                             this.money = this.money + 200;
                         }
@@ -80,7 +81,7 @@ public class Player {
                     break;
                 case "Einkommenssteuer":
                     money = money - 200;
-                    Board.Moneypool = Board.Moneypool + 200;//Funktioniert Frei Parken auch
+                    Board.Moneypool = Board.Moneypool + 200;//jz funktioniert Frei Parken auch
                     break;
                 case "Zusatzsteuer":
                     money = money - 100;
@@ -116,6 +117,9 @@ public class Player {
                         street[pos].payrent(i);
                     }
             }
+            /*if(cooldown > 0){
+                cooldown--;
+            }*/
             printMoney();
             streets_ausgeben();
         }

@@ -4,7 +4,7 @@ public class Ereigniskarten{
   public int geldzahlung;
   public int steuergeld_aenderung;
   public boolean vorruecken;
-  public int ruecke_vor_bis_position;
+  public int moveToPos;
   public boolean gehe_ins_gefaengnis;
 
   public Ereigniskarten(String name, String textausgabe, int geldzahlung, int steuergeld_aenderung, boolean vorruecken, int ruecke_vor_bis_position, boolean gehe_ins_gefaengnis) {
@@ -13,7 +13,7 @@ public class Ereigniskarten{
     this.geldzahlung = geldzahlung;
     this.steuergeld_aenderung = steuergeld_aenderung;
     this.vorruecken = vorruecken;
-    this.ruecke_vor_bis_position = ruecke_vor_bis_position;
+    this.moveToPos = ruecke_vor_bis_position;
     this.gehe_ins_gefaengnis = gehe_ins_gefaengnis;
   }
 }

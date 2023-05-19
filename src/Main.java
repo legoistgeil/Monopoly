@@ -13,10 +13,10 @@ public class Main {
     public static void main(String[] args) {
         new GUI();
         board = new Board();
-        players.add(new Player(1500, 0, 0, 0));
-        players.add(new Player(1500, 0, 0, 0));
-        players.add(new Player(1500, 0, 0, 0));
-        players.add(new Player(1500, 0, 0, 0));
+        players.add(new Player(1500, 0, 0, 0,0));
+        players.add(new Player(1500, 0, 0, 0,0));
+        players.add(new Player(1500, 0, 0, 0,0));
+        players.add(new Player(1500, 0, 0, 0,0));
         Main.makeMove();
     }
     static void makeMove(){
@@ -24,10 +24,15 @@ public class Main {
         GUI.move.addActionListener(e -> act(turn()));
     }
     private static void act(int finalI) {
+        /*if(players.get(finalI).cooldown > 0){
+            finalI++;
+        }
+        if(finalI > players.size()){
+            finalI = 0;
+        }*/
         playerturn = finalI;
         GUI.playerstats.setText(null);
         GUI.playerstats.append("Spieler " + (finalI + 1) + " ist an der Reihe.\n");
-        finalI =skipPlayer(finalI);
         players.get(finalI).makeMove(ran, finalI, Board.street);
         ran1 = rand.nextInt(5) + 1;
         ran2 = rand.nextInt(5) + 1;
@@ -41,12 +46,5 @@ public class Main {
             move = 0;
         }
         return move;
-    }
-
-    public static int skipPlayer(int finalI){
-        if(players.get(finalI).cooldown < 0){
-            return finalI++;
-        }
-        return finalI;
     }
 }
