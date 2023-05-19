@@ -31,6 +31,9 @@ public class Player {
             case "Ereignisfeld":
                 //Ereigniskarte ziehen
                 Ereigniskarten karte = Kartenstapel.karte_ziehen();
+                System.out.println("Ereigniskarte: "+karte.name);
+                System.out.println(karte.textausgabe);
+                if (geldausgabe < 0){}
                 break;
             case "Gemeinschaftsfeld":
                 //Gemeinschaftskarte ziehen
