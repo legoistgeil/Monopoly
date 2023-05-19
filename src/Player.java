@@ -48,26 +48,26 @@ public class Player {
                 money = money - 100;
                 Board.Moneypool = Board.Moneypool + 100;
                 break;
-            case "Geh_ins_Gefängnis":
+            case "Geh ins Gefaengnis":
                 switch (i){
                     case 0:
-                        GUI.player1.setBounds(520, 180, 50, 50);
-                        Main.players.get(i).pos = 10;
+                        GUI.player1.setBounds(535,195, 50, 50);
+                        this.pos = 10;
                         cooldown = 3;
                         break;
                     case 1:
-                        GUI.player2.setBounds(520, 180, 50, 50);
-                        Main.players.get(i).pos = 10;
+                        GUI.player2.setBounds(535,195, 50, 50);
+                        this.pos = 10;
                         cooldown = 3;
                         break;
                     case 2:
-                        GUI.player3.setBounds(520, 180, 50, 50);
-                        Main.players.get(i).pos = 10;
+                        GUI.player3.setBounds(535,195, 50, 50);
+                        this.pos = 10;
                         cooldown = 3;
                         break;
                     case 3:
-                        GUI.player4.setBounds(520, 180, 50, 50);
-                        Main.players.get(i).pos = 10;
+                        GUI.player4.setBounds(535,195, 50, 50);
+                        this.pos = 10;
                         cooldown = 3;
                         break;
                 }

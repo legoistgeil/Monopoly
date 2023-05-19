@@ -40,7 +40,7 @@ public class GUI {
         player4.setBounds(502, 893, 50, 50);
         frame.add(player4);
 
-        monopolyBoard.setBounds(470,138,850,850);//
+        monopolyBoard.setBounds(470,138,850,850);
         frame.add(monopolyBoard);
 
         panel.setSize(2560,1600);
