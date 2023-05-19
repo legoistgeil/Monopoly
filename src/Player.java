@@ -5,13 +5,14 @@ public class Player {
     int pos;
     int num_trains;
     int num_utilities;
-    static int cooldown;// in Klasse Main als cooldown oder so denn benutzen
+    int cooldown;// in Klasse Main als cooldown oder so denn benutzen
 
-    public Player(int money, int pos, int num_trains, int num_utilities) {
+    public Player(int money, int pos, int num_trains, int num_utilities, int cooldown) {
         this.money = money;
         this.pos = pos;
         this.num_trains = num_trains;
         this.num_utilities = num_utilities;
+        this.cooldown = cooldown;
     }
 
     void makeMove(int ran, int i, Street[] street) {
@@ -33,7 +34,7 @@ public class Player {
                 Ereigniskarten karte = Kartenstapel.karte_ziehen();
                 System.out.println("Ereigniskarte: "+karte.name);
                 System.out.println(karte.textausgabe);
-                if (geldausgabe < 0){}
+                //if (geldausgabe < 0){}
                 break;
             case "Gemeinschaftsfeld":
                 //Gemeinschaftskarte ziehen
