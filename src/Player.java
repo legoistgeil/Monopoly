@@ -17,43 +17,9 @@ public class Player {
     void makeMove(int ran, int i, Street[] street) {
         move(ran, i, street);
     }
-
-    void move(int ran, int i, Street[] street) {
-        GUI.playerstats.append("Geld:" + money + "\n");
-        this.pos = this.pos + ran;
-
-        passedLOS();//sind jz Methoden damit es aufgeräumter ist
-        IconMove(i);
-
-        GUI.playerstats.append("Du stehst auf " + street[pos].name + "\n");
-
-        switch (street[pos].name) {
-            case "Ereignisfeld":
-                //Ereigniskarte ziehen
-                Ereigniskarten karte = Kartenstapel.karte_ziehen();
-                System.out.println("Ereigniskarte: "+karte.name);
-                System.out.println(karte.textausgabe);
-                if (geldausgabe < 0){}
-                break;
-            case "Gemeinschaftsfeld":
-                //Gemeinschaftskarte ziehen
-                break;
-            case "Frei_Parken":
-                money = money + Board.Moneypool;
-                Board.Moneypool = 0;
-                //Steuergelder einkassieren
-                break;
-            case "Einkommenssteuer":
-                money = money - 200;
-                Board.Moneypool = Board.Moneypool + 200;//Funktioniert Frei Parken auch
-                break;
-            case "Zusatzsteuer":
-                money = money - 100;
-                Board.Moneypool = Board.Moneypool + 100;
-                break;
-            case "Geh ins Gefaengnis":
-                switch (i){
-                    case 0:
+    public void gehe_ins_gefaengnis(int i){
+        switch (i){
+            case 0:
                         GUI.player1.setBounds(535,195, 50, 50);
                         this.pos = 10;
                         cooldown = 3;
@@ -73,7 +39,53 @@ public class Player {
                         this.pos = 10;
                         cooldown = 3;
                         break;
+    }
+    void move(int ran, int i, Street[] street) {
+        GUI.playerstats.append("Geld:" + money + "\n");
+        this.pos = this.pos + ran;
+
+        passedLOS();//sind jz Methoden damit es aufgeräumter ist
+        IconMove(i);
+
+        GUI.playerstats.append("Du stehst auf " + street[pos].name + "\n");
+
+        switch (street[pos].name) {
+            case "Ereignisfeld":
+                //Ereigniskarte ziehen
+                Ereigniskarten karte = Kartenstapel.karte_ziehen();
+                System.out.println("Ereigniskarte: "+karte.name);
+                System.out.println(karte.textausgabe);
+                this.money = this.money + geldzahlung;
+                if (karte.vorruecken){
+                    this.pos = karte.ruecke_vor_bis_position;
+                    if (this.pos > karte.ruecke_vor_bis_position){
+                        System.out.println("Du bekommst DM 200, weil du ueber Los gegangen bist")
+                        this.money = this.money + 200;
+                    }
                 }
+                if (karte.gehe_ins_gefaengnis){
+                    gehe_ins_gefaengnis(i);
+                }
+                break;
+            case "Gemeinschaftsfeld":
+                //Gemeinschaftskarte ziehen
+                break;
+            case "Frei_Parken":
+                money = money + Board.Moneypool;
+                Board.Moneypool = 0;
+                //Steuergelder einkassieren
+                break;
+            case "Einkommenssteuer":
+                money = money - 200;
+                Board.Moneypool = Board.Moneypool + 200;//Funktioniert Frei Parken auch
+                break;
+            case "Zusatzsteuer":
+                money = money - 100;
+                Board.Moneypool = Board.Moneypool + 100;
+                break;
+            case "Geh ins Gefaengnis":
+                gehe_ins_gefaengnis(i);
+        }
 
 
             default:
