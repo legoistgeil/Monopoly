@@ -17,7 +17,7 @@ public class Player {
 
     public void makeMove ( int ran, int i, Street[] street){
         GUI.playerstats.append("Geld:" + money + "\n");
-        this.pos = this.pos + ran;
+        this.pos += ran;
 
         passedLOS();//sind jz Methoden damit es aufgeräumter ist
         IconMove(i);
@@ -46,23 +46,23 @@ public class Player {
                 //Gemeinschaftskarte ziehen
                 break;
             case "Frei_Parken":
-                money = money + Board.Moneypool;
+                this.money += Board.Moneypool;
                 Board.Moneypool = 0;
                 //Steuergelder einkassieren
                 break;
             case "Einkommenssteuer":
-                money = money - 200;
-                Board.Moneypool = Board.Moneypool + 200;//jz funktioniert Frei Parken auch
+                this.money -= 200;
+                Board.Moneypool += 200;//jz funktioniert Frei Parken auch
                 break;
             case "Zusatzsteuer":
-                money = money - 100;
-                Board.Moneypool = Board.Moneypool + 100;
+                money -= 100;
+                Board.Moneypool += 100;
                 break;
             case "Geh ins Gefaengnis":
                 gehe_ins_gefaengnis(i);
 
             default:
-                if (street[pos].owner != null) {
+                if (street[pos].owner == null) {
                     if (street[pos].cost <= money) {
                         int decision = JOptionPane.showConfirmDialog(GUI.frame, "Willst du's kaufen? Kosten:" + street[pos].cost, "Grundstueck kaufen", JOptionPane.YES_NO_OPTION);
                         if (decision == 0) {
@@ -74,8 +74,8 @@ public class Player {
                         double tsrent = 25 * Math.pow(2, street[pos].owner.num_trains - 1);
                         int tsRent = (int) tsrent;
                         GUI.playerstats.append("Du kannst des nd kaufen, musst " + tsRent + " Miete zahlen\n");
-                        Main.players.get(i).money = Main.players.get(i).money - tsRent;
-                        street[pos].owner.money = street[pos].owner.money + tsRent;
+                        Main.players.get(i).money -= tsRent;
+                        street[pos].owner.money += tsRent;
                         break;
                     } else if (street[pos].name.equals("Elektrizitaetswerk") | street[pos].name.equals("Wasserwerk")) {
                         int utilityrent = ran * (street[pos].owner.num_utilities * 4);

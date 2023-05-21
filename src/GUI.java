@@ -55,14 +55,14 @@ public class GUI {
 
         Font font18 = font().deriveFont(18f); //Font auf Schriftgröße 18 machen
 
-        playerstats.setBounds(845,15,475,85);
+        playerstats.setBounds(845,15,500,85);
         playerstats.setBackground(new java.awt.Color(255, 246, 210));
         playerstats.setEditable(false);
         playerstats.setVisible(true);
         playerstats.setFont(font18);
         panel.add(playerstats);
 
-        leftStats.setBounds(1325,138,355,160);
+        leftStats.setBounds(1325,138,355,200);
         leftStats.setBackground(new java.awt.Color(255, 246, 210));
         leftStats.setEditable(false);
         leftStats.setVisible(true);
