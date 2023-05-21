@@ -1,14 +1,12 @@
 public class Street{
     final public String name;
-    boolean available;
     final int cost;
     int rent;
     Player owner;
     //int num_houses;
 
-    public Street(String name, boolean available, int cost, int rent, Player owner) {
+    public Street(String name, int cost, int rent, Player owner) {
         this.name = name;
-        this.available = available;
         this.cost = cost;
         this.rent = rent;
         this.owner = owner;
