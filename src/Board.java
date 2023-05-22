@@ -6,13 +6,13 @@ public class Board {
     Player player = new Player(0,0,0,0,0);
     public Board(){
         street = new Street[40];
-        street[0]=new Street("Los", 0,2,player,"");
-        street[1]=new Street("Informatik Berkmann", 60,4,null,"lila");
-        street[2]=new Street("Gemeinschaftsfeld", 0,0,player,"");
-        street[3]=new Street("Informatik Weber", 60,6,null,"lila");
+        street[0]=new Los();
+        street[1]=new PropertyCell("Informatik Berkmann", 60,4,null,"lila");
+        street[2]=new Ereignisfeld("Gemeinschaftsfeld", 0,0,player,"");
+        street[3]=new PropertyCell("Informatik Weber", 60,6,null,"lila");
         street[4]=new Street("Einkommenssteuer", 0,0,player,"");
-        street[5]=new Street("Pausenverkauf", 200,50,null,"");
-        street[6]=new Street("Biologie Koerner", 100,6,null,"hellblau");
+        street[5]=new PropertyCell("Pausenverkauf", 200,50,null,"");
+        street[6]=new PropertyCell("Biologie Koerner", 100,6,null,"hellblau");
         street[7]=new Street("Ereignisfeld", 0,0,player,"");
         street[8]=new Street("Biologie Rosch", 100,8,null,"hellblau");
         street[9]=new Street("Biologie Getfert", 120,10,null,"hellblau");

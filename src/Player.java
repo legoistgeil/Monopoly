@@ -84,7 +84,7 @@ public class Player {
                         street[pos].owner.money = street[pos].owner.money + utilityrent;
                         break;
                     }
-                    street[pos].payrent(i);
+                    //street[pos].payrent(i);
                 }
         }
             /*if(cooldown > 0){
