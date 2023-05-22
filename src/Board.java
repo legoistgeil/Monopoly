@@ -6,7 +6,7 @@ public class Board {
     Player player = new Player(0,0,0,0,0);
     public Board(){
         street = new Street[40];
-        street[0]=new Street("Los", 0,2,player);
+        street[0]=new Street("Los", 0,2,player,"");
         street[1]=new Street("Informatik Berkmann", 60,4,null,"lila");
         street[2]=new Street("Gemeinschaftsfeld", 0,0,player,"");
         street[3]=new Street("Informatik Weber", 60,6,null,"lila");
