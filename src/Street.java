@@ -3,13 +3,15 @@ public class Street{
     final int cost;
     int rent;
     Player owner;
+    final public String colour;
     //int num_houses;
 
-    public Street(String name, int cost, int rent, Player owner) {
+    public Street(String name, int cost, int rent, Player owner, String colour) {
         this.name = name;
         this.cost = cost;
         this.rent = rent;
         this.owner = owner;
+        this.colour = colour;
     }
 
     public int getRent() {
