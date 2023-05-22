@@ -2,21 +2,29 @@ plugins {
     id 'java'
 }
 
-group 'org.example'
+group 'monopoly'
 version '1.0-SNAPSHOT'
 
-repositories {
-    mavenCentral()
+java.toolchain {
+    languageVersion.set(JavaLanguageVersion.of(17))
+    vendor = JvmVendorSpec.ADOPTIUM
 }
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+jar {
+    manifest.attributes.put('Main-Class', 'Main')
+}
+
 sourceSets {
     main {
         java {
             srcDirs = ['src']
         }
+        resources {
+            srcDirs = ['src']
+            include 'res/**'
+        }
     }
-}
-dependencies {
-    implementation 'org.junit.jupiter:junit-jupiter:5.8.1'
-    implementation 'org.junit.jupiter:junit-jupiter:5.8.1'
-    testImplementation 'junit:junit:4.12'
 }
