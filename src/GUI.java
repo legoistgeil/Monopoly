@@ -10,8 +10,8 @@ public class GUI {
     static JLabel player2 = new JLabel(player2pic());
     static JLabel player3 = new JLabel(player3pic());
     static JLabel player4 = new JLabel(player4pic());
-    static JPanel panel = new JPanel();
-    static JButton move = new JButton(ArrowImage());
+    JPanel panel = new JPanel();
+    JButton move = new JButton(ArrowImage());
     static JTextArea playerstats = new JTextArea();
     static JTextArea leftStats = new JTextArea();
     JLabel monopolyBoard = new JLabel(MonopolyImage());
@@ -74,7 +74,7 @@ public class GUI {
 
     }
 
-    private static Font font() {
+    private   Font font() {
         Font tffBase;
         try {
             String path = "res/kabel.ttf";
@@ -88,12 +88,12 @@ public class GUI {
         return tffBase;
     }
 
-    public static void start(boolean i) {
+    void start() {
         JLabel start = new JLabel("Das Spiel beginnt! Druecke die Pfeiltaste");
         Font font24 = font().deriveFont(24f);
         start.setFont(font24);
         start.setBounds(10, 10, 1000, 35);
-        start.setVisible(i);
+        start.setVisible(true);
         panel.add(start);
     }
 
@@ -117,7 +117,7 @@ public class GUI {
         return icon("res/monopoly.png", 850, 850);
     }
 
-    private static ImageIcon ArrowImage() {
+    private   ImageIcon ArrowImage() {
         return icon("res/arrow-sign.png", 100, 90);
     }
 

@@ -1,7 +1,7 @@
-public final class Los extends Street{
+public class Steuern extends Street{
     String name;
 
-    public Los(String name) {
+    public Steuern(String name) {
         this.name = name;
     }
 
@@ -20,6 +20,7 @@ public final class Los extends Street{
     }
 
     void makeAction(int i) {
-
+        Main.players.get(i).money -= 200;
+        Board.Moneypool += 200;
     }
 }
