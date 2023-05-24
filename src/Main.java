@@ -7,8 +7,8 @@ public class Main {
     static int move = -1;
     static int playerturn;
     static int random;
+    static GUI gui = new GUI();
     public static void main(String[] args) {
-        new GUI();
         board = new Board();
         players.add(new Player(1500, 0, 0, 0,0));
         players.add(new Player(1500, 0, 0, 0,0));
@@ -16,17 +16,11 @@ public class Main {
         players.add(new Player(1500, 0, 0, 0,0));
         Main.makeMove();
     }
-    static void makeMove(){
-        GUI.start(true);
-        GUI.move.addActionListener(e -> act(turn()));
+      static void makeMove(){
+        gui.start();
+        gui.move.addActionListener(e -> act(turn()));
     }
     private static void act(int finalI) {
-        /*if(players.get(finalI).cooldown > 0){
-            finalI++;
-        }
-        if(finalI > players.size()){
-            finalI = 0;
-        }*/
         int ran1 = rand.nextInt(5) + 1;
         int ran2 = rand.nextInt(5) + 1;
         int ran = ran1 + ran2;

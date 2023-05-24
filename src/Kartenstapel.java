@@ -1,9 +1,9 @@
 import java.util.LinkedList;
 import java.util.Random;
 public class Kartenstapel {
-    static Random rand = new Random();
+      Random rand = new Random();
     public static LinkedList<Ereigniskarten> ereigniskarten = new LinkedList<Ereigniskarten>();
-    static int ran = rand.nextInt(9);
+      int ran = rand.nextInt(9);
     public Kartenstapel(){
         ereigniskarten.add(new Ereigniskarten("Kreuzwortraetselwettbewerb", "Du hast in einem Kreuzwortraetselwettbewerb gewonnen. Ziehe DM 100 ein",100,0,false,0,false));
         ereigniskarten.add(new Ereigniskarten("Miete und Anleihezinsen","Miete und Anleihezinsen werden fällig. Die Bank zahlt Dir DM 150",150,0,false,0,false));
@@ -17,6 +17,6 @@ public class Kartenstapel {
         ereigniskarten.add(new Ereigniskarten("Gefängnis","Gehe in das Gefängnis. Begib Dich direkt dorthin. Gehe nicht über Los. Ziehe nicht DM 200 ein",0,0,false,0,true));
     }
     public static Ereigniskarten karte_ziehen(){
-        return ereigniskarten.get(ran);
+        return ereigniskarten.get(5);
     }
 }
