@@ -114,7 +114,7 @@ public class GUI {
     }
 
     private ImageIcon MonopolyImage() {
-        return icon("res/monopoly.png", 850, 850);
+        return icon("res/Monopoly_Map.jpg", 850, 850);
     }
 
     private   ImageIcon ArrowImage() {
