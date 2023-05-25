@@ -56,15 +56,15 @@ public class GUI {
 
         Font font18 = font().deriveFont(18f); //Font auf Schriftgröße 18 machen
 
-        playerstats.setBounds(845, 15, 500, 85);
+        playerstats.setBounds(845,15,500,85);
         playerstats.setBackground(new java.awt.Color(255, 246, 210));
         playerstats.setEditable(false);
         playerstats.setVisible(true);
         playerstats.setFont(font18);
         panel.add(playerstats);
 
-        leftStats.setBounds(1325, 138, 355, 200);
-        leftStats.setBackground(new java.awt.Color(255, 246, 210));
+        leftStats.setBounds(1325,138,355,800);
+        leftStats.setBackground(new java.awt.Color(255,246,210));
         leftStats.setEditable(false);
         leftStats.setVisible(true);
         leftStats.setFont(font18);
@@ -117,7 +117,7 @@ public class GUI {
         return icon("res/Monopoly_Map.jpg", 850, 850);
     }
 
-    private   ImageIcon ArrowImage() {
+    private ImageIcon ArrowImage() {
         return icon("res/arrow-sign.png", 100, 90);
     }
 

@@ -19,7 +19,7 @@ public class Player {
         GUI.playerstats.append("Geld:" + money + "\n");
         this.pos += ran;
 
-        passedLOS();//sind jz Methoden damit es aufgeräumter ist
+        passedLOS();
         IconMove(i);
 
         GUI.playerstats.append("Du stehst auf " +  Board.street[pos].getName() + "\n");
@@ -58,11 +58,14 @@ public class Player {
 
     public void streets_ausgeben () {
         GUI.leftStats.setText(null);
-        GUI.leftStats.append("Der Spieler " + (Main.playerturn + 1) + " hat\n");
-        for (int j = 0; j < 40; j++) {
-            if (Board.street[j].getOwner() == this) {
-                GUI.leftStats.append(Board.street[j].getName() + "\n");
+        for (int i = 0; i < Main.players.size(); i++){
+            GUI.leftStats.append("Der Spieler " + (i + 1) + " hat\n");
+            for (int j = 0; j < 40; j++) {
+                if (Board.street[j].getOwner() == Main.players.get(i)) {
+                    GUI.leftStats.append("   " + Board.street[j].getName() + "\n");
+                }
             }
+            GUI.leftStats.append("\n");
         }
     }
 
