@@ -1,5 +1,6 @@
 public class Ereignisfeld extends Street{
     String name;
+    int counter = 0;
 
     public Ereignisfeld(String name) {
         this.name = name;
@@ -25,19 +26,27 @@ public class Ereignisfeld extends Street{
     }
 
     void makeAction(int i) {
+        if (counter == 4){
+            counter = 0;
+            GUI.karte.setText(null);
+        }
         Ereigniskarten karte = Kartenstapel.karte_ziehen();
-        System.out.println("Ereigniskarte: " + karte.name);
-        System.out.println(karte.textausgabe);
+        GUI.karte.append("Ereigniskarte: " + karte.name + "\n");
+        GUI.karte.append(karte.textausgabe + "\n");
         Main.players.get(i).money += karte.geldzahlung;
         if (karte.vorruecken) {
             if (Main.players.get(i).pos > karte.moveToPos) {
-                System.out.println("Du bekommst DM 200, weil du ueber Los gegangen bist");
+                GUI.karte.append("Du bekommst DM 200, weil du ueber Los gegangen bist\n");
                 Main.players.get(i).money += 200;
             }
             Main.players.get(i).pos = karte.moveToPos;
         }
         if (karte.gehe_ins_gefaengnis) {
             Gefaengnis.gehe_ins_gefaengnis(i);
+        }
+        GUI.karte.append("\n");
+        if (counter < 5){
+            counter += 1;
         }
     }
 

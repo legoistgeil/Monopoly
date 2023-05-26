@@ -20,6 +20,7 @@ public class Player {
         iconMove(i);
         GUI.playerstats.append("Du stehst auf " +  Board.street[pos].getName() + "\n");
         street[pos].makeAction(i);
+        iconMove(i);
         printMoney();
         streets_ausgeben();
     }
@@ -32,10 +33,10 @@ public class Player {
         GUI.leftStats.setText(null);
         for (int i = 0; i < Main.players.size(); i++){
             GUI.leftStats.append("Der Spieler " + (i + 1) + " hat\n");
-            if (anzahlStreets(i) == 0){
+            /*if (anzahlStreets(i) == 0){
                 GUI.leftStats.append("Noch nichts \n");
                 break;
-            }
+            }*/
             for (int j = 0; j < 40; j++) {
                 if (Board.street[j].getOwner() == Main.players.get(i)) {
                     GUI.leftStats.append("   " + Board.street[j].getName() + "\n");
@@ -87,7 +88,7 @@ public class Player {
         }
     }
 
-    public int anzahlStreets(int playerturn){
+    /*public int anzahlStreets(int playerturn){
         int amount = 0;
         for (int i = 0; i < Main.players.size(); i++){
             for (int j= 0; j < Board.street.length; j++){
@@ -98,7 +99,7 @@ public class Player {
             }
         }
         return amount;
-    }
+    }*/
 }
 
 

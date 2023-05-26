@@ -14,6 +14,7 @@ public class GUI {
     JButton move = new JButton(ArrowImage());
     static JTextArea playerstats = new JTextArea();
     static JTextArea leftStats = new JTextArea();
+    static JTextArea karte = new JTextArea();;
     JLabel monopolyBoard = new JLabel(MonopolyImage());
 
     public GUI() {
@@ -70,11 +71,19 @@ public class GUI {
         leftStats.setFont(font18);
         panel.add(leftStats);
 
+        karte.setBounds(10,138,450,350);
+        karte.setBackground(new java.awt.Color(255,246,210));
+        karte.setEditable(false);
+        karte.setVisible(true);
+        karte.setFont(font18);
+
+        panel.add(karte);
+
         frame.setVisible(true);
 
     }
 
-    private   Font font() {
+    private Font font() {
         Font tffBase;
         try {
             String path = "res/kabel.ttf";
