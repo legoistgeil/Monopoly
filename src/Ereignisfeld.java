@@ -32,7 +32,7 @@ public class Ereignisfeld extends Street{
         if (karte.vorruecken) {
             if (Main.players.get(i).pos > karte.moveToPos) {
                 System.out.println("Du bekommst DM 200, weil du ueber Los gegangen bist");
-                Main.players.get(i).money = Main.players.get(i).money + 200;
+                Main.players.get(i).money += 200;
             }
             Main.players.get(i).pos = karte.moveToPos;
         }
