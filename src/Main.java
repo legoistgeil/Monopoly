@@ -4,12 +4,14 @@ public class Main {
     static Random rand = new Random();
     static ArrayList<Player> players = new ArrayList<>();
     static Board board;
+    static Kartenstapel kartenstapel;
     static int move = -1;
     static int playerturn;
     static int random;
     static GUI gui = new GUI();
     public static void main(String[] args) {
         board = new Board();
+        kartenstapel = new Kartenstapel();
         players.add(new Player(1500, 0, 0, 0,0));
         players.add(new Player(1500, 0, 0, 0,0));
         players.add(new Player(1500, 0, 0, 0,0));

@@ -32,12 +32,13 @@ public class Player {
         GUI.leftStats.setText(null);
         for (int i = 0; i < Main.players.size(); i++){
             GUI.leftStats.append("Der Spieler " + (i + 1) + " hat\n");
+            if (anzahlStreets(i) == 0){
+                GUI.leftStats.append("Noch nichts \n");
+                break;
+            }
             for (int j = 0; j < 40; j++) {
                 if (Board.street[j].getOwner() == Main.players.get(i)) {
                     GUI.leftStats.append("   " + Board.street[j].getName() + "\n");
-                }
-                if (anzahlStreets() == 0){
-                    GUI.leftStats.append("Noch nichts \n");
                 }
             }
             GUI.leftStats.append("\n");
@@ -86,14 +87,14 @@ public class Player {
         }
     }
 
-    public int anzahlStreets(){
+    public int anzahlStreets(int playerturn){
         int amount = 0;
-        for (int i= 0; i < Main.players.size(); i++){
-            for (int j= 0; j <= Board.street.length; j++){
-                if (Board.street[j].getOwner() == Main.players.get(i)){
+        for (int i = 0; i < Main.players.size(); i++){
+            for (int j= 0; j < Board.street.length; j++){
+                if (Board.street[j].getOwner() == Main.players.get(playerturn)){
                    amount += 1;
                     return amount;
-             }
+                }
             }
         }
         return amount;
