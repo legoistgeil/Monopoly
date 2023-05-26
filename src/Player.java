@@ -45,16 +45,6 @@ public class Player {
     public void printMoney () {
         GUI.playerstats.append("Jetzt hast du " + money + " Geld\n");
     }
-    void buy (Street[]street,int pos){
-        street[pos].owner = this;
-        if (street[pos].name.equals("Bahnhof")) {
-            this.num_trains = this.num_trains + 1;
-        }
-        if (street[pos].name.equals("Elektrizitaetswerk") || street[pos].name.equals("Wasserwerk")) {
-            this.num_utilities = this.num_utilities + 1;
-        }
-        this.money = this.money - street[pos].getCost();
-    }
 
     public void streets_ausgeben () {
         GUI.leftStats.setText(null);
