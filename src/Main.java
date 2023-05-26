@@ -18,6 +18,7 @@ public class Main {
     }
       static void makeMove(){
         gui.start();
+        printStreets();
         gui.move.addActionListener(e -> act(turn()));
     }
     private static void act(int finalI) {
@@ -37,5 +38,13 @@ public class Main {
             move = 0;
         }
         return move;
+    }
+    public static void printStreets(){
+        GUI.leftStats.setText(null);
+        for (int i = 0; i < Main.players.size(); i++){
+            GUI.leftStats.append("Der Spieler " + (i + 1) + " hat\n");
+            GUI.leftStats.append("Noch nichts \n");
+            GUI.leftStats.append("\n");
+        }
     }
 }

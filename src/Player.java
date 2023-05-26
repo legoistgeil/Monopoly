@@ -36,6 +36,9 @@ public class Player {
                 if (Board.street[j].getOwner() == Main.players.get(i)) {
                     GUI.leftStats.append("   " + Board.street[j].getName() + "\n");
                 }
+                if (anzahlStreets() == 0){
+                    GUI.leftStats.append("Noch nichts \n");
+                }
             }
             GUI.leftStats.append("\n");
         }
@@ -81,6 +84,19 @@ public class Player {
             case 2 -> GUI.player3.setBounds(a[0], a[1], 50, 50);
             case 3 -> GUI.player4.setBounds(a[0], a[1], 50, 50);
         }
+    }
+
+    public int anzahlStreets(){
+        int amount = 0;
+        for (int i= 0; i < Main.players.size(); i++){
+            for (int j= 0; j <= Board.street.length; j++){
+                if (Board.street[j].getOwner() == Main.players.get(i)){
+                   amount += 1;
+                    return amount;
+             }
+            }
+        }
+        return amount;
     }
 }
 
