@@ -19,7 +19,6 @@ public class Player {
         passedLOS();
         iconMove(i);
         GUI.playerstats.append("Du stehst auf " +  Board.street[pos].getName() + "\n");
-        GUI.karte.setText(null);
         street[pos].makeAction(i);
         iconMove(i);
         printMoney();

@@ -26,10 +26,7 @@ public class Ereignisfeld extends Street{
     }
 
     void makeAction(int i) {
-        if (counter == 4){
-            counter = 0;
-            GUI.karte.setText(null);
-        }
+        GUI.karte.setText(null);
         Ereigniskarten karte = Kartenstapel.karte_ziehen();
         GUI.karte.append("Ereigniskarte: " + karte.name + "\n");
         GUI.karte.append(karte.textausgabe + "\n");
@@ -43,10 +40,6 @@ public class Ereignisfeld extends Street{
         }
         if (karte.gehe_ins_gefaengnis) {
             Gefaengnis.gehe_ins_gefaengnis(i);
-        }
-        GUI.karte.append("\n");
-        if (counter < 5){
-            counter += 1;
         }
     }
 
