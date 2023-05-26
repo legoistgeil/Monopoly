@@ -23,8 +23,6 @@ public class Gefaengnis extends Street{
         return null;
     }
 
-    void payrent(){};
-
     void makeAction(int i) {
         if(Main.players.get(i).pos == 30){
             gehe_ins_gefaengnis(i);

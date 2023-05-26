@@ -25,8 +25,7 @@ public class Main {
     private static void act(int finalI) {
         int ran1 = rand.nextInt(5) + 1;
         int ran2 = rand.nextInt(5) + 1;
-        //int ran = ran1 + ran2;
-        int ran = 12;
+        int ran = ran1 + ran2;
         playerturn = finalI;
         GUI.playerstats.setText(null);
         GUI.playerstats.append("Spieler " + (finalI + 1) + " ist an der Reihe.\n");
