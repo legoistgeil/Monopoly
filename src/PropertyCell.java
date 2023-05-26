@@ -1,7 +1,4 @@
 import javax.swing.*;
-import java.util.ArrayList;
-import java.util.Hashtable;
-
 public class PropertyCell extends Street {
     final String name;
     final int cost;
@@ -59,7 +56,4 @@ public class PropertyCell extends Street {
         Main.players.get(i).money -= street[pos].getCost();
     }
 
-    void colorTest(int j){
-
-    }
 }

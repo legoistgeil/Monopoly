@@ -2,7 +2,6 @@
 public class Board {
     static Street[] street = new Street[40];
     public static int Moneypool;
-    Player player = new Player(0,0,0,0,0);
     public Board(){
         street[0]=new Los("Los");
         street[1]=new PropertyCell("Informatik Berkmann", 60,4,null,"lila");

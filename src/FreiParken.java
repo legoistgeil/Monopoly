@@ -24,8 +24,6 @@ public class FreiParken extends Street{
         return null;
     }
 
-    void payrent(){}
-
     void makeAction(int i) {
         Main.players.get(i).money += Board.Moneypool;
         Board.Moneypool = 0;

@@ -53,5 +53,4 @@ public class TrainStation extends Street{
         owner.num_trains += 1;
         Main.players.get(i).money -= street[pos].getCost();
     }
-    void payrent(){}
 }
