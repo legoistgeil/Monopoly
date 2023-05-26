@@ -19,6 +19,11 @@ public class FreiParken extends Street{
         return null;
     }
 
+    @Override
+    public Object getColor() {
+        return null;
+    }
+
     void payrent(){}
 
     void makeAction(int i) {

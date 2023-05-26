@@ -1,5 +1,3 @@
-import javax.swing.*;
-
 public class Player {
     int money;
     int pos;
@@ -18,26 +16,10 @@ public class Player {
     void makeMove (int ran, int i, Street[] street){
         GUI.playerstats.append("Geld:" + money + "\n");
         this.pos += ran;
-
         passedLOS();
-        IconMove(i);
-
+        iconMove(i);
         GUI.playerstats.append("Du stehst auf " +  Board.street[pos].getName() + "\n");
-
         street[pos].makeAction(i);
-
-        /*
-                    if (street[pos].name.equals("Elektrizitaetswerk") | street[pos].name.equals("Wasserwerk")) {
-                        int utilityrent = ran * (street[pos].owner.num_utilities * 4);
-                        GUI.playerstats.append("Du kannst des nd kaufen, musst " + utilityrent + " Miete zahlen\n");
-                        Main.players.get(i).money = Main.players.get(i).money - utilityrent;
-                        street[pos].owner.money = street[pos].owner.money + utilityrent;
-                        break;
-                    }
-                    //street[pos].payrent(i);
-                }
-        */
-
         printMoney();
         streets_ausgeben();
     }
@@ -91,7 +73,7 @@ public class Player {
             money = money + 200;
         }
     }
-    public void IconMove ( int i){
+    public void iconMove(int i){
         int[] a = BoardCoords(i);
         switch (i) {
             case 0 -> GUI.player1.setBounds(a[0], a[1], 50, 50);

@@ -19,6 +19,11 @@ public final class Los extends Street{
         return null;
     }
 
+    @Override
+    public Object getColor() {
+        return null;
+    }
+
     void makeAction(int i) {
 
     }

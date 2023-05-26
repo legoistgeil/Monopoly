@@ -19,6 +19,11 @@ public class Ereignisfeld extends Street{
         return null;
     }
 
+    @Override
+    public Object getColor() {
+        return null;
+    }
+
     void makeAction(int i) {
         Ereigniskarten karte = Kartenstapel.karte_ziehen();
         System.out.println("Ereigniskarte: " + karte.name);

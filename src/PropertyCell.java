@@ -1,17 +1,20 @@
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.Hashtable;
+
 public class PropertyCell extends Street {
     final String name;
     final int cost;
     int rent;
     Player owner;
-    final String colour;
+    final String color;
 
-    public PropertyCell(String name, int cost, int rent, Player owner, String colour) {
+    public PropertyCell(String name, int cost, int rent, Player owner, String color) {
         this.name = name;
         this.cost = cost;
         this.rent = rent;
         this.owner = owner;
-        this.colour = colour;
+        this.color = color;
     }
 
     public String getName() {
@@ -30,8 +33,8 @@ public class PropertyCell extends Street {
         return owner;
     }
 
-    public String getColour() {
-        return colour;
+    public String getColor() {
+        return color;
     }
 
     void makeAction(int i) {
@@ -54,5 +57,9 @@ public class PropertyCell extends Street {
     void buy (Street[]street,int pos,int i){
         owner = Main.players.get(i);
         Main.players.get(i).money -= street[pos].getCost();
+    }
+
+    void colorTest(int j){
+
     }
 }

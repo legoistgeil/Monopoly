@@ -19,6 +19,11 @@ public class Steuern extends Street{
         return null;
     }
 
+    @Override
+    public Object getColor() {
+        return null;
+    }
+
     void makeAction(int i) {
         Main.players.get(i).money -= 200;
         Board.Moneypool += 200;

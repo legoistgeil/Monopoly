@@ -9,4 +9,6 @@ abstract class Street{
     public abstract int getCost();
 
     public abstract Player getOwner();
+
+    public abstract Object getColor();
 }

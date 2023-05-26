@@ -16,6 +16,11 @@ public class Werk extends Street{
         return owner;
     }
 
+    @Override
+    public Object getColor() {
+        return null;
+    }
+
     public String getName() {
         return name;
     }
