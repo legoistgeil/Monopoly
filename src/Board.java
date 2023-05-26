@@ -16,10 +16,10 @@ public class Board {
         street[8]=new PropertyCell("Biologie Rosch", 100,8,null,"hellblau");
         street[9]=new PropertyCell("Biologie Getfert", 120,10,null,"hellblau");
         street[10]=new Gefaengnis("Gefaengnis");
-        street[11]=new PropertyCell("Geografie Bejenke", 140,10,null,"pink");
+        street[11]=new PropertyCell("Sport Bejenke", 140,10,null,"pink");
         street[12]=new Werk("E-Werk",player,100);
-        street[13]=new PropertyCell("Geografie Lenner", 140,12,null,"pink");
-        street[14]=new PropertyCell("WR Schmidpeter", 160,14,null,"pink");
+        street[13]=new PropertyCell("Sport Kroiss", 140,12,null,"pink");
+        street[14]=new PropertyCell("Sport Pleger", 160,14,null,"pink");
         street[15]=new TrainStation("Ihle",200,null);
         street[16]=new PropertyCell("Geschichte/Sk Maul", 180,14,null,"orange");
         street[17]=new Ereignisfeld("Gemeinschaftsfeld");
