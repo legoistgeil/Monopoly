@@ -30,8 +30,6 @@ public class Werk extends Street{
         return 0;
     }
 
-    void payrent(){}
-
     void makeAction(int i) {
         if (owner == null) {
             if (cost <= Main.players.get(i).money) {
@@ -40,10 +38,10 @@ public class Werk extends Street{
 
             }
         } else {
-            int utilityrent = Main.random * (Board.street[Main.players.get(i).pos].owner.num_utilities * 4);
+            int utilityrent = Main.random * (this.owner.num_utilities * 4);
             GUI.playerstats.append("Du kannst des nd kaufen, musst " + utilityrent + " Miete zahlen\n");
             Main.players.get(i).money = Main.players.get(i).money - utilityrent;
-            Board.street[Main.players.get(i).pos].owner.money += utilityrent;
+            this.owner.money += utilityrent;
 
         }
     }

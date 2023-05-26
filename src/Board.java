@@ -1,4 +1,3 @@
-import java.util.*;
 
 public class Board {
     static Street[] street = new Street[40];
@@ -17,7 +16,7 @@ public class Board {
         street[9]=new PropertyCell("Biologie Getfert", 120,10,null,"hellblau");
         street[10]=new Gefaengnis("Gefaengnis");
         street[11]=new PropertyCell("Sport Bejenke", 140,10,null,"pink");
-        street[12]=new Werk("E-Werk",player,100);
+        street[12]=new Werk("E-Werk",null,100);
         street[13]=new PropertyCell("Sport Kroiss", 140,12,null,"pink");
         street[14]=new PropertyCell("Sport Pleger", 160,14,null,"pink");
         street[15]=new TrainStation("Ihle",200,null);
@@ -33,7 +32,7 @@ public class Board {
         street[25]=new TrainStation("Mueller",200,null);
         street[26]=new PropertyCell("Physik Hoeft", 260,22,null,"gelb");
         street[27]=new PropertyCell("Physik Kopp", 260,24,null,"gelb");
-        street[28]=new Werk("W-Werk",player,100);
+        street[28]=new Werk("W-Werk",null,100);
         street[29]=new PropertyCell("Chemie Weissvogtmann", 280,26,null,"gelb");
         street[30]=new Gefaengnis("Geh_ins_Gefaengnis");
         street[31]=new PropertyCell("Mathe Berkmann", 300,26,null,"gruen");

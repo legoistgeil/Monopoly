@@ -14,7 +14,7 @@ public class GUI {
     JButton move = new JButton(ArrowImage());
     static JTextArea playerstats = new JTextArea();
     static JTextArea leftStats = new JTextArea();
-    static JTextArea karte = new JTextArea();;
+    static JTextArea karte = new JTextArea();
     JLabel monopolyBoard = new JLabel(MonopolyImage());
 
     public GUI() {

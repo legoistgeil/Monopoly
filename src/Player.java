@@ -41,6 +41,7 @@ public class Player {
                 if (Board.street[j].getOwner() == Main.players.get(i)) {
                     GUI.leftStats.append("   " + Board.street[j].getName() + "\n");
                 }
+
             }
             GUI.leftStats.append("\n");
         }

@@ -20,14 +20,13 @@ public class Main {
     }
       static void makeMove(){
         gui.start();
-        printStreets();
         gui.move.addActionListener(e -> act(turn()));
     }
     private static void act(int finalI) {
         int ran1 = rand.nextInt(5) + 1;
         int ran2 = rand.nextInt(5) + 1;
         //int ran = ran1 + ran2;
-        int ran = 7;
+        int ran = 12;
         playerturn = finalI;
         GUI.playerstats.setText(null);
         GUI.playerstats.append("Spieler " + (finalI + 1) + " ist an der Reihe.\n");
@@ -42,12 +41,5 @@ public class Main {
         }
         return move;
     }
-    public static void printStreets(){
-        GUI.leftStats.setText(null);
-        for (int i = 0; i < Main.players.size(); i++){
-            GUI.leftStats.append("Der Spieler " + (i + 1) + " hat\n");
-            GUI.leftStats.append("Noch nichts \n");
-            GUI.leftStats.append("\n");
-        }
-    }
+
 }
